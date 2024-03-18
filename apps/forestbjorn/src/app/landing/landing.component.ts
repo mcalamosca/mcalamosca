@@ -1,5 +1,5 @@
-import {CommonModule} from '@angular/common';
-import {Component, NgModule} from '@angular/core';
+import { Component } from '@angular/core';
+import {NavItem} from '@mcalamosca/ui-components';
 
 @Component({
   selector: 'forestbjorn-landing',
@@ -7,5 +7,4 @@ import {Component, NgModule} from '@angular/core';
   styleUrls: ['./landing.component.scss'],
 })
 export class LandingComponent {
-  title = 'Forest Bjorn';
 }

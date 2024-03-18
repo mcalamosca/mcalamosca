@@ -1,0 +1,16 @@
+:host {
+  .spacer {
+    flex: 1 1 auto;
+  }
+
+  mat-nav-list {
+    display: flex;
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+}
+:host ::ng-deep .mdc-list-item {
+  overflow: visible;
+}

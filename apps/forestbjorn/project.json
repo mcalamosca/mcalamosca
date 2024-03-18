@@ -19,7 +19,10 @@
           "apps/forestbjorn/src/favicon.ico",
           "apps/forestbjorn/src/assets"
         ],
-        "styles": ["apps/forestbjorn/src/styles.scss"],
+        "styles": [
+          "apps/forestbjorn/src/styles.scss",
+          "apps/forestbjorn/src/themes.scss"
+        ],
         "scripts": []
       },
       "configurations": {

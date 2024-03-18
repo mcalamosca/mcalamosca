@@ -1,1 +1,39 @@
-<router-outlet></router-outlet>
+<div>
+  <header>
+    <mc-ui-nav-header
+      [appName]="appName"
+      [navItems]="navItems"
+      (toggleSidenav)="drawer.toggle()"
+    ></mc-ui-nav-header>
+  </header>
+
+  <main>
+    <mat-sidenav-container>
+      <mat-sidenav
+        #drawer
+        class="sidenav"
+        fixedInViewport="true"
+        [mode]="mode"
+        [opened]="opened"
+      >
+        <!-- Sidenav content loop through navItems -->
+        <mat-nav-list>
+          <a
+            mat-list-item
+            *ngFor="let item of navItems"
+            [routerLink]="item.route"
+            (click)="drawer.toggle()"
+            >{{ item.label }}</a
+          >
+        </mat-nav-list>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </main>
+
+  <footer>
+    <!-- Add your footer content here -->
+  </footer>
+</div>

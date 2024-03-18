@@ -1,0 +1,114 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$dark-primary-text: rgba(black, 0.87);
+$dark-secondary-text: rgba(black, 0.54);
+$dark-disabled-text: rgba(black, 0.38);
+$dark-dividers: rgba(black, 0.12);
+$dark-focused: rgba(black, 0.12);
+$light-primary-text: white;
+$light-secondary-text: rgba(white, 0.7);
+$light-disabled-text: rgba(white, 0.5);
+$light-dividers: rgba(white, 0.12);
+$light-focused: rgba(white, 0.12);
+
+$primary-palette: (
+  50: #ffeedc,
+  100: #ffddb3,
+  200: #f0be7a,
+  300: #d2a362,
+  400: #b5894b,
+  500: #987034,
+  600: #7c571e,
+  700: #6f4b12,
+  800: #452b00,
+  900: #291800,
+  A100: #f0be7a,
+  A200: #d2a362,
+  A400: #b5894b,
+  A700: #7c571e,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
+  ),
+);
+$accent-palette: (
+  50: #f8ffea,
+  100: #dae7c9,
+  200: #becbae,
+  300: #a3af94,
+  400: #89957b,
+  500: #6f7b62,
+  600: #57624b,
+  700: #4b563f,
+  800: #29341f,
+  900: #151e0c,
+  A100: #becbae,
+  A200: #a3af94,
+  A400: #89957b,
+  A700: #57624b,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
+  ),
+);
+
+$my-primary: mat.define-palette($primary-palette);
+$my-accent: mat.define-palette($accent-palette);
+$my-warn: mat.define-palette(mat.$red-palette);
+
+$my-light-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $my-primary,
+      accent: $my-accent,
+      warn: $my-warn
+    ),
+    typography: mat.define-typography-config(),
+    density: 0,
+  )
+);
+
+@mixin mc-nav-list($my-light-theme) {
+  $primary-50: mat.get-theme-color($my-light-theme, primary, 50);
+
+  .mc-nav-list {
+    .mdc-list-item {
+      &__primary-text {
+        color: $primary-50;
+      }
+    }
+  }
+}
+@include mat.core-theme($my-light-theme);
+@include mat.button-theme($my-light-theme);
+@include mat.list-theme($my-light-theme);
+@include mat.sidenav-theme($my-light-theme);
+@include mat.toolbar-theme($my-light-theme);
+
+@include mc-nav-list($my-light-theme);
