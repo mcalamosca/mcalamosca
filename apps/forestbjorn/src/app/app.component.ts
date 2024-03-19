@@ -9,14 +9,26 @@ import { NavItem } from '@mcalamosca/ui-components';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  appName = 'Forest Bjorn';
+  appName = 'Forest Björn';
   navItems: NavItem[] = [
-    { label: 'Home', route: '' },
-    { label: 'About', route: 'about' },
-    { label: 'Contact', route: 'contact' },
+    { label: 'Home', route: '/home' },
+    {
+      label: 'Portfolio',
+      route: '/portfolio',
+      children: [
+        { label: 'Drone', route: '/portfolio/drone' },
+        { label: 'Portrait', route: '/portfolio/portrait' },
+        { label: 'Pets', route: '/portfolio/pets' },
+        { label: 'Real Estate', route: '/portfolio/real-estate' },
+        { label: 'Family', route: '/portfolio/family' },
+        { label: 'Headshot', route: '/portfolio/headshot' },
+      ]
+    },
+    { label: 'About', route: '/about' },
+    { label: 'Contact', route: '/contact' },
   ];
   mode: MatDrawerMode = 'side';
-  opened = false;
+  opened = true;
   constructor(private breakpointObserver: BreakpointObserver) {}
 
   ngOnInit() {
@@ -28,7 +40,7 @@ export class AppComponent implements OnInit {
           this.opened = false;
         } else {
           this.mode = 'side';
-          this.opened = true;
+          this.opened = false;
         }
       });
   }

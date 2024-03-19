@@ -1,22 +1,22 @@
-<mat-toolbar color="primary">
+<mat-toolbar>
   <mat-toolbar-row>
     <button
       mat-icon-button
       (click)="toggleSidenav.emit()"
       aria-label="Toggle sidenav"
-    ><mat-icon>menu</mat-icon></button>
-    &nbsp;
-    <span>{{ appName }}</span>
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
     <span class="spacer"></span>
-    <nav>
-      <mat-nav-list class="mc-nav-list">
-        <a
-          mat-list-item
-          *ngFor="let item of navItems"
-          [routerLink]="item.route"
-          >{{ item.label }}</a
-        >
-      </mat-nav-list>
-    </nav>
+    <span class="title-text"
+      ><img
+        class="toolbar-logo"
+        *ngIf="logoUrl"
+        [src]="logoUrl"
+        alt="{{ appName }} logo"
+      />
+      &nbsp;{{ appName }}&nbsp;</span
+    >
+    <span class="spacer"></span>
   </mat-toolbar-row>
 </mat-toolbar>

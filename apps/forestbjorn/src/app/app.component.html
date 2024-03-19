@@ -5,6 +5,7 @@
       [navItems]="navItems"
       (toggleSidenav)="drawer.toggle()"
     ></mc-ui-nav-header>
+    <div class="subtitle"></div>
   </header>
 
   <main>
@@ -16,15 +17,27 @@
         [mode]="mode"
         [opened]="opened"
       >
-        <!-- Sidenav content loop through navItems -->
+        <mat-icon class="chevron_left" (click)="drawer.toggle()"
+          >chevron_left</mat-icon
+        >
         <mat-nav-list>
-          <a
-            mat-list-item
-            *ngFor="let item of navItems"
-            [routerLink]="item.route"
-            (click)="drawer.toggle()"
-            >{{ item.label }}</a
-          >
+          <ng-container *ngFor="let item of navItems">
+            <a
+              mat-list-item
+              [routerLink]="item.route"
+              (click)="drawer.toggle()"
+              >{{ item.label }}</a
+            >
+            <ng-container *ngFor="let child of item.children">
+              <a
+                class="sub-item"
+                mat-list-item
+                [routerLink]="child.route"
+                (click)="drawer.toggle()"
+                >{{ child.label }}</a
+              >
+            </ng-container>
+          </ng-container>
         </mat-nav-list>
       </mat-sidenav>
       <mat-sidenav-content>

@@ -14,20 +14,20 @@ $light-dividers: rgba(white, 0.12);
 $light-focused: rgba(white, 0.12);
 
 $primary-palette: (
-  50: #ffeedc,
-  100: #ffddb3,
-  200: #f0be7a,
-  300: #d2a362,
-  400: #b5894b,
-  500: #987034,
-  600: #7c571e,
-  700: #6f4b12,
-  800: #452b00,
-  900: #291800,
-  A100: #f0be7a,
-  A200: #d2a362,
-  A400: #b5894b,
-  A700: #7c571e,
+  50: #e8f5e9,
+  100: #c8e6c9,
+  200: #a5d6a7,
+  300: #81c784,
+  400: #66bb6a,
+  500: #4caf50,
+  600: #43a047,
+  700: #388e3c,
+  800: #2e7d32,
+  900: #1b5e20,
+  A100: #b9f6ca,
+  A200: #69f0ae,
+  A400: #00e676,
+  A700: #00c853,
   contrast: (
     50: $dark-primary-text,
     100: $dark-primary-text,
@@ -87,22 +87,62 @@ $my-light-theme: mat.define-light-theme(
     color: (
       primary: $my-primary,
       accent: $my-accent,
-      warn: $my-warn
+      warn: $my-warn,
     ),
     typography: mat.define-typography-config(),
     density: 0,
   )
 );
 
-@mixin mc-nav-list($my-light-theme) {
-  $primary-50: mat.get-theme-color($my-light-theme, primary, 50);
+@mixin customizations($theme) {
+  $primary-50: mat.get-theme-color($theme, primary, 50);
+  $text-color: mat.get-color-from-palette(
+    mat.get-color-config($theme, 'primary'),
+    'contrast'
+  );
 
-  .mc-nav-list {
-    .mdc-list-item {
-      &__primary-text {
-        color: $primary-50;
+  //Sidenav
+  mat-sidenav-content {
+    height: 100%;
+    background: linear-gradient(
+      to top,
+      mat.get-theme-color($theme, primary, 200),
+      white
+    );
+    //opacity 50%
+    opacity: 0.7;
+  }
+  mat-nav-list {
+    .sub-item {
+      .mdc-list-item {
+        &__primary-text {
+          font-size: 0.85rem;
+        }
       }
     }
+  }
+  .sidenav {
+    color: $text-color;
+
+    mat-nav-list {
+      a {
+        color: inherit;
+      }
+
+      a.mat-list-item {
+        &:hover,
+        &:focus {
+          background-color: mat.get-color-from-palette(
+            mat.get-color-config($theme, 'primary'),
+            100
+          ); // Adjust for hover/focus state
+        }
+      }
+    }
+  }
+  //Toolbar
+  mat-toolbar-row {
+    background-color: white;
   }
 }
 @include mat.core-theme($my-light-theme);
@@ -111,4 +151,4 @@ $my-light-theme: mat.define-light-theme(
 @include mat.sidenav-theme($my-light-theme);
 @include mat.toolbar-theme($my-light-theme);
 
-@include mc-nav-list($my-light-theme);
+@include customizations($my-light-theme);

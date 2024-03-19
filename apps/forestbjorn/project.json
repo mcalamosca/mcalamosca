@@ -21,7 +21,8 @@
         ],
         "styles": [
           "apps/forestbjorn/src/styles.scss",
-          "apps/forestbjorn/src/themes.scss"
+          "apps/forestbjorn/src/themes.scss",
+          "node_modules/firebaseui/dist/firebaseui.css"
         ],
         "scripts": []
       },

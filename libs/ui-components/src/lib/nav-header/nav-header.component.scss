@@ -10,6 +10,11 @@
       text-decoration: none;
     }
   }
+
+  .toolbar-logo {
+    height: 30px;
+    vertical-align: middle;
+  }
 }
 :host ::ng-deep .mdc-list-item {
   overflow: visible;
