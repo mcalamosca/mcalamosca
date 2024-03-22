@@ -1,1 +1,5 @@
-<firebase-ui></firebase-ui>
+<ul>
+  <li class="text" *ngFor="let item of items$ | async">
+    {{item.name}}
+  </li>
+</ul>

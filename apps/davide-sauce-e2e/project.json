@@ -1,0 +1,29 @@
+{
+  "name": "davide-sauce-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/davide-sauce-e2e/src",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/davide-sauce-e2e/cypress.config.ts",
+        "testingType": "e2e",
+        "devServerTarget": "davide-sauce:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "davide-sauce:serve:production"
+        },
+        "ci": {
+          "devServerTarget": "davide-sauce:serve-static"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["davide-sauce"]
+}

@@ -1,19 +1,14 @@
-import { Component, OnInit, inject } from '@angular/core';
-import { FlamelinkService } from './../services/flamelink.service';
-import {Auth} from '@angular/fire/auth';
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { FirebaseService } from '../services/firebase.service';
 
 @Component({
   selector: 'forestbjorn-landing',
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.scss'],
 })
-export class LandingComponent implements OnInit {
-  private auth: Auth = inject(Auth);
-  constructor(private FlamelinkService: FlamelinkService) {}
+export class LandingComponent {
+  items$!: Observable<any[]>;
 
-  ngOnInit(): void {
-    this.FlamelinkService.getDronePhotos().subscribe((data) => {
-      console.log(data);
-    });
-  }
+  constructor(private FirebaseService: FirebaseService) {}
 }

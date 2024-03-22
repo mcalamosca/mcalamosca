@@ -22,10 +22,10 @@ export class AppComponent implements OnInit {
         { label: 'Real Estate', route: '/portfolio/real-estate' },
         { label: 'Family', route: '/portfolio/family' },
         { label: 'Headshot', route: '/portfolio/headshot' },
-      ]
+      ],
     },
     { label: 'About', route: '/about' },
-    { label: 'Contact', route: '/contact' },
+    { label: 'Contact', route: '/contact' }
   ];
   mode: MatDrawerMode = 'side';
   opened = true;

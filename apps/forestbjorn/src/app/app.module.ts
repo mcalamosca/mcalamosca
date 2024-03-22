@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
-import { getAuth, provideAuth } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire/compat';
-import { USE_EMULATOR as USE_AUTH_EMULATOR } from '@angular/fire/compat/auth';
-import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
@@ -17,29 +15,30 @@ import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
 import { LandingComponent } from './landing/landing.component';
-
+import {LoginComponent} from './login/login.component';
 @NgModule({
-  declarations: [AppComponent, LandingComponent],
+  declarations: [AppComponent, LandingComponent, LoginComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    NavHeaderComponent,
+    RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+    FirebaseUIModule.forRoot(environment.firebaseUiAuthConfig),
+    // Material Modules
     MatSidenavModule,
     MatExpansionModule,
     MatListModule,
     MatIconModule,
-    RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideFirestore(() => getFirestore()),
-    provideAuth(() => getAuth()),
-    FirebaseUIModule.forRoot(environment.firebaseUiAuthConfig),
-    AngularFireModule.initializeApp(environment.firebase),
+    // Other Component Modules
+    NavHeaderComponent,
   ],
   providers: [
-    {
-      provide: USE_AUTH_EMULATOR,
-      useValue: !environment.production ? ['localhost', 9099] : undefined,
-    },
+    // {
+    //   provide: USE_AUTH_EMULATOR,
+    //   useValue: !environment.production ? ['http://localhost:9099'] : undefined,
+    // },
   ],
   bootstrap: [AppComponent],
 })

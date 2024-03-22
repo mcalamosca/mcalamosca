@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { FlamelinkService } from './flamelink.service';
+import { FirebaseService } from './firebase.service';
 
-describe('FlamelinkService', () => {
-  let service: FlamelinkService;
+describe('FirebaseService', () => {
+  let service: FirebaseService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(FlamelinkService);
+    service = TestBed.inject(FirebaseService);
   });
 
   it('should be created', () => {
