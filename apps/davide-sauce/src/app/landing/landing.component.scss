@@ -1,0 +1,12 @@
+::ng-deep {
+  .mat-mdc-card {
+    max-width: 98%;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .mat-mdc-card-content img {
+    width: 100%;
+    height: auto;
+  }
+}

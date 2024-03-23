@@ -20,7 +20,10 @@
           "apps/davide-sauce/src/favicon.ico",
           "apps/davide-sauce/src/assets"
         ],
-        "styles": ["apps/davide-sauce/src/styles.scss"],
+        "styles": [
+          "apps/davide-sauce/src/styles.scss",
+          "apps/davide-sauce/src/themes.scss"
+        ],
         "scripts": []
       },
       "configurations": {

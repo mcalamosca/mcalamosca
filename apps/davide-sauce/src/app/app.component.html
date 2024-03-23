@@ -1,1 +1,32 @@
-<ds-nx-welcome></ds-nx-welcome> <router-outlet></router-outlet>
+<div>
+  <mc-ui-nav-header
+    [appName]="appName"
+    [navItems]="navItems"
+    [subNav]="true"
+    (toggleSidenav)="drawer.toggle()"
+  ></mc-ui-nav-header>
+  <main>
+    <mat-sidenav-container>
+      <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [mode]="mode" [opened]="opened">
+        <mat-icon class="chevron_left" (click)="drawer.toggle()">chevron_left</mat-icon>
+        <mat-nav-list>
+          <ng-container *ngFor="let item of navItems">
+            <a mat-list-item [routerLink]="item.route" (click)="drawer.toggle()">{{ item.label }}</a>
+            <ng-container *ngFor="let child of item.children">
+              <a class="sub-item" mat-list-item [routerLink]="child.route" (click)="drawer.toggle()">{{
+                child.label
+              }}</a>
+            </ng-container>
+          </ng-container>
+        </mat-nav-list>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </main>
+
+  <footer>
+    <!-- Add your footer content here -->
+  </footer>
+</div>

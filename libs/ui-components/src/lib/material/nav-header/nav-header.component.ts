@@ -12,6 +12,12 @@ export interface NavItem {
   children?: NavItem[];
 }
 
+export enum NavHeaderVariant {
+  Left = 'left',
+  Center = 'center',
+  Right = 'right'
+}
+
 @Component({
   selector: 'mc-ui-nav-header',
   standalone: true,
@@ -30,8 +36,11 @@ export class NavHeaderComponent {
   @Input() appName = '';
   @Input() navItems: NavItem[] = [];
   @Input() logoUrl: string | null = null;
+  @Input() headerVariant: NavHeaderVariant = NavHeaderVariant.Center;
+  @Input() subNav = false;
   @Output() toggleSidenav = new EventEmitter();
 
+  NavHeaderVariant = NavHeaderVariant;
   emitToggle() {
     this.toggleSidenav.emit();
   }

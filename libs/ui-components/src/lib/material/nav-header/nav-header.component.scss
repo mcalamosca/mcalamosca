@@ -1,21 +1,74 @@
 :host {
-  .spacer {
-    flex: 1 1 auto;
+  header {
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
   }
-
-  mat-nav-list {
+  mat-toolbar-row {
     display: flex;
-    a {
-      color: inherit;
-      text-decoration: none;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    .left-align,
+    .right-align,
+    .center-align {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .left-align {
+      justify-content: flex-start;
+    }
+
+    .right-align,
+    .left-align {
+      flex: 1;
+    }
+
+    .center-align {
+      flex-grow: 2;
+      justify-content: center;
+      .title-text {
+        white-space: nowrap;
+      }
+    }
+
+    .nav-item {
+      display: none;
     }
   }
-
-  .toolbar-logo {
-    height: 30px;
-    vertical-align: middle;
+  .full-width {
+    display: flex;
+    justify-content: center; // Center align the nav items in the new row
+    flex-wrap: wrap; // Allow items to wrap on small screens
+    width: 100%;
   }
-}
-:host ::ng-deep .mdc-list-item {
-  overflow: visible;
+
+  .nav-item-under {
+    margin: 0 10px; // Spacing between items
+  }
+
+  .main-toolbar {
+    margin-top: 2.5rem;
+  }
+  @media (min-width: 600px) {
+    mat-toolbar-row {
+      .left-align {
+        .show-sidenav {
+          display: none;
+        }
+      }
+      .nav-item {
+        display: inline-flex;
+      }
+      .menu-button {
+        display: none;
+      }
+      .nav-item-under {
+        margin: 0 20px; // Increase spacing on larger screens
+      }
+    }
+  }
 }
