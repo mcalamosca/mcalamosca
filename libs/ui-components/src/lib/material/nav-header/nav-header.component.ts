@@ -15,20 +15,13 @@ export interface NavItem {
 export enum NavHeaderVariant {
   Left = 'left',
   Center = 'center',
-  Right = 'right'
+  Right = 'right',
 }
 
 @Component({
   selector: 'mc-ui-nav-header',
   standalone: true,
-  imports: [
-    CommonModule,
-    RouterModule,
-    MatToolbarModule,
-    MatListModule,
-    MatButtonModule,
-    MatIconModule,
-  ],
+  imports: [CommonModule, RouterModule, MatToolbarModule, MatListModule, MatButtonModule, MatIconModule],
   templateUrl: './nav-header.component.html',
   styleUrl: './nav-header.component.scss',
 })

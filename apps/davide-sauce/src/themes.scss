@@ -145,13 +145,6 @@ $my-light-theme: mat.define-light-theme(
       }
     }
   }
-  //Toolbar
-  mat-toolbar {
-    background-color: transparent !important;
-  }
-  mat-toolbar-row {
-    background: transparent;
-  }
 }
 @include mat.core-theme($my-light-theme);
 @include mat.button-theme($my-light-theme);

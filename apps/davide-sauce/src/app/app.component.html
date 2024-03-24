@@ -1,11 +1,10 @@
-<div>
+<div class="main-container">
   <mc-ui-nav-header
     [appName]="appName"
     [navItems]="navItems"
     [subNav]="true"
     (toggleSidenav)="drawer.toggle()"
   ></mc-ui-nav-header>
-  <main>
     <mat-sidenav-container>
       <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [mode]="mode" [opened]="opened">
         <mat-icon class="chevron_left" (click)="drawer.toggle()">chevron_left</mat-icon>
@@ -24,8 +23,6 @@
         <router-outlet></router-outlet>
       </mat-sidenav-content>
     </mat-sidenav-container>
-  </main>
-
   <footer>
     <!-- Add your footer content here -->
   </footer>

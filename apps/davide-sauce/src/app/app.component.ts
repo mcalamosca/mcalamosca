@@ -11,11 +11,11 @@ import { NavItem } from '@mcalamosca/ui-components';
 export class AppComponent implements OnInit {
   appName = "Davide's";
   navItems: NavItem[] = [
-    { label: 'Home', route: '/home' },
+    { label: 'Home', route: '/' },
     { label: 'History', route: '/history' },
     { label: 'Products', route: '/products' },
     { label: 'Recipes', route: '/recipes' },
-    { label: 'Contact Us', route: '/Contact Us' },
+    { label: 'Contact Us', route: '/contact-us' },
   ];
   mode: MatDrawerMode = 'side';
   opened = true;

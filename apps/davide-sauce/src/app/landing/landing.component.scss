@@ -1,12 +1,19 @@
+:host {
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5rem;
+  }
+}
+
 ::ng-deep {
   .mat-mdc-card {
-    max-width: 98%;
-    margin: 20px auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
-
-  .mat-mdc-card-content img {
-    width: 100%;
+  .mat-mdc-card-image {
     height: auto;
+  }
+  .mat-drawer-container {
+    background-color: transparent;
   }
 }
