@@ -1,19 +1,10 @@
-:host {
-  .cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5rem;
-  }
-}
+@use '../../themes.scss' as themes;
+@use '@angular/material' as mat;
 
-::ng-deep {
-  .mat-mdc-card {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  .mat-mdc-card-image {
-    height: auto;
-  }
-  .mat-drawer-container {
-    background-color: transparent;
+@include mat.core();
+
+mc-ui-random-quote {
+  .quote {
+    color: #6a4f4b;
   }
 }

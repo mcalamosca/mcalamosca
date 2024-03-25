@@ -11,19 +11,19 @@
             {{ item.label }}
           </a></ng-container
         >
-        <span class="title-text" *ngIf="headerVariant === NavHeaderVariant.Left">
+        <span class="title-text parisienne" *ngIf="headerVariant === NavHeaderVariant.Left">
           <img *ngIf="logoUrl" [src]="logoUrl" alt="{{ appName }} logo" class="toolbar-logo" />
           {{ appName }}
         </span>
       </div>
-      <div class="center-align">  
-        <span class="title-text" *ngIf="headerVariant === NavHeaderVariant.Center">
+      <div class="center-align">
+        <span class="title-text parisienne" *ngIf="headerVariant === NavHeaderVariant.Center">
           <img *ngIf="logoUrl" [src]="logoUrl" alt="{{ appName }} logo" class="toolbar-logo" />
           {{ appName }}
         </span>
       </div>
       <div class="right-align">
-        <span class="title-text" *ngIf="headerVariant === NavHeaderVariant.Right">
+        <span class="title-text parisienne" *ngIf="headerVariant === NavHeaderVariant.Right">
           <img *ngIf="logoUrl" [src]="logoUrl" alt="{{ appName }} logo" class="toolbar-logo" />
           {{ appName }}
         </span>
