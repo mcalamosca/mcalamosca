@@ -11,7 +11,13 @@ main {
   margin: 0;
   padding: 0;
 }
-
+body {
+  background-image: url('./assets/images/countryside.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
 .parisienne {
   font-family: 'Parisienne', cursive;
   font-weight: 400;
@@ -28,4 +34,31 @@ main {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+}
+
+//media queries to adjust base font size based on screen size
+@media (min-width: 1px) and (max-width: 576) {
+  body {
+    font-size: 12px;
+  }
+}
+@media (min-width: 576px) and (max-width: 768px) {
+  body {
+    font-size: 13px;
+  }
+}
+@media (min-width: 768px) and (max-width: 992px) {
+  body {
+    font-size: 15px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1200px) {
+  body {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1200px) {
+  body {
+    font-size: 17px;
+  }
 }

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'mc-ui-random-quote',
+  selector: 'mcui-random-quote',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './random-quote.component.html',

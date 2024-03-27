@@ -1,1 +1,11 @@
-<p>products works!</p>
+<div class="product-container">
+  <mcui-product-card
+    class="card"
+    *ngFor="let product of products"
+    [name]="product.name"
+    [description]="product.description"
+    [imageUrl]="product.imageUrl"
+    [bgColor]="product.bgColor"
+    [titleColor]="product.contrastColor"
+  ></mcui-product-card>
+</div>

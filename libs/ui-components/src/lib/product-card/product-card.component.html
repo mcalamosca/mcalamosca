@@ -1,0 +1,10 @@
+<mat-card (click)="showHideImage()" [@floatIn] class="product-card">
+  <!-- align center -->
+  <mat-card-header>
+    <mat-card-title class="card-title">{{ name }}</mat-card-title>
+  </mat-card-header>
+  <img [@fade]="showImage ? 'show' : 'hide'" mat-card-image [src]="imageUrl" alt="{{ name }}" />
+  <div [@fade]="showImage ? 'hide' : 'show'" class="overlay-text">
+    <p class="desc">{{ description }}</p>
+  </div>
+</mat-card>

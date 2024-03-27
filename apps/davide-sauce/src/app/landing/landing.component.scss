@@ -1,10 +1,17 @@
-@use '../../themes.scss' as themes;
-@use '@angular/material' as mat;
-
-@include mat.core();
-
-mc-ui-random-quote {
-  .quote {
-    color: #6a4f4b;
+:host {
+  .highlights-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: auto;
+    text-align: center;
+    margin: 2rem 0;
+    align-items: center; 
+    justify-content: center;
+  }
+  .highlight {
+    font-size: 2rem;
+    padding: 0.5rem;
+    border-radius: 1rem;
   }
 }

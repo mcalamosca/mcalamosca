@@ -19,18 +19,20 @@ export enum NavHeaderVariant {
 }
 
 @Component({
-  selector: 'mc-ui-nav-header',
+  selector: 'mcui-nav-header',
   standalone: true,
-  imports: [CommonModule, RouterModule, MatToolbarModule, MatListModule, MatButtonModule, MatIconModule],
+  imports: [CommonModule, RouterModule, MatToolbarModule, MatListModule, MatButtonModule, MatIconModule, RouterModule],
   templateUrl: './nav-header.component.html',
   styleUrl: './nav-header.component.scss',
 })
 export class NavHeaderComponent {
   @Input() appName = '';
   @Input() navItems: NavItem[] = [];
-  @Input() logoUrl: string | null = null;
+  @Input() leftImageUrl: string | null = null;
+  @Input() rightImageUrl: string | null = null;
   @Input() headerVariant: NavHeaderVariant = NavHeaderVariant.Center;
   @Input() subNav = false;
+  active: string | string[] = '';
   @Output() toggleSidenav = new EventEmitter();
 
   NavHeaderVariant = NavHeaderVariant;

@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { HealthComponent } from './health/health.component';
 import { HistoryComponent } from './history/history.component';
 import { LandingComponent } from './landing/landing.component';
 import { ProductsComponent } from './products/products.component';
@@ -9,6 +10,14 @@ export const appRoutes: Routes = [
   {
     path: '',
     component: LandingComponent,
+  },
+  {
+    path: 'history',
+    component: HistoryComponent,
+  },
+  {
+    path: 'health',
+    component: HealthComponent,
   },
   {
     path: 'history',

@@ -1,1 +1,14 @@
-<mc-ui-random-quote [quotes]="quotes"></mc-ui-random-quote>
+<mcui-random-quote [quotes]="quotes"></mcui-random-quote>
+<div class="highlights-container">
+  <div
+    [ngClass]="highlight.href ? 'accent' : ''"
+    class="highlight playfair-display"
+    *ngFor="let highlight of visibleHighlights; let i = index"
+    @fadeIn
+  >
+    <ng-container *ngIf="!highlight.href; else linked">{{ highlight.text }}</ng-container>
+    <ng-template #linked
+      ><a [href]="highlight.href">{{ highlight.text }}</a></ng-template
+    >
+  </div>
+</div>

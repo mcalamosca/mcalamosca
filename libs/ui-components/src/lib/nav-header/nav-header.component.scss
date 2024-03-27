@@ -6,6 +6,16 @@
   .title-text {
     font-size: 3rem;
     font-weight: 500;
+    height: 100%;
+    //vertical centering
+    display: flex;
+    align-items: center;
+  }
+  //logo on the same line as the title, size to fit parent
+  .toolbar-logo {
+    max-height: 100%;
+    width: auto;
+    opacity: 0.7;
   }
   mat-toolbar-row {
     display: flex;
@@ -49,7 +59,7 @@
   }
 
   .nav-item-under {
-    margin: 0 10px; // Spacing between items
+    margin: 0 0.625rem;
     display: none;
   }
 
@@ -78,7 +88,7 @@
       }
       .nav-item-under {
         display: inline-flex;
-        margin: 0 20px;
+        margin: 0 1.25rem;
       }
     }
   }

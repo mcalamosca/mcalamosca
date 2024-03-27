@@ -1,0 +1,26 @@
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  gap: 2rem;
+  margin: 1rem 2rem;
+}
+mcui-product-card {
+  flex: 1 1 30%;
+  max-width: 30%;
+}
+
+@media (max-width: 1200px) {
+  mcui-product-card {
+    flex-basis: 50%;
+    max-width: 45%; /* 2 cards per row */
+  }
+}
+
+@media (max-width: 576px) {
+  mcui-product-card {
+    flex-basis: 100%; /* 1 card per row */
+    max-width: 100%; /* Ensuring it doesn't exceed the container width */
+  }
+}

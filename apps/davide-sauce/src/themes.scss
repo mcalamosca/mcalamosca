@@ -2,65 +2,22 @@
 
 @include mat.core();
 
-$dark-primary-text: rgba(black, 0.87);
-$dark-secondary-text: rgba(black, 0.54);
-$dark-disabled-text: rgba(black, 0.38);
-$dark-dividers: rgba(black, 0.12);
-$dark-focused: rgba(black, 0.12);
-$light-primary-text: white;
-$light-secondary-text: rgba(white, 0.7);
-$light-disabled-text: rgba(white, 0.5);
-$light-dividers: rgba(white, 0.12);
-$light-focused: rgba(white, 0.12);
+$dark-color: #000000;
+$light-color: #ffffff;
+
+$dark-primary-text: rgba($dark-color, 0.87);
+$dark-secondary-text: rgba($dark-color, 0.54);
+$dark-disabled-text: rgba($dark-color, 0.38);
+$dark-dividers: rgba($dark-color, 0.12);
+$dark-focused: rgba($dark-color, 0.12);
+
+$light-primary-text: rgba($light-color, 0.87);
+$light-secondary-text: rgba($light-color, 0.7);
+$light-disabled-text: rgba($light-color, 0.5);
+$light-dividers: rgba($light-color, 0.12);
+$light-focused: rgba($light-color, 0.12);
 
 $primary-palette: (
-  50: #fdf6e3,
-  // Lightest beige, akin to a soft morning light
-  100: #f7e8c3,
-  // Warm beige, reminding of baked goods
-  200: #f1daa3,
-  // Earthy beige, resembling aged parchment
-  300: #ebcc83,
-  // Golden beige, hinting at the warmth of sunlit fields
-  400: #e6bf63,
-  // Deeper golden hue, evoking the richness of harvest
-  500: #e0b143,
-  // Rustic gold, reflecting the glow of autumn
-  600: #daa423,
-  // Earthy amber, capturing the essence of late summer
-  700: #d49703,
-  // Darker amber, with a hint of rustic charm
-  800: #ce8a00,
-  // Deep amber, suggesting the depth of traditional craftsmanship
-  900: #c87d00,
-  // Richest earth tone, embodying the heart of the rustic palette
-  A100: #f5deb3,
-  // Soft accent, like sun-bleached straw
-  A200: #ecca83,
-  // Warm accent, like sundried tomatoes
-  A400: #e3b653,
-  // Bold accent, reminiscent of golden-hour landscapes
-  A700: #dbaa23,
-  // Deep accent, evoking the richness of earthenware
-  contrast:
-    (
-      50: $dark-primary-text,
-      100: $dark-primary-text,
-      200: $dark-primary-text,
-      300: $dark-primary-text,
-      400: $dark-primary-text,
-      500: $light-primary-text,
-      600: $light-primary-text,
-      700: $light-primary-text,
-      800: $light-primary-text,
-      900: $light-primary-text,
-      A100: $dark-primary-text,
-      A200: $light-primary-text,
-      A400: $light-primary-text,
-      A700: $light-primary-text,
-    ),
-);
-$accent-palette: (
   50: #f8ffea,
   100: #dae7c9,
   200: #becbae,
@@ -75,20 +32,55 @@ $accent-palette: (
   A200: #a3af94,
   A400: #89957b,
   A700: #57624b,
+
   contrast: (
     50: $dark-primary-text,
     100: $dark-primary-text,
     200: $dark-primary-text,
-    300: $dark-primary-text,
-    400: $dark-primary-text,
+    300: $dark-secondary-text,
+    400: $dark-secondary-text,
     500: $light-primary-text,
     600: $light-primary-text,
-    700: $light-primary-text,
-    800: $light-primary-text,
+    700: $light-secondary-text,
+    800: $light-secondary-text,
     900: $light-primary-text,
     A100: $dark-primary-text,
     A200: $light-primary-text,
-    A400: $light-primary-text,
+    A400: $light-secondary-text,
+    A700: $light-primary-text,
+  ),
+);
+
+$accent-palette: (
+  50: #fdf6e3,
+  100: #f7e8c3,
+  200: #f1daa3,
+  300: #ebcc83,
+  400: #e6bf63,
+  500: #e0b143,
+  600: #daa423,
+  700: #d49703,
+  800: #ce8a00,
+  900: #c87d00,
+  A100: #f5deb3,
+  A200: #ecca83,
+  A400: #e3b653,
+  A700: #dbaa23,
+
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-secondary-text,
+    400: $dark-secondary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-secondary-text,
+    800: $light-secondary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-secondary-text,
     A700: $light-primary-text,
   ),
 );
@@ -110,8 +102,13 @@ $my-light-theme: mat.define-light-theme(
 );
 
 @mixin customizations($theme) {
-  $primary-50: mat.get-theme-color($theme, primary, 50);
-  $text-color: mat.get-color-from-palette(mat.get-color-config($theme, 'primary'), 'contrast');
+  $text-color: mat.get-theme-color($theme, primary, 800);
+
+  mcui-random-quote {
+    .quote {
+      color: mat.get-theme-color($theme, primary, 50-contrast);
+    }
+  }
 
   //Sidenav
   mat-sidenav-content {
@@ -136,6 +133,20 @@ $my-light-theme: mat.define-light-theme(
       }
     }
   }
+
+  $card-color: mat.get-theme-color($theme, primary, 800);
+  $card-text-color: mat.get-theme-color($theme, primary, 800-contrast);
+
+  mat-card {
+    background-color: rgb(red($card-color), green($card-color), blue($card-color), 0.75) !important;
+    .overlay-text {
+      color: $card-text-color;
+    }
+    color: $card-text-color;
+  }
+  mat-card-title {
+    color: $card-text-color;
+  }
   .sidenav {
     color: $text-color;
 
@@ -143,14 +154,22 @@ $my-light-theme: mat.define-light-theme(
       a {
         color: inherit;
       }
-
-      a.mat-list-item {
-        &:hover,
-        &:focus {
-          background-color: mat.get-color-from-palette(mat.get-color-config($theme, 'primary'), 100);
-        }
-      }
     }
+  }
+
+  $highlight-color: mat.get-theme-color($theme, primary, 500);
+  $highlight-text-color: mat.get-theme-color($theme, primary, 500-contrast);
+
+  .highlight {
+    background-color: rgb(red($highlight-color), green($highlight-color), blue($highlight-color), 0.7);
+    color: $highlight-text-color;
+    a {
+      color: $highlight-text-color;
+    }
+  }
+  .accent {
+    background-color: mat.get-theme-color($theme, accent, 500, 0.7);
+    color: mat.get-theme-color($theme, accent, 200-contrast);
   }
 }
 @include mat.core-theme($my-light-theme);
