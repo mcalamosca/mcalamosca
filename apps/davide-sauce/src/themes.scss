@@ -112,8 +112,8 @@ $my-light-theme: mat.define-light-theme(
 
   //Sidenav
   mat-sidenav-content {
-    height: 100%;
     // background: linear-gradient(to top, mat.get-theme-color($theme, primary, 200), white);
+    height: 100%;
   }
   mat-sidenav-container {
     background-color: transparent !important;

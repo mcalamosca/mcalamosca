@@ -16,7 +16,15 @@
         "polyfills": ["zone.js"],
         "tsConfig": "apps/davide-sauce/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": ["apps/davide-sauce/src/favicon.ico", "apps/davide-sauce/src/assets"],
+        "assets": [
+          "apps/davide-sauce/src/favicon.ico",
+          "apps/davide-sauce/src/assets",
+          {
+            "glob": "**/*",
+            "input": "libs/ui-components/src/assets/icons",
+            "output": "/assets"
+          }
+        ],
         "styles": ["apps/davide-sauce/src/styles.scss", "apps/davide-sauce/src/themes.scss"],
         "scripts": []
       },

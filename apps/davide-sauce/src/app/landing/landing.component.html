@@ -1,6 +1,6 @@
 <mcui-random-quote [quotes]="quotes"></mcui-random-quote>
 <div class="highlights-container">
-  <div
+  <span
     [ngClass]="highlight.href ? 'accent' : ''"
     class="highlight playfair-display"
     *ngFor="let highlight of visibleHighlights; let i = index"
@@ -10,5 +10,5 @@
     <ng-template #linked
       ><a [href]="highlight.href">{{ highlight.text }}</a></ng-template
     >
-  </div>
+  </span>
 </div>
