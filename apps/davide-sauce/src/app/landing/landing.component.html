@@ -1,14 +1,14 @@
 <mcui-random-quote [quotes]="quotes"></mcui-random-quote>
 <div class="highlights-container">
   <span
-    [ngClass]="highlight.href ? 'accent' : ''"
+    [ngClass]="highlight.route ? 'accent' : ''"
     class="highlight playfair-display"
     *ngFor="let highlight of visibleHighlights; let i = index"
     @fadeIn
   >
-    <ng-container *ngIf="!highlight.href; else linked">{{ highlight.text }}</ng-container>
+    <ng-container *ngIf="!highlight.route; else linked">{{ highlight.text }}</ng-container>
     <ng-template #linked
-      ><a [routerLink]="highlight.href">{{ highlight.text }}</a></ng-template
+      ><a [routerLink]="highlight.route">{{ highlight.text }}</a></ng-template
     >
   </span>
 </div>

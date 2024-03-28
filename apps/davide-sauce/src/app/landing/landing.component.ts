@@ -10,7 +10,7 @@ import { quotes } from '../../assets/quotes';
 
 interface Highlight {
   text: string;
-  href?: string;
+  route?: string;
 }
 @Component({
   selector: 'ds-landing',
@@ -44,8 +44,8 @@ export class LandingComponent implements OnInit {
       text: 'Low Sodium',
     },
     {
-      text: 'Click to Learn More',
-      href: '/health',
+      text: 'Learn More',
+      route: '/health',
     },
   ];
 
