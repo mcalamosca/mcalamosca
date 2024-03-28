@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { RouterModule } from '@angular/router';
 import { RandomQuoteComponent } from '@mcalamosca/ui-components';
 import { quotes } from '../../assets/quotes';
 
@@ -14,7 +15,7 @@ interface Highlight {
 @Component({
   selector: 'ds-landing',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatButtonModule, MatIconModule, RandomQuoteComponent],
+  imports: [CommonModule, MatCardModule, MatButtonModule, MatIconModule, RandomQuoteComponent, RouterModule],
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.scss',
   animations: [

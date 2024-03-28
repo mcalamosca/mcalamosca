@@ -3,6 +3,10 @@
     position: relative;
     width: 100%;
   }
+  .active {
+    background-color: rgb(81 90 65);
+    color: white;
+  }
   .title-text {
     font-size: 3rem;
     font-weight: 500;
@@ -17,11 +21,16 @@
     width: auto;
     opacity: 0.7;
   }
+  mat-toolbar {
+    background-color: transparent !important;
+    gap: 1rem;
+  }
   mat-toolbar-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    background: transparent;
 
     .left-align,
     .right-align,
@@ -67,12 +76,6 @@
     margin-top: 2.5rem;
   }
 
-  mat-toolbar {
-    background-color: transparent !important;
-  }
-  mat-toolbar-row {
-    background: transparent;
-  }
   @media (min-width: 640px) {
     mat-toolbar-row {
       .left-align {

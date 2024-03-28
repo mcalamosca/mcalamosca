@@ -8,7 +8,7 @@
   >
     <ng-container *ngIf="!highlight.href; else linked">{{ highlight.text }}</ng-container>
     <ng-template #linked
-      ><a [href]="highlight.href">{{ highlight.text }}</a></ng-template
+      ><a [routerLink]="highlight.href">{{ highlight.text }}</a></ng-template
     >
   </span>
 </div>

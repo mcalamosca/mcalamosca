@@ -4,8 +4,8 @@
       <div class="left-align">
         <!-- Menu Button -->
         <button class="menu-button" mat-icon-button (click)="toggleSidenav.emit()" aria-label="Toggle sidenav">
-          <mat-icon>menu</mat-icon></button
-        >
+          <mat-icon>menu</mat-icon>
+        </button>
         <ng-container *ngIf="!subNav">
           <a
             *ngFor="let item of navItems"
@@ -37,7 +37,14 @@
     </mat-toolbar-row>
     <mat-toolbar-row *ngIf="subNav" class="sub-toolbar">
       <div class="full-width">
-        <a *ngFor="let item of navItems" [routerLink]="item.route" mat-button class="nav-item-under">
+        <a
+          *ngFor="let item of navItems"
+          [routerLink]="item.route"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          mat-button
+          class="nav-item-under"
+        >
           {{ item.label }}
         </a>
       </div>
