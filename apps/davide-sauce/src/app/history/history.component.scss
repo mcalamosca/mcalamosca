@@ -1,0 +1,54 @@
+.health-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem;
+  text-align: left;
+  height: auto;
+
+  mat-card {
+    max-width: 100%;
+    mat-card-content {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+
+      h2 {
+        flex-basis: 100%;
+        text-align: center;
+        margin: unset;
+      }
+      .story {
+        flex: 2 1 60%;
+        // max-width: calc(60% - 1rem);
+        margin: unset;
+      }
+      img {
+        flex: 1 2 40%;
+        max-width: calc(40% - 1rem);
+        object-fit: contain;
+      }
+    }
+  }
+
+  @media (max-width: 576px) {
+    mat-card {
+      mat-card-content {
+        flex-direction: column;
+      }
+    }
+  }
+  @media (min-width: 900px) {
+    mat-card {
+      max-width: calc(80% - 2rem);
+    }
+  }
+  @media (min-width: 1200px) {
+    mat-card {
+      max-width: calc(70% - 2rem);
+    }
+  }
+}

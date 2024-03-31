@@ -109,10 +109,27 @@ $my-light-theme: mat.define-light-theme(
       color: mat.get-theme-color($theme, primary, 50-contrast);
     }
   }
-
+  body {
+    // background: linear-gradient(
+    //   to top,
+    //   mat.get-theme-color($theme, primary, 800),
+    //   mat.get-theme-color($theme, primary, 700),
+    //   mat.get-theme-color($theme, primary, 600),
+    //   mat.get-theme-color($theme, primary, 500),
+    //   mat.get-theme-color($theme, primary, 400),
+    //   mat.get-theme-color($theme, primary, 300),
+    //   mat.get-theme-color($theme, primary, 200),
+    //   mat.get-theme-color($theme, primary, 100),
+    //   white
+    // );
+    background-image: url('./assets/images/countryside.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+  }
   //Sidenav
   mat-sidenav-content {
-    // background: linear-gradient(to top, mat.get-theme-color($theme, primary, 200), white);
     height: 100%;
   }
   mat-sidenav-container {

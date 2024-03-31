@@ -1,6 +1,6 @@
-import { animate, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
+import { floatIn } from '../animations';
 
 @Component({
   selector: 'mcui-random-quote',
@@ -8,14 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
   imports: [CommonModule],
   templateUrl: './random-quote.component.html',
   styleUrl: './random-quote.component.scss',
-  animations: [
-    trigger('floatIn', [
-      transition('* => *', [
-        style({ opacity: 0, transform: 'translateY(-30px)' }), // Initial state
-        animate('4s ease', style({ opacity: 1, transform: 'translateY(0)' })), // Final animation state
-      ]),
-    ]),
-  ],
+  animations: [floatIn],
 })
 export class RandomQuoteComponent implements OnInit {
   quote = '';

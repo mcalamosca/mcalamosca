@@ -1,79 +1,9 @@
 <div class="health-container">
-  <mat-card>
+  <mat-card [@fadeIn] *ngFor="let card of cards">
     <mat-card-content>
-      <h2>Ingredients</h2>
-      <p>
-        When comparing ingredients among different sauces, it's essential to recognize the importance of ingredient
-        quality and health implications. Regulations mandate that ingredients be listed by volume, offering an insight
-        into what you're primarily consuming.
-      </p>
-      <img src="../../assets/images/ingredients.jpg" alt="ingredients.jpg" />
-    </mat-card-content>
-  </mat-card>
-  <mat-card>
-    <mat-card-content>
-      <h2>Reduced Sodium</h2>
-      <p>
-        Excessive sodium intake is a concern for many health-conscious consumers. Studies have shown that some pasta
-        sauces contain upwards of 900 mg of sodium per half-cup serving, with an average range around 400-500 mg. Our
-        sauce significantly lowers this number to just 220 mg per serving, aligning with health guidelines advocating
-        for reduced sodium consumption for cardiovascular health.
-      </p>
-      <img src="../../assets/images/salt.jpg" alt="salt" />
-    </mat-card-content>
-  </mat-card>
-  <mat-card>
-    <mat-card-content>
-      <h2>No Added Sugars or Tomato Paste</h2>
-      <p>
-        Unlike many sauces that rely on tomato paste—a concentrated, often bitter base made from lower quality
-        tomatoes—and add sugars or corn syrup to compensate for taste, our sauce uses only fresh, ripe tomatoes. These
-        provide a naturally sweet flavor without the need for added sugars, supporting a healthier diet and reducing
-        risks associated with high sugar intake.
-      </p>
-      <img src="../../assets/images/diabetes.jpg" alt="diabetes" />
-    </mat-card-content>
-  </mat-card>
-  <mat-card>
-    <mat-card-content>
-      <h2>Free from Artificial Preservatives</h2>
-      <p>
-        Our commitment to your health extends to avoiding all artificial preservatives. Our sauces are crafted to
-        deliver natural taste and longevity without compromising on safety or quality.
-      </p>
-      <img src="../../assets/images/jars.jpg" alt="jars" />
-    </mat-card-content>
-  </mat-card>
-  <mat-card>
-    <mat-card-content>
-      <h2>No Dehydrated Vegetables</h2>
-      <p>
-        The concept of using dehydrated vegetables in sauce is far from our philosophy. We believe in the vibrancy and
-        nutritional value of fresh vegetables, ensuring our sauce is both delicious and nourishing.
-      </p>
-      <img src="../../assets/images/fresh-vegetables.jpg" alt="fresh-vegetables.jpg" />
-    </mat-card-content>
-  </mat-card>
-  <mat-card>
-    <mat-card-content>
-      <h2>Rich in Lycopene</h2>
-      <p>
-        The health benefits of tomatoes don't just end at their natural sweetness. They're a fantastic source of
-        lycopene, an antioxidant with potential cancer-fighting properties. Our sauce maximizes this nutrient's
-        presence, contributing to a healthier diet.
-      </p>
-      <img src="../../assets/images/raw-tomato.jpg" alt="raw tomato" />
-    </mat-card-content>
-  </mat-card>
-  <mat-card>
-    <mat-card-content>
-      <h2>Pure Olive Oil Only</h2>
-      <p>
-        We exclusively use Extra Virgin olive oil in Davide sauces, avoiding soybean, canola, and oils extracted through
-        heat or chemicals. This choice ensures a healthier fat profile and preserves the authentic taste and nutritional
-        benefits of our ingredients.
-      </p>
-      <img src="../../assets/images/olive-oil.jpg" alt="olive-oil" />
+      <h2>{{ card.title }}</h2>
+      <p>{{ card.content }}</p>
+      <img [src]="card.imgSrc" [alt]="card.altText" />
     </mat-card-content>
   </mat-card>
 </div>

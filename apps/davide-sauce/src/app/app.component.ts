@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
     { label: 'History', route: '/history' },
     { label: 'Health', route: '/health' },
     { label: 'Products', route: '/products' },
-    { label: 'Recipes', route: '/recipes' },
+    // { label: 'Recipes', route: '/recipes' },
     { label: 'Contact Us', route: '/contact-us' },
   ];
   mode: MatDrawerMode = 'side';
