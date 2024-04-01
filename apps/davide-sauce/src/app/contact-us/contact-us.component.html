@@ -20,7 +20,7 @@
 
         <mat-form-field>
           <mat-label>Message</mat-label>
-          <textarea matInput formControlName="message" required></textarea>
+          <input matInput formControlName="message" required input/>
           <mat-error *ngIf="contactForm.controls['message'].invalid && contactForm.controls['message'].touched">
             Message is required
           </mat-error>

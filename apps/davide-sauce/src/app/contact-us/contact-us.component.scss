@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 1rem;
+    // margin: 1rem;
     text-align: left;
     height: auto;
     max-width: 100%;
@@ -18,11 +18,9 @@
           align-items: center;
           gap: 2rem;
           padding: 2rem;
-          // justify-content: space-between;
 
           mat-form-field {
             width: 100%;
-            height: auto;
           }
         }
       }
@@ -42,12 +40,12 @@
 
 ::ng-deep {
   .mdc-text-field {
-    height: 5rem !important;
+    // height: 5rem !important;
     &__input {
       height: 4rem !important;
     }
   }
-  .mdc-line-ripple {
-    margin-top: -10px;
+  .mdc-floating-label {
+    margin-top: 30px;
   }
 }

@@ -1,55 +1,27 @@
-<div class="health-container">
-  <mat-card>
-    <mat-card-content>
-      <h2>History of Davide's</h2>
-      <div class="story">
-        <p>
-          Palmiera, a woman whose dreams spanned the vast Atlantic, found herself in the embrace of Italy’s Appennini
-          mountains, a place where her roots intertwined with the earth and sky. It was here, among wild horses and the
-          songs of her ancestors, that the art of ‘sugo di pomodoro’—tomato sauce—was whispered to her soul, a tradition
-          bathed in the purity of life itself.
-        </p>
-        <p>
-          With Carlo, her chosen love, Palmiera returned to America, carrying more than just memories; she brought with
-          her a legacy waiting to be reborn. In the coal-mining town of Universal, near Pittsburgh, they settled into a
-          life where the past and present blurred, where Italian traditions whispered amidst the hum of the New World.
-          Despite the changing times, the essence of Italy thrived within their home, nurtured by Palmiera’s unwavering
-          spirit.
-        </p>
-        <p>
-          Into this world, Davide was born, a child with curls as wild as the wind and a heart as vast as the sea. His
-          was a soul that danced between the trees and kitchens, where stories of Italy were as tangible as the food
-          that filled them. Davide grew, fueled by tales of bravery and the sacredness of human life, his imagination
-          fertile with dreams of heroism and a deep-rooted desire to protect the sanctity of family tradition.
-        </p>
-        <p>
-          The language of ‘sugo di pomodoro’ became Davide’s to speak, a dialect of love and legacy passed down through
-          generations. With each visit to Italia, his spirit was stitched more closely to the fabric of his heritage,
-          guided by the hands of his ‘zia’ Bruna and the humble lessons learned amidst the beauty of Senigallia.
-          Davide’s path was clear, marked by the simplicity of tomato sauce and the profound belief in the importance of
-          preserving one’s heritage.
-        </p>
-        <p>
-          And so, Davide ventured forth, armed with the wisdom of his forebears and a simple yet profound mission: to
-          share the purity of ‘sugo di pomodoro’ with America. His was not just a business but a crusade to honor the
-          memory of those who came before, to protect the traditions that nourish the soul and body alike. In every jar
-          of sauce, Davide encapsulated the essence of Universal Road, the spirit of Italy, and the sacrifices of a
-          family that dared to dream.
-        </p>
-        <p>
-          Today, Davide’s sauce is more than just a product; it is a testament to the belief that we are custodians of
-          our heritage, responsible for carrying forward the legacy of those who nurtured us. It is a call to all who
-          cherish the act of cooking, to join hands in making the world a healthier, more connected place. For in the
-          humble act of making tomato sauce, Davide found his purpose, serving the purity he cherished across the ocean
-          and in the garden of his childhood home.
-        </p>
-        <p>
-          In this tale of tradition, sacrifice, and love, we are reminded that the flavors we cherish are not just about
-          food but about honoring life itself. Davide, with his humble work, invites us all to partake in the feast of
-          heritage, to remember and to celebrate the traditions that bind us, one delicious spoonful at a time.
-        </p>
-      </div>
-      <img src="assets/images/history/pauline.jpg" alt="Davide's History" />
-    </mat-card-content>
-  </mat-card>
+<div class="history-container">
+  <ng-container *ngFor="let card of historyCards">
+    <ng-container *ngIf="card.expand; else summary">
+      <mat-card class="full">
+        <mat-card-content>
+          <h2>{{ card.title }}</h2>
+          <div class="story">
+            <p *ngFor="let paragraph of card.paragraphs">{{ paragraph }}</p>
+          </div>
+          <mcui-grid-gallery [images]="card.images"></mcui-grid-gallery>
+          <button mat-raised-button color="primary" (click)="flipCard(card)">Go Back</button>
+        </mat-card-content>
+      </mat-card>
+    </ng-container>
+    <ng-template #summary>
+      <mat-card class="small" [ngStyle]="showExpandedOnly(card)">
+        <mat-card-content>
+          <h2>{{ card.title }}</h2>
+          <p>{{ card.summary }}</p>
+          <img [src]="card.images[0].src" [alt]="card.images[0].alt" />
+          <span class="subtitle">{{ card.images[0].alt }}</span>
+          <button mat-raised-button color="primary" (click)="flipCard(card)">Learn More</button>
+        </mat-card-content>
+      </mat-card>
+    </ng-template>
+  </ng-container>
 </div>

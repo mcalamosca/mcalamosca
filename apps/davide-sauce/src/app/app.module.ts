@@ -24,7 +24,7 @@ import { appRoutes } from './app.routes';
     MatIconModule,
     // Other Component Modules
     NavHeaderComponent,
-    SocialMediaIconsComponent,
+    SocialMediaIconsComponent
   ],
   providers: [],
   bootstrap: [AppComponent],
