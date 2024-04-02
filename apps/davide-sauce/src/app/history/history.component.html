@@ -7,7 +7,7 @@
           <div class="story">
             <p *ngFor="let paragraph of card.paragraphs">{{ paragraph }}</p>
           </div>
-          <mcui-grid-gallery [images]="card.images"></mcui-grid-gallery>
+          <mcui-grid-gallery [images]="card.images" [colsMax]="3"></mcui-grid-gallery>
           <button mat-raised-button color="primary" (click)="flipCard(card)">Go Back</button>
         </mat-card-content>
       </mat-card>
@@ -18,7 +18,6 @@
           <h2>{{ card.title }}</h2>
           <p>{{ card.summary }}</p>
           <img [src]="card.images[0].src" [alt]="card.images[0].alt" />
-          <span class="subtitle">{{ card.images[0].alt }}</span>
           <button mat-raised-button color="primary" (click)="flipCard(card)">Learn More</button>
         </mat-card-content>
       </mat-card>

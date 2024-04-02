@@ -30,9 +30,9 @@ export class HealthComponent {
     {
       title: 'No Added Sugars or Tomato Paste',
       content:
-        'Unlike many sauces that rely on tomato paste—a concentrated, often bitter base made from lower quality tomatoes—and add sugars or corn syrup to compensate for taste, our sauce uses only fresh, ripe tomatoes. These provide a naturally sweet flavor without the need for added sugars, supporting a healthier diet and reducing risks associated with high sugar intake.',
-      imgSrc: '../../assets/images/diabetes.jpg',
-      altText: 'diabetes',
+        'Unlike many sauces that rely on tomato paste—a concentrated, often bitter base made from lower quality tomatoes—and add sugars or corn syrup to compensate for taste, our sauce uses only fresh, ripe tomatoes. These provide a naturally sweet flavor without the need for added sugars, supporting a healthier diet and reducing risks associated with high sugar intake. The sweetness in our sauce is from fresh carrots, an ingredient rarely found in other sauces.',
+      imgSrc: '../../assets/images/fresh_carrots.jpg',
+      altText: 'fresh_carrots',
     },
     {
       title: 'Free from Artificial Preservatives',

@@ -17,7 +17,7 @@ export interface Image {
   styleUrls: ['./grid-gallery.component.scss'],
   templateUrl: './grid-gallery.component.html',
 })
-export class GridGalleryComponent implements OnInit, OnDestroy, OnChanges {
+export class GridGalleryComponent implements OnInit, OnDestroy {
   @Input() images!: Image[];
   @Input() cols = 4;
   @Input() cols_xs = 1;
@@ -27,46 +27,47 @@ export class GridGalleryComponent implements OnInit, OnDestroy, OnChanges {
   @Input() cols_xl = 6;
   @Input() rowHeight = 1;
   @Input() gutterSize = 1;
-  private colsSetManually = false;
+  @Input() colsMax!: number;
 
   private breakpointSubscription: Subscription | undefined;
 
   constructor(private breakpointObserver: BreakpointObserver) {}
 
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes['cols']) {
-      this.colsSetManually = true;
-    }
-  }
-
   ngOnInit() {
-    if (!this.colsSetManually) {
-      this.breakpointSubscription = this.breakpointObserver
-        .observe([Breakpoints.XSmall, Breakpoints.Small, Breakpoints.Medium, Breakpoints.Large, Breakpoints.XLarge])
-        .pipe(
-          map((result) => {
-            if (result.matches) {
-              if (this.breakpointObserver.isMatched(Breakpoints.XSmall)) {
-                return 1;
-              }
-              if (this.breakpointObserver.isMatched(Breakpoints.Small)) {
-                return 2;
-              }
-              if (this.breakpointObserver.isMatched(Breakpoints.Medium)) {
-                return 3;
-              }
-              if (this.breakpointObserver.isMatched(Breakpoints.Large)) {
-                return 4;
-              }
-              if (this.breakpointObserver.isMatched(Breakpoints.XLarge)) {
-                return 5;
-              }
+    this.breakpointSubscription = this.breakpointObserver
+      .observe([Breakpoints.XSmall, Breakpoints.Small, Breakpoints.Medium, Breakpoints.Large, Breakpoints.XLarge])
+      .pipe(
+        map((result) => {
+          if (result.matches) {
+            if (this.breakpointObserver.isMatched(Breakpoints.XSmall)) {
+              return 1;
             }
-            return 3;
-          })
-        )
-        .subscribe((cols) => (this.cols = cols > this.images.length ? this.images.length : cols));
-    }
+            if (this.breakpointObserver.isMatched(Breakpoints.Small)) {
+              return 2;
+            }
+            if (this.breakpointObserver.isMatched(Breakpoints.Medium)) {
+              return 3;
+            }
+            if (this.breakpointObserver.isMatched(Breakpoints.Large)) {
+              return 4;
+            }
+            if (this.breakpointObserver.isMatched(Breakpoints.XLarge)) {
+              return 5;
+            }
+          }
+          return 3;
+        })
+      )
+      // don't allow cols to be greater than number of images or colsMax
+      .subscribe((cols) => {
+        if (this.images.length < cols) {
+          this.cols = this.images.length;
+        } else if (this.colsMax) {
+          this.cols = Math.min(cols, this.colsMax);
+        } else {
+          this.cols = cols;
+        }
+      });
   }
 
   ngOnDestroy() {

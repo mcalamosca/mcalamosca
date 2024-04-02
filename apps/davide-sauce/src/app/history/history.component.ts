@@ -53,23 +53,25 @@ export class HistoryComponent {
       summary:
         'The history of Davide Sauce begins in 1987, when the founder, Davide, decided to start his own business.',
       paragraphs: [
-        'The history of Davide Sauce begins in 1987, when the founder, Davide, decided to start his own business.',
-        'He had been working in the food industry for years and wanted to create a product that would be both delicious and healthy.',
-        'After months of research and experimentation, he finally came up with the perfect recipe for his sauce.',
+        'The history of Davide Sauce begins in 1987, when the founder, Davide, decided to start his own business. He had been working in the food industry for years and wanted to create a product that would be both delicious and healthy. After months of research and experimentation, he finally came up with the perfect recipe for his sauce.',
       ],
       expand: false,
-      images: [{ src: 'assets/images/history/davide-pot.jpg', alt: 'Davide, 1995 at his production facility' }],
+      images: [
+        { src: 'assets/images/history/micah-in-pot-age-2.jpg', alt: 'Micah Age 2' },
+        { src: 'assets/images/history/micah-bottling-sauce-age-7.jpg', alt: 'Micah Bottling Sauce Age 7' },
+        { src: 'assets/images/history/micah-cleaning-up-kitchen-age-2.jpg', alt: 'Micah Cleaning Up Kitchen Age 2' },
+      ],
     },
     {
-      title: 'The future',
-      summary: 'Today, Davide Sauce is sold in stores across the country and has a loyal following of customers.',
+      title: 'Our Mission',
+      summary:
+        'Today, Davide Sauce is sold in stores around the Greater Pittsburgh Area and has a loyal following of customers.',
       paragraphs: [
-        'Today, Davide Sauce is sold in stores across the country and has a loyal following of customers.',
-        'Davide continues to work on new recipes and products, always striving to create the best possible sauces for his customers.',
+        'Today, Davide Sauce is sold in stores across the country and has a loyal following of customers. Davide continues to work on new recipes and products, always striving to create the best possible sauces for his customers.',
         'He is excited about the future and looks forward to sharing his passion for food with the world.',
       ],
       expand: false,
-      images: [{ src: 'assets/images/history3.jpg', alt: 'History 3' }],
+      images: [{ src: 'assets/images/history/davide-pot.jpg', alt: 'Davide, 1995 at his production facility' }],
     },
   ];
 

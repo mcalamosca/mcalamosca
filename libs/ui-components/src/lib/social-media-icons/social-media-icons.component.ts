@@ -14,15 +14,18 @@ export class SocialMediaIconsComponent implements OnInit {
   @Input() twitterId = '';
   @Input() facebookId = '';
   @Input() instagramId = '';
+  @Input() youtubeId = '';
 
   twitterUrl = '';
   facebookUrl = '';
   instagramUrl = '';
+  youtubeUrl = '';
 
   ngOnInit(): void {
     this.twitterUrl = `https://twitter.com/${this.twitterId}`;
     this.facebookUrl = `https://facebook.com/${this.facebookId}`;
     this.instagramUrl = `https://instagram.com/${this.instagramId}`;
+    this.youtubeUrl = `https://www.youtube.com/channel/${this.youtubeId}`;
   }
   constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer) {
     this.matIconRegistry.addSvgIcon(
@@ -34,5 +37,6 @@ export class SocialMediaIconsComponent implements OnInit {
       'instagram',
       this.domSanitizer.bypassSecurityTrustResourceUrl('assets/instagram.svg')
     );
+    this.matIconRegistry.addSvgIcon('youtube', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/youtube.svg'));
   }
 }

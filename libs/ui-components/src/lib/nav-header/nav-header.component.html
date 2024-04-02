@@ -7,20 +7,26 @@
           <mat-icon>menu</mat-icon>
         </button>
         <span class="title-text parisienne" *ngIf="headerVariant === NavHeaderVariant.Left">
-          <img class="toolbar-logo" *ngIf="leftImageUrl" [src]="leftImageUrl" />{{ appName
-          }}<img class="toolbar-logo" *ngIf="rightImageUrl" [src]="rightImageUrl" />
+          <img class="toolbar-logo" *ngIf="leftImageUrl" [src]="leftImageUrl" /><a [routerLink]="navItems[0].route">{{
+            appName
+          }}</a
+          ><img class="toolbar-logo" *ngIf="rightImageUrl" [src]="rightImageUrl" />
         </span>
       </div>
       <div class="center-align">
         <span class="title-text parisienne" *ngIf="headerVariant === NavHeaderVariant.Center">
-          <img class="toolbar-logo" *ngIf="leftImageUrl" [src]="leftImageUrl" />{{ appName
-          }}<img class="toolbar-logo" *ngIf="rightImageUrl" [src]="rightImageUrl" />
+          <img class="toolbar-logo" *ngIf="leftImageUrl" [src]="leftImageUrl" /><a [routerLink]="navItems[0].route">{{
+            appName
+          }}</a
+          ><img class="toolbar-logo" *ngIf="rightImageUrl" [src]="rightImageUrl" />
         </span>
       </div>
       <div class="right-align">
         <span class="title-text parisienne" *ngIf="headerVariant === NavHeaderVariant.Right">
-          <img class="toolbar-logo" *ngIf="leftImageUrl" [src]="leftImageUrl" />{{ appName
-          }}<img class="toolbar-logo" *ngIf="rightImageUrl" [src]="rightImageUrl" />
+          <img class="toolbar-logo" *ngIf="leftImageUrl" [src]="leftImageUrl" /><a [routerLink]="navItems[0].route">{{
+            appName
+          }}</a
+          ><img class="toolbar-logo" *ngIf="rightImageUrl" [src]="rightImageUrl" />
         </span>
       </div>
     </mat-toolbar-row>
