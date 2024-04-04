@@ -14,6 +14,8 @@ import { fade, fadeIn } from '../animations';
 export class ProductCardComponent {
   @Input() name = '';
   @Input() imageUrl = '';
+  @Input() image2Url = '';
+
   @Input() bgColor = 'transparent';
   @Input() titleColor = '#000000';
   @Input() description = '';

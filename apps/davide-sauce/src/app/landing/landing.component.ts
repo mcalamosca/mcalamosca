@@ -44,7 +44,7 @@ export class LandingComponent implements OnInit {
       text: 'Low Sodium',
     },
     {
-      text: 'Learn More',
+      text: 'Learn More about Health Benefits',
       route: '/health',
     },
   ];

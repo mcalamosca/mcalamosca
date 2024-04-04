@@ -1,7 +1,22 @@
 <div class="flex-container">
   <mat-card>
     <mat-card-content>
-      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <div class="contact-info">
+        <h2>We'd Love to Hear From You!</h2>
+
+        <!-- mailto -->
+        <p>Email: <a href="mailto:davidesauce@gmail.com">davidesauce&#64;gmail.com</a></p>
+        <!-- phoneto -->
+        <p>Phone: <a href="tel:412-532-6155">(412) 532-6155</a></p>
+        <p>Pittsburgh, PA 15235</p>
+        <mcui-social-media-icons
+          [twitterId]="'davidesauce'"
+          [instagramId]="'davide_sauce'"
+          [facebookId]="'DavidePastaSauce'"
+          [youtubeId]="'UC1QjGXqBRrU6WlOtM0AXpnQ'"
+        ></mcui-social-media-icons>
+      </div>
+      <!-- <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
         <mat-form-field>
           <mat-label>Name</mat-label>
           <input matInput formControlName="name" required />
@@ -27,7 +42,7 @@
         </mat-form-field>
 
         <button mat-raised-button color="primary" type="submit" [disabled]="contactForm.invalid">Submit</button>
-      </form>
+      </form> -->
     </mat-card-content>
   </mat-card>
 </div>

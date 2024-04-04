@@ -46,6 +46,7 @@ export class HistoryComponent {
         { src: 'assets/images/history/David-Italy-1958.jpg', alt: 'David Italy 1958' },
         { src: 'assets/images/history/Serafina-&-Enzo- Vaccara 1960.jpg', alt: 'Serafina & Enzo Vaccara 1960' },
         { src: 'assets/images/history/Sheep-on-Road-Umbria-1986.jpg', alt: 'Sheep on Road Umbria 1986' },
+        { src: 'assets/images/history/senigallia beach fisherman.jpg', alt: 'Senigallia beach fisherman' },
       ],
     },
     {
@@ -54,12 +55,20 @@ export class HistoryComponent {
         'The history of Davide Sauce begins in 1987, when the founder, Davide, decided to start his own business.',
       paragraphs: [
         'The history of Davide Sauce begins in 1987, when the founder, Davide, decided to start his own business. He had been working in the food industry for years and wanted to create a product that would be both delicious and healthy. After months of research and experimentation, he finally came up with the perfect recipe for his sauce.',
+        "Davide's sauce was an instant hit with his friends and family, who encouraged him to start selling it to the public. He began by selling his sauce at local markets and soon expanded to local grocery stores. People loved the fresh taste and healthy ingredients, and the business began to grow.",
       ],
       expand: false,
       images: [
+        { src: 'assets/images/history/davide-pot.jpg', alt: 'Davide, 1995 at his production facility' },
         { src: 'assets/images/history/micah-in-pot-age-2.jpg', alt: 'Micah Age 2' },
         { src: 'assets/images/history/micah-bottling-sauce-age-7.jpg', alt: 'Micah Bottling Sauce Age 7' },
         { src: 'assets/images/history/micah-cleaning-up-kitchen-age-2.jpg', alt: 'Micah Cleaning Up Kitchen Age 2' },
+        { src: 'assets/images/history/Micah bottling sauce age 7.jpg', alt: 'Micah Bottling Sauce Age 7' },
+        { src: 'assets/images/history/olive press senigallia 2000.jpg', alt: 'Olive Press Senigallia 2000' },
+        {
+          src: 'assets/images/history/Making Sauce in basement Penn Hills.jpg',
+          alt: 'Making Sauce in basement Penn Hills',
+        },
       ],
     },
     {
@@ -67,11 +76,16 @@ export class HistoryComponent {
       summary:
         'Today, Davide Sauce is sold in stores around the Greater Pittsburgh Area and has a loyal following of customers.',
       paragraphs: [
-        'Today, Davide Sauce is sold in stores across the country and has a loyal following of customers. Davide continues to work on new recipes and products, always striving to create the best possible sauces for his customers.',
-        'He is excited about the future and looks forward to sharing his passion for food with the world.',
+        "Our mission is to provide our customers with a delicious and healthy product that they can feel good about eating. We use only the freshest ingredients and never add any preservatives or artificial flavors. Our sauce is made with love and tradition, just like Davide's mother used to make it.",
+        'Today, Davide Sauce is sold in stores around the Greater Pittsburgh Area and has a loyal following of customers. We are proud to be a part of the community and to share our family tradition with others. We hope that you will enjoy our sauce as much as we do!',
+        "Davide's son Micah has taken over the business and is committed to carrying on the family tradition. He is passionate about creating delicious and healthy food and is always looking for ways to improve the sauce. With his dedication and love for the product, Davide Sauce is sure to continue thriving for generations to come.",
       ],
       expand: false,
-      images: [{ src: 'assets/images/history/davide-pot.jpg', alt: 'Davide, 1995 at his production facility' }],
+      images: [
+        { src: 'assets/images/history/Micah.JPG', alt: 'Micah sampling at Whole Foods Market' },
+        { src: 'assets/images/history/nonno-micah-theo.jpg', alt: 'Davide, Micah, and his grandson Theo' },
+        { src: 'assets/images/history/nonno-theo.jpg', alt: 'Davide and his grandson Theo' },
+      ],
     },
   ];
 

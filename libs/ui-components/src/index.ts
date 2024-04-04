@@ -1,4 +1,5 @@
 export * from './lib/animations';
+export * from './lib/footer/footer.component';
 export * from './lib/grid-gallery/grid-gallery.component';
 export * from './lib/nav-header/nav-header.component';
 export * from './lib/product-card/product-card.component';

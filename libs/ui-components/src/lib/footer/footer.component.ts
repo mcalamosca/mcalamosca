@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'mcui-footer',
@@ -8,4 +8,12 @@ import { CommonModule } from '@angular/common';
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss',
 })
-export class FooterComponent {}
+export class FooterComponent {
+  @Input() year: number = new Date().getFullYear();
+  @Input() companyName = '';
+  @Input() address = '';
+  @Input() phone = '';
+  @Input() sitemapUrl = '/sitemap.xml';
+  @Input() privacyPolicyUrl = '/privacy-policy';
+  @Input() termsOfServiceUrl = '/terms-of-service';
+}

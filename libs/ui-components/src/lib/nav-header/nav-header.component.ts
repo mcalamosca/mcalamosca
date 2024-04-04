@@ -28,6 +28,7 @@ export enum NavHeaderVariant {
 })
 export class NavHeaderComponent implements OnInit {
   @Input() appName = '';
+  @Input() subtitle = '';
   @Input() navItems: NavItem[] = [];
   @Input() leftImageUrl: string | null = null;
   @Input() rightImageUrl: string | null = null;

@@ -17,7 +17,7 @@
         <mat-card-content>
           <h2>{{ card.title }}</h2>
           <p>{{ card.summary }}</p>
-          <img [src]="card.images[0].src" [alt]="card.images[0].alt" />
+          <img [src]="card.images[0].src" [alt]="card.images[0].alt" (click)="flipCard(card)" />
           <button mat-raised-button color="primary" (click)="flipCard(card)">Learn More</button>
         </mat-card-content>
       </mat-card>

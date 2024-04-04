@@ -14,19 +14,24 @@
     <mat-sidenav-content>
       <mcui-nav-header
         [appName]="appName"
+        [subtitle]="subtitle"
         [navItems]="navItems"
         [subNav]="true"
         [leftImageUrl]="'../assets/images/olive-left.png'"
         [rightImageUrl]="'../assets/images/olive-right.png'"
         (toggleSidenav)="drawer.toggle()"
       ></mcui-nav-header>
-      <router-outlet></router-outlet>
+      <main>
+        <router-outlet></router-outlet>
+      </main>
+      <mcui-footer [companyName]="footerName" [phone]="phoneNumber">
+        <mcui-social-media-icons
+          [twitterId]="'davidesauce'"
+          [instagramId]="'davide_sauce'"
+          [facebookId]="'DavidePastaSauce'"
+          [youtubeId]="'UC1QjGXqBRrU6WlOtM0AXpnQ'"
+        ></mcui-social-media-icons>
+      </mcui-footer>
     </mat-sidenav-content>
   </mat-sidenav-container>
-  <mcui-social-media-icons
-    [twitterId]="'davidesauce'"
-    [instagramId]="'davide_sauce'"
-    [facebookId]="'DavidePastaSauce'"
-    [youtubeId]="'UC1QjGXqBRrU6WlOtM0AXpnQ'"
-  ></mcui-social-media-icons>
 </div>

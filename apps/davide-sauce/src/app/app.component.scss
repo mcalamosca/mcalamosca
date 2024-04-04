@@ -8,24 +8,27 @@
 .sub-item {
   padding-left: 1.25rem;
 }
-// social media links at bottom center of page
 mcui-social-media-icons {
   display: flex;
   justify-content: center;
   gap: 1rem;
   margin-top: auto;
 }
-//pin footer to bottom of page
 .main-container {
   display: flex;
   flex-direction: column;
   height: 100vh;
 }
-.main-container:last-child {
-  align-self: flex-end;
-}
 ::ng-deep {
   .mat-drawer-container {
     height: 100%;
+  }
+  .mat-drawer-content {
+    display: flex !important;
+    flex-direction: column;
+
+    mcui-footer {
+      margin-top: auto;
+    }
   }
 }

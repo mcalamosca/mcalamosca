@@ -7,7 +7,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-import { NavHeaderComponent, SocialMediaIconsComponent } from '@mcalamosca/ui-components';
+import { FooterComponent, NavHeaderComponent, SocialMediaIconsComponent } from '@mcalamosca/ui-components';
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
 @NgModule({
@@ -24,7 +24,8 @@ import { appRoutes } from './app.routes';
     MatIconModule,
     // Other Component Modules
     NavHeaderComponent,
-    SocialMediaIconsComponent
+    FooterComponent,
+    SocialMediaIconsComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
