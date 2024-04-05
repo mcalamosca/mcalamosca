@@ -32,10 +32,10 @@ export class LandingComponent implements OnInit {
 
   highlights: Highlight[] = [
     {
-      text: 'No Seed Oils, Sugar, or Preservatives',
+      text: 'No Seed Oils, Extra Virgin Olive Oil',
     },
     {
-      text: 'Extra Virgin Olive Oil',
+      text: 'No Sugar or Preservatives',
     },
     {
       text: 'Fresh Vegetables',

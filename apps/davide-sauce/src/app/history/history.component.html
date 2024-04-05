@@ -1,7 +1,7 @@
 <div class="history-container">
   <ng-container *ngFor="let card of historyCards">
     <ng-container *ngIf="card.expand; else summary">
-      <mat-card class="full">
+      <mat-card class="full round">
         <mat-card-content>
           <h2>{{ card.title }}</h2>
           <div class="story">
@@ -13,7 +13,7 @@
       </mat-card>
     </ng-container>
     <ng-template #summary>
-      <mat-card class="small" [ngStyle]="showExpandedOnly(card)">
+      <mat-card class="small round" [ngStyle]="showExpandedOnly(card)">
         <mat-card-content>
           <h2>{{ card.title }}</h2>
           <p>{{ card.summary }}</p>

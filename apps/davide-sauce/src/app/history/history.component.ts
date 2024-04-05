@@ -87,6 +87,21 @@ export class HistoryComponent {
         { src: 'assets/images/history/nonno-theo.jpg', alt: 'Davide and his grandson Theo' },
       ],
     },
+    {
+      title: 'Fred Rogers',
+      summary:
+        'In 1995, Davide met Fred Rogers, the beloved host of Mister Rogers’ Neighborhood, who became a loyal customer and friend.',
+      paragraphs: [
+        'In 1995, Davide met Fred Rogers, the beloved host of Mister Rogers’ Neighborhood, who became a loyal customer and friend. Fred loved the sauce and would often buy it for his family and friends. He even wore a Davide Sauce t-shirt while relaxing outside of the show, which he shared in photos to us.',
+        'Fred was a big supporter of small businesses and was always willing to help out in any way he could. He invited Davide to be a guest on his show, where they cooked together and talked about the importance of family traditions. Fred’s kindness and generosity will always be remembered and cherished by the Davide Sauce family.',
+      ],
+      expand: false,
+      images: [
+        { src: "assets/images/history/Fred's shirt.png", alt: "Fred's shirt" },
+        { src: 'assets/images/history/Fred & kids 1995.jpg', alt: 'Fred & kids 1995' },
+        { src: 'assets/images/history/Fred My T Shirt Seated.jpg', alt: 'Fred Davide T Shirt' },
+      ],
+    },
   ];
 
   @HostListener('window:popstate', ['$event'])

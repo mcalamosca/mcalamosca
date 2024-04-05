@@ -18,78 +18,86 @@ $light-dividers: rgba($light-color, 0.12);
 $light-focused: rgba($light-color, 0.12);
 
 $primary-palette: (
-  50: #f8ffea,
-  100: #dae7c9,
-  200: #becbae,
-  300: #a3af94,
-  400: #89957b,
-  500: #6f7b62,
-  600: #57624b,
-  700: #4b563f,
-  800: #29341f,
-  900: #151e0c,
-  A100: #becbae,
-  A200: #a3af94,
-  A400: #89957b,
-  A700: #57624b,
+  50: #f9ebe9,
+  100: #f1ccca,
+  200: #e9aca9,
+  300: #e18c88,
+  400: #da756f,
+  500: #d25d55,
+  // Base - Tomato Flesh
+  600: #ca453b,
+  700: #c22d21,
+  800: #ba1507,
+  900: #b20000,
+  A100: #7f0e10,
+  // Dark Tomato Red
+  A200: #f44747,
+  // Tomato Highlight
+  A400: #ff6c6c,
+  A700: #4a773c,
 
-  contrast: (
-    50: $dark-primary-text,
-    100: $dark-primary-text,
-    200: $dark-primary-text,
-    300: $dark-secondary-text,
-    400: $dark-secondary-text,
-    500: $light-primary-text,
-    600: $light-primary-text,
-    700: $light-secondary-text,
-    800: $light-secondary-text,
-    900: $light-primary-text,
-    A100: $dark-primary-text,
-    A200: $light-primary-text,
-    A400: $light-secondary-text,
-    A700: $light-primary-text,
-  ),
+  // Vine Green
+  contrast:
+    (
+      50: $dark-primary-text,
+      100: $dark-primary-text,
+      200: $dark-primary-text,
+      300: $dark-secondary-text,
+      400: $dark-secondary-text,
+      500: $light-primary-text,
+      600: $light-primary-text,
+      700: $light-secondary-text,
+      800: $light-secondary-text,
+      900: $light-primary-text,
+      A100: $light-primary-text,
+      A200: $light-primary-text,
+      A400: $light-secondary-text,
+      A700: $light-primary-text,
+    ),
 );
 
 $accent-palette: (
-  50: #fdf6e3,
-  100: #f7e8c3,
-  200: #f1daa3,
-  300: #ebcc83,
-  400: #e6bf63,
-  500: #e0b143,
-  600: #daa423,
-  700: #d49703,
-  800: #ce8a00,
-  900: #c87d00,
-  A100: #f5deb3,
-  A200: #ecca83,
-  A400: #e3b653,
-  A700: #dbaa23,
+  50: #f9f4e7,
+  100: #f2e4c3,
+  200: #ebd39d,
+  300: #e4c177,
+  400: #deaf59,
+  500: #d79d3b,
+  // Base - Morning Mist
+  600: #cf8b1d,
+  700: #c77900,
+  800: #bf6700,
+  900: #b75500,
+  A100: #fdf6e3,
+  // Stem Umber
+  A200: #f7e8c3,
+  A400: #f1daa3,
+  A700: #d49703,
 
-  contrast: (
-    50: $dark-primary-text,
-    100: $dark-primary-text,
-    200: $dark-primary-text,
-    300: $dark-secondary-text,
-    400: $dark-secondary-text,
-    500: $light-primary-text,
-    600: $light-primary-text,
-    700: $light-secondary-text,
-    800: $light-secondary-text,
-    900: $light-primary-text,
-    A100: $dark-primary-text,
-    A200: $light-primary-text,
-    A400: $light-secondary-text,
-    A700: $light-primary-text,
-  ),
+  // Twilight Purple
+  contrast:
+    (
+      50: $dark-primary-text,
+      100: $dark-primary-text,
+      200: $dark-primary-text,
+      300: $dark-secondary-text,
+      400: $dark-secondary-text,
+      500: $light-primary-text,
+      600: $light-primary-text,
+      700: $light-secondary-text,
+      800: $light-secondary-text,
+      900: $light-primary-text,
+      A100: $dark-primary-text,
+      A200: $light-primary-text,
+      A400: $light-secondary-text,
+      A700: $light-primary-text,
+    ),
 );
-
 $my-primary: mat.define-palette($primary-palette);
 $my-accent: mat.define-palette($accent-palette);
 $my-warn: mat.define-palette(mat.$red-palette);
 
-$my-light-theme: mat.define-light-theme(
+$my-dark-theme: mat.define-dark-theme(
   (
     color: (
       primary: $my-primary,
@@ -104,9 +112,11 @@ $my-light-theme: mat.define-light-theme(
 @mixin customizations($theme) {
   $text-color: mat.get-theme-color($theme, primary, 800);
 
+  $landing-text-color: mat.get-theme-color($theme, primary, 100);
+
   mcui-random-quote {
     .quote {
-      color: mat.get-theme-color($theme, primary, 50-contrast);
+      color: $landing-text-color;
     }
   }
   body {
@@ -122,23 +132,20 @@ $my-light-theme: mat.define-light-theme(
     //   mat.get-theme-color($theme, primary, 100),
     //   white
     // );
-    background-image: url('./assets/images/my_countryside.JPEG');
+    background-image: url('./assets/images/tomatoes.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
   }
-  //header background gradient see through
   header {
-    background: linear-gradient(to bottom, mat.get-theme-color($theme, primary, 100), rgba(0, 0, 0, 0));
+    background: linear-gradient(to bottom, rgba(mat.get-theme-color($theme, accent, 200), 0.4), rgba(0, 0, 0, 0));
   }
 
   footer {
-    background: linear-gradient(to top, mat.get-theme-color($theme, primary, 100), rgba(0, 0, 0, 0));
+    background: linear-gradient(to top, rgba(mat.get-theme-color($theme, accent, 200), 0.4), rgba(0, 0, 0, 0));
     font-family: 'Roboto', sans-serif;
   }
-
-
 
   //Sidenav
   mat-sidenav-content {
@@ -163,8 +170,8 @@ $my-light-theme: mat.define-light-theme(
     }
   }
 
-  $card-color: mat.get-theme-color($theme, primary, 800);
-  $card-text-color: mat.get-theme-color($theme, primary, 800-contrast);
+  $card-color: mat.get-theme-color($theme, primary, 600);
+  $card-text-color: mat.get-theme-color($theme, primary, 600-contrast);
 
   mat-card {
     background-color: rgb(red($card-color), green($card-color), blue($card-color), 0.75) !important;
@@ -190,21 +197,21 @@ $my-light-theme: mat.define-light-theme(
   $highlight-text-color: mat.get-theme-color($theme, primary, 500-contrast);
 
   .highlight {
-    background-color: rgb(red($highlight-color), green($highlight-color), blue($highlight-color), 0.7);
-    color: $highlight-text-color;
+    color: $landing-text-color;
+    // background-color: rgb(red($highlight-color), green($highlight-color), blue($highlight-color), 0.3);
     a {
-      color: $highlight-text-color;
+      color: $landing-text-color;
     }
   }
   .accent {
-    background-color: mat.get-theme-color($theme, accent, 500, 0.7);
+    // background-color: mat.get-theme-color($theme, accent, 500, 0.3);
     color: mat.get-theme-color($theme, accent, 500-contrast);
   }
 }
-@include mat.core-theme($my-light-theme);
-@include mat.button-theme($my-light-theme);
-@include mat.list-theme($my-light-theme);
-@include mat.sidenav-theme($my-light-theme);
-@include mat.toolbar-theme($my-light-theme);
+@include mat.core-theme($my-dark-theme);
+@include mat.button-theme($my-dark-theme);
+@include mat.list-theme($my-dark-theme);
+@include mat.sidenav-theme($my-dark-theme);
+@include mat.toolbar-theme($my-dark-theme);
 
-@include customizations($my-light-theme);
+@include customizations($my-dark-theme);

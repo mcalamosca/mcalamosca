@@ -6,8 +6,6 @@ html,
 body,
 ds-root {
   height: 100%;
-  // margin: 0;
-  // padding: 0;
 }
 body {
   margin: 0;
@@ -30,7 +28,6 @@ body {
   font-style: normal;
 }
 
-//media queries to adjust base font size based on screen size
 @media (min-width: 1px) and (max-width: 576) {
   body {
     font-size: 12px;

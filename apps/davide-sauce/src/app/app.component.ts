@@ -10,9 +10,11 @@ import { NavItem } from '@mcalamosca/ui-components';
 })
 export class AppComponent implements OnInit {
   appName = "Davide's";
-  subtitle = "All Natural Tomato Sauce"
-  footerName = 'Davide\'s All Natural Tomato Sauce';
-  phoneNumber = '(412) 532-6155'
+  subtitle = 'All Natural Tomato Sauce';
+  footerName = "Davide's All Natural Tomato Sauce";
+  phoneNumber = '(412) 532-6155';
+  leftImageUrl = '../assets/images/olive-left-white.png';
+  rightImageUrl = '../assets/images/olive-right-white.png';
   navItems: NavItem[] = [
     { label: 'Home', route: '' },
     { label: 'History', route: '/history' },

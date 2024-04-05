@@ -32,7 +32,6 @@
   }
   mat-toolbar-row {
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     width: 100%;
@@ -42,6 +41,7 @@
     .right-align,
     .center-align {
       display: flex;
+      flex-direction: row;
       align-items: center;
       justify-content: center;
       height: 100%;
@@ -93,6 +93,7 @@
 
   @media (min-width: 640px) {
     mat-toolbar-row {
+      flex-direction: row;
       .left-align {
         .show-sidenav {
           display: none;

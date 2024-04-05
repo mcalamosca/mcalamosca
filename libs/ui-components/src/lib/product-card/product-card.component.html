@@ -1,11 +1,12 @@
-<mat-card (click)="showHideImage()" [@fadeIn] class="product-card">
+<mat-card [ngClass]="type" (click)="showHideImage()" [@fadeIn]>
   <mat-card-header>
     <mat-card-title class="card-title">{{ name }}</mat-card-title>
   </mat-card-header>
-  <img [@fadeInAndOut]="showImage ? 'show' : 'hide'" mat-card-image [src]="imageUrl" alt="{{ name }}" />
+  <img class="front" [@fadeInAndOut]="showImage ? 'show' : 'hide'" mat-card-image [src]="imageUrl" alt="{{ name }}" />
   <div [@fadeInAndOut]="showImage ? 'hide' : 'show'" class="overlay-text">
-    <img mat-card-image [src]="image2Url" alt="{{ name }}" />
     <mat-card-content>
+      <img mat-card-image [src]="image2Url" alt="{{ name }}" />
+
       <p class="desc">{{ description }}</p>
     </mat-card-content>
   </div>

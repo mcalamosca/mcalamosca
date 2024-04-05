@@ -3,6 +3,10 @@ import { Component, Input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { fade, fadeIn } from '../animations';
 
+export enum CardType {
+  square = 'square',
+  round = 'round',
+}
 @Component({
   selector: 'mcui-product-card',
   standalone: true,
@@ -19,6 +23,8 @@ export class ProductCardComponent {
   @Input() bgColor = 'transparent';
   @Input() titleColor = '#000000';
   @Input() description = '';
+
+  @Input() type: 'square' | 'round' = 'square';
 
   showImage = true;
 

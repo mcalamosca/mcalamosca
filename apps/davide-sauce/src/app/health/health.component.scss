@@ -4,10 +4,17 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   gap: 2rem;
-  margin: 1rem;
+  margin: 0 1rem;
   text-align: left;
   height: auto;
 
+  .round {
+    border-radius: 1rem;
+
+    img {
+      border-radius: 1rem;
+    }
+  }
   mat-card {
     max-width: 100%;
     mat-card-content {

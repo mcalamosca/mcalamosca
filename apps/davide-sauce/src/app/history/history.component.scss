@@ -16,6 +16,13 @@
       flex-direction: column;
     }
   }
+  .round {
+    border-radius: 1rem;
+
+    img {
+      border-radius: 1rem 1rem 0 0;
+    }
+  }
   mat-card {
     max-width: 100%;
     mat-card-content {
