@@ -6,8 +6,9 @@
   <div [@fadeInAndOut]="showImage ? 'hide' : 'show'" class="overlay-text">
     <mat-card-content>
       <img mat-card-image [src]="image2Url" alt="{{ name }}" />
-
-      <p class="desc">{{ description }}</p>
     </mat-card-content>
   </div>
+  <mat-card-footer>
+    <p class="desc">{{ description }}</p></mat-card-footer
+  >
 </mat-card>

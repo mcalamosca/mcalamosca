@@ -8,9 +8,6 @@
 }
 .round {
   border-radius: 1rem !important;
-  img.front {
-    border-radius: 0 0 1rem 1rem;
-  }
 }
 .image-container {
   position: relative;
@@ -23,10 +20,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2em;
   text-align: center;
 }
 
 .desc {
-  margin: 0 1rem;
+  text-align: center;
 }
