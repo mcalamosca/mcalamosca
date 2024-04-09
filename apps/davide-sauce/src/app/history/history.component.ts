@@ -59,8 +59,8 @@ export class HistoryComponent {
       ],
       expand: false,
       images: [
-        { src: 'assets/images/history/davide-pot.jpg', alt: 'Davide, 1995 at his production facility' },
         { src: 'assets/images/history/micah-in-pot-age-2.jpg', alt: 'Micah Age 2' },
+        { src: 'assets/images/history/davide-pot.jpg', alt: 'Davide, 1995 at his production facility' },
         { src: 'assets/images/history/micah-bottling-sauce-age-7.jpg', alt: 'Micah Bottling Sauce Age 7' },
         { src: 'assets/images/history/micah-cleaning-up-kitchen-age-2.jpg', alt: 'Micah Cleaning Up Kitchen Age 2' },
         { src: 'assets/images/history/Micah bottling sauce age 7.jpg', alt: 'Micah Bottling Sauce Age 7' },
@@ -93,7 +93,7 @@ export class HistoryComponent {
         'In 1995, Davide met Fred Rogers, the beloved host of Mister Rogers’ Neighborhood, who became a loyal customer and friend.',
       paragraphs: [
         'In 1995, Davide met Fred Rogers, the beloved host of Mister Rogers’ Neighborhood, who became a loyal customer and friend. Fred loved the sauce and would often buy it for his family and friends. He even wore a Davide Sauce t-shirt while relaxing outside of the show, which he shared in photos to us.',
-        'Fred was a big supporter of small businesses and was always willing to help out in any way he could. He invited Davide to be a guest on his show, where they cooked together and talked about the importance of family traditions. Fred’s kindness and generosity will always be remembered and cherished by the Davide Sauce family.',
+        'Fred had a huge heart and was always willing to help out in any way he could. He and Davide became great friends over the years, they shared many good times together and talked about the importance of family traditions. Fred’s kindness and generosity will always be remembered and cherished by the Davide Sauce family.',
       ],
       expand: false,
       images: [
