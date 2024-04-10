@@ -1,4 +1,4 @@
-<div class="history-container">
+<div class="history-container" [@fadeIn]>
   <ng-container *ngFor="let card of historyCards">
     <ng-container *ngIf="card.expand; else summary">
       <mat-card class="full round">

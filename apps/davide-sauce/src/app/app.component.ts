@@ -13,6 +13,8 @@ export class AppComponent implements OnInit {
   subtitle = 'All Natural Tomato Sauce';
   footerName = "Davide's All Natural Tomato Sauce";
   phoneNumber = '(412) 793-3527';
+  sitemapUrl = '/sitemap.xml';
+  termsOfServiceUrl = '/terms-of-service';
   leftImageUrl = '../assets/images/olive-left-white.png';
   rightImageUrl = '../assets/images/olive-right-white.png';
   navItems: NavItem[] = [

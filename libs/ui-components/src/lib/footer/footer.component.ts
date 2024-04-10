@@ -13,7 +13,7 @@ export class FooterComponent {
   @Input() companyName = '';
   @Input() address = '';
   @Input() phone = '';
-  @Input() sitemapUrl = '/sitemap.xml';
-  @Input() privacyPolicyUrl = '/privacy-policy';
-  @Input() termsOfServiceUrl = '/terms-of-service';
+  @Input() sitemapUrl = '';
+  @Input() privacyPolicyUrl = '';
+  @Input() termsOfServiceUrl = '';
 }

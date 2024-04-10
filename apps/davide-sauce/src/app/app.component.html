@@ -24,7 +24,12 @@
       <main>
         <router-outlet></router-outlet>
       </main>
-      <mcui-footer [companyName]="footerName" [phone]="phoneNumber">
+      <mcui-footer
+        [companyName]="footerName"
+        [phone]="phoneNumber"
+        [sitemapUrl]="sitemapUrl"
+        [termsOfServiceUrl]="termsOfServiceUrl"
+      >
         <mcui-social-media-icons
           [twitterId]="'davidesauce'"
           [instagramId]="'davide_sauce'"

@@ -1,0 +1,54 @@
+:host {
+  mat-card {
+    margin: 1rem auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    &.full {
+      max-width: 50%;
+
+      @media (max-width: 576px) {
+        max-width: 100%;
+      }
+
+      mat-card-content {
+        flex-direction: column;
+        flex-wrap: nowrap;
+      }
+    }
+
+    &.small {
+      @media (max-width: 576px) {
+        max-width: calc(100% - 2rem);
+      }
+      @media (max-width: 899px) {
+        max-width: calc(80% - 2rem);
+      }
+      @media (min-width: 900px) {
+        max-width: calc(50% - 2rem);
+      }
+      @media (min-width: 1200px) {
+        max-width: calc(33% - 2rem);
+      }
+    }
+  }
+
+  @media (max-width: 899px) {
+    mat-card.full {
+      max-width: 100%;
+    }
+  }
+
+  @media (min-width: 900px) {
+    mat-card.full {
+      max-width: 80%;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    mat-card.full {
+      max-width: 70%;
+    }
+  }
+}

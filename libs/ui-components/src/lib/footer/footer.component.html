@@ -4,9 +4,12 @@
   <div class="main-footer">
     &copy; {{ year }} <span *ngIf="companyName">{{ companyName }}&nbsp;|</span> All rights reserved.&nbsp;|
     <span *ngIf="address">Address: {{ address }}&nbsp;|</span>
-    <span *ngIf="phone">Phone: {{ phone }}&nbsp;|</span>
-    <a *ngIf="sitemapUrl" [href]="sitemapUrl">Sitemap</a>&nbsp;|
-    <a *ngIf="privacyPolicyUrl" [href]="privacyPolicyUrl">Privacy Policy</a>&nbsp;|
-    <a *ngIf="termsOfServiceUrl" [href]="termsOfServiceUrl">Terms of Service</a>
+    <span *ngIf="phone"
+      >Phone: <a href="tel:{{ phone }}">{{ phone }}</a
+      >&nbsp;|</span
+    >
+    <ng-container *ngIf="sitemapUrl"><a [href]="sitemapUrl">Sitemap</a>&nbsp;|</ng-container>
+    <ng-container *ngIf="privacyPolicyUrl"><a [href]="privacyPolicyUrl">Privacy Policy</a>&nbsp;|</ng-container>
+    <ng-container *ngIf="termsOfServiceUrl"><a [href]="termsOfServiceUrl">Terms of Service</a></ng-container>
   </div>
 </footer>
