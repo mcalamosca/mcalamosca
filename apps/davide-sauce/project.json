@@ -87,11 +87,14 @@
         "staticFilePath": "dist/apps/davide-sauce/browser"
       }
     },
-    "build-sitemap": {
+    "build-prod-sitemap": {
       "executor": "nx:run-commands",
       "outputs": [],
       "options": {
-        "command": "node ./tools/sitemap.js --domain=https://www.davidesauce.com --routes=../apps/davide-sauce/src/app/app.routes.ts --out=../dist/apps/davide-sauce/browser"
+        "commands": [
+          "node ./tools/sitemap.js --domain=https://www.davidesauce.com --routes=../apps/davide-sauce/src/app/app.routes.ts --out=../dist/apps/davide-sauce/browser",
+          "nx run davide-sauce:build:prod"
+        ]
       }
     }
   }
