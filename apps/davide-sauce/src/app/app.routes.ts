@@ -6,14 +6,11 @@ import { LandingComponent } from './landing/landing.component';
 import { ProductsComponent } from './products/products.component';
 import { RecipesComponent } from './recipes/recipes.component';
 
+//Order by SEO priority for sitemap.js script
 export const appRoutes: Routes = [
   {
     path: '',
     component: LandingComponent,
-  },
-  {
-    path: 'history',
-    component: HistoryComponent,
   },
   {
     path: 'health',
