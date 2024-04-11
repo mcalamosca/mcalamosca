@@ -1,15 +1,18 @@
 <footer>
   <ng-content select="mcui-social-media-icons"></ng-content>
-
   <div class="main-footer">
-    &copy; {{ year }} <span *ngIf="companyName">{{ companyName }}&nbsp;|</span> All rights reserved.&nbsp;|
-    <span *ngIf="address">Address: {{ address }}&nbsp;|</span>
-    <span *ngIf="phone"
-      >Phone: <a href="tel:{{ phone }}">{{ phone }}</a
-      >&nbsp;|</span
-    >
-    <ng-container *ngIf="sitemapUrl"><a [href]="sitemapUrl">Sitemap</a>&nbsp;|</ng-container>
-    <ng-container *ngIf="privacyPolicyUrl"><a [href]="privacyPolicyUrl">Privacy Policy</a>&nbsp;|</ng-container>
-    <ng-container *ngIf="termsOfServiceUrl"><a [href]="termsOfServiceUrl">Terms of Service</a></ng-container>
+    <div class="info">
+      <span *ngIf="companyName">&copy; {{ year }} {{ companyName }}</span>
+      <span>All rights reserved.</span>
+      <span *ngIf="address">{{ address }</span>
+    </div>
+    <div class="links">
+      <ng-container *ngIf="phone"
+        ><a [href]="'tel:' + phone">{{ phone }}</a></ng-container
+      >
+      <ng-container *ngIf="sitemapUrl"><a [href]="sitemapUrl">Sitemap</a></ng-container>
+      <ng-container *ngIf="privacyPolicyUrl"><a [href]="privacyPolicyUrl">Privacy Policy</a></ng-container>
+      <ng-container *ngIf="termsOfServiceUrl"><a [href]="termsOfServiceUrl">Terms of Service</a></ng-container>
+    </div>
   </div>
 </footer>
