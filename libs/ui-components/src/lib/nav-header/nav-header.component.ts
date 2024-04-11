@@ -42,7 +42,6 @@ export class NavHeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.breakpointObserver.observe(['(max-width: 640px)']).subscribe((result) => {
-      console.log(result);
       if (result.matches) {
         this.subNav = false;
       } else {

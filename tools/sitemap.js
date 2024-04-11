@@ -9,7 +9,6 @@ example command:
     }
 */
 
-
 const fs = require('fs');
 const { resolve } = require('path');
 
@@ -71,3 +70,5 @@ Sitemap: ${domain}/sitemap.xml`;
 
 const routes = extractRoutes(routesPath);
 generateSitemap(domain, routes, outputPath);
+
+process.exit(0);
