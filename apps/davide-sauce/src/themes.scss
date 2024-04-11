@@ -193,3 +193,4 @@ $my-dark-theme: mat.define-dark-theme(
 @include mat.toolbar-theme($my-dark-theme);
 
 @include customizations($my-dark-theme);
+
