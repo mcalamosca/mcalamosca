@@ -1,27 +1,25 @@
 {
-  "name": "forestbjorn",
+  "name": "forest-bjorn",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "prefix": "forestbjorn",
-  "sourceRoot": "apps/forestbjorn/src",
+  "prefix": "forest-bjorn",
+  "sourceRoot": "apps/forest-bjorn/src",
   "tags": [],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/forestbjorn",
-        "index": "apps/forestbjorn/src/index.html",
-        "main": "apps/forestbjorn/src/main.ts",
+        "allowedCommonJsDependencies": ["dialog-polyfill"],
+        "outputPath": "dist/apps/forest-bjorn",
+        "index": "apps/forest-bjorn/src/index.html",
+        "main": "apps/forest-bjorn/src/main.ts",
         "polyfills": ["zone.js"],
-        "tsConfig": "apps/forestbjorn/tsconfig.app.json",
-        "assets": [
-          "apps/forestbjorn/src/favicon.ico",
-          "apps/forestbjorn/src/assets"
-        ],
+        "tsConfig": "apps/forest-bjorn/tsconfig.app.json",
+        "assets": ["apps/forest-bjorn/src/favicon.ico", "apps/forest-bjorn/src/assets"],
         "styles": [
-          "apps/forestbjorn/src/styles.scss",
-          "apps/forestbjorn/src/themes.scss",
+          "apps/forest-bjorn/src/styles.scss",
+          "apps/forest-bjorn/src/themes.scss",
           "node_modules/firebaseui/dist/firebaseui.css"
         ],
         "scripts": []
@@ -57,10 +55,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "buildTarget": "forestbjorn:build:production"
+          "buildTarget": "forest-bjorn:build:production"
         },
         "development": {
-          "buildTarget": "forestbjorn:build:development"
+          "buildTarget": "forest-bjorn:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -68,7 +66,7 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "buildTarget": "forestbjorn:build"
+        "buildTarget": "forest-bjorn:build"
       }
     },
     "lint": {
@@ -79,13 +77,13 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/forestbjorn/jest.config.ts"
+        "jestConfig": "apps/forest-bjorn/jest.config.ts"
       }
     },
     "serve-static": {
       "executor": "@nx/web:file-server",
       "options": {
-        "buildTarget": "forestbjorn:build"
+        "buildTarget": "forest-bjorn:build"
       }
     }
   }

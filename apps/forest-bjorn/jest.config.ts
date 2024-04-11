@@ -1,9 +1,9 @@
 /* eslint-disable */
 export default {
-  displayName: 'forestbjorn',
+  displayName: 'forest-bjorn',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../coverage/apps/forestbjorn',
+  coverageDirectory: '../../coverage/apps/forest-bjorn',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

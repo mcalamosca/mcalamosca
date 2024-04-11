@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { FirebaseService } from '../services/firebase.service';
 
 @Component({
-  selector: 'forestbjorn-landing',
+  selector: 'forest-bjorn-landing',
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.scss'],
 })

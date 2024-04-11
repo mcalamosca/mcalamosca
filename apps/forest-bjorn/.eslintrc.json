@@ -9,7 +9,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "forestbjorn",
+            "prefix": "forest-bjorn",
             "style": "camelCase"
           }
         ],
@@ -17,15 +17,12 @@
           "error",
           {
             "type": "element",
-            "prefix": "forestbjorn",
+            "prefix": "forest-bjorn",
             "style": "kebab-case"
           }
         ]
       },
-      "extends": [
-        "plugin:@nx/angular",
-        "plugin:@angular-eslint/template/process-inline-templates"
-      ]
+      "extends": ["plugin:@nx/angular", "plugin:@angular-eslint/template/process-inline-templates"]
     },
     {
       "files": ["*.html"],

@@ -4,7 +4,7 @@ import { MatDrawerMode } from '@angular/material/sidenav';
 import { NavItem } from '@mcalamosca/ui-components';
 
 @Component({
-  selector: 'forestbjorn-root',
+  selector: 'forest-bjorn-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
@@ -25,23 +25,21 @@ export class AppComponent implements OnInit {
       ],
     },
     { label: 'About', route: '/about' },
-    { label: 'Contact', route: '/contact' }
+    { label: 'Contact', route: '/contact' },
   ];
   mode: MatDrawerMode = 'side';
   opened = true;
   constructor(private breakpointObserver: BreakpointObserver) {}
 
   ngOnInit() {
-    this.breakpointObserver
-      .observe([Breakpoints.XSmall, Breakpoints.Small])
-      .subscribe((result) => {
-        if (result.matches) {
-          this.mode = 'over';
-          this.opened = false;
-        } else {
-          this.mode = 'side';
-          this.opened = false;
-        }
-      });
+    this.breakpointObserver.observe([Breakpoints.XSmall, Breakpoints.Small]).subscribe((result) => {
+      if (result.matches) {
+        this.mode = 'over';
+        this.opened = false;
+      } else {
+        this.mode = 'side';
+        this.opened = false;
+      }
+    });
   }
 }
