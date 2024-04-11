@@ -24,19 +24,15 @@ $primary-palette: (
   300: #e18c88,
   400: #da756f,
   500: #d25d55,
-  // Base - Tomato Flesh
   600: #ca453b,
   700: #c22d21,
   800: #ba1507,
   900: #b20000,
   A100: #7f0e10,
-  // Dark Tomato Red
   A200: #f44747,
-  // Tomato Highlight
   A400: #ff6c6c,
   A700: #4a773c,
 
-  // Vine Green
   contrast:
     (
       50: $dark-primary-text,
@@ -63,18 +59,15 @@ $accent-palette: (
   300: #e4c177,
   400: #deaf59,
   500: #d79d3b,
-  // Base - Morning Mist
   600: #cf8b1d,
   700: #c77900,
   800: #bf6700,
   900: #b75500,
   A100: #fdf6e3,
-  // Stem Umber
   A200: #f7e8c3,
   A400: #f1daa3,
   A700: #d49703,
 
-  // Twilight Purple
   contrast:
     (
       50: $dark-primary-text,
@@ -120,18 +113,6 @@ $my-dark-theme: mat.define-dark-theme(
     }
   }
   body {
-    // background: linear-gradient(
-    //   to top,
-    //   mat.get-theme-color($theme, primary, 800),
-    //   mat.get-theme-color($theme, primary, 700),
-    //   mat.get-theme-color($theme, primary, 600),
-    //   mat.get-theme-color($theme, primary, 500),
-    //   mat.get-theme-color($theme, primary, 400),
-    //   mat.get-theme-color($theme, primary, 300),
-    //   mat.get-theme-color($theme, primary, 200),
-    //   mat.get-theme-color($theme, primary, 100),
-    //   white
-    // );
     background-image: url('./assets/images/tomatoes.jpg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -197,13 +178,11 @@ $my-dark-theme: mat.define-dark-theme(
 
   .highlight {
     color: $landing-text-color;
-    // background-color: rgb(red($highlight-color), green($highlight-color), blue($highlight-color), 0.3);
     a {
       color: $landing-text-color;
     }
   }
   .accent {
-    // background-color: mat.get-theme-color($theme, accent, 500, 0.3);
     color: mat.get-theme-color($theme, accent, 500-contrast);
   }
 }
