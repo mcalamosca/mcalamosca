@@ -27,7 +27,7 @@
         ],
         "styles": ["apps/davide-sauce/src/styles.scss", "apps/davide-sauce/src/themes.scss"],
         "scripts": [],
-        "baseHref": "/"
+        "baseHref": "https://www.davidesauce.com/"
       },
       "configurations": {
         "production": {
