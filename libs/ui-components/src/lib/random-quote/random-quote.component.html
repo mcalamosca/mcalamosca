@@ -1,5 +1,15 @@
 <div class="quote-container">
-  <div [@floatIn]="animationState" (click)="getRandomQuote()" class="quote playfair-display">
+  <div
+    *ngIf="animate; else noAnimation"
+    [@floatIn]="animationState"
+    (click)="getRandomQuote()"
+    class="quote animated playfair-display"
+  >
     {{ quote }}
   </div>
+  <ng-template #noAnimation>
+    <div (click)="getRandomQuote()" class="quote playfair-display">
+      {{ quote }}
+    </div>
+  </ng-template>
 </div>

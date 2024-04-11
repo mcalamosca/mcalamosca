@@ -141,9 +141,8 @@ $my-dark-theme: mat.define-dark-theme(
   header {
     background: linear-gradient(to bottom, rgba(mat.get-theme-color($theme, accent, 200), 0.4), rgba(0, 0, 0, 0));
   }
-
   footer {
-    background: linear-gradient(to top, rgba(mat.get-theme-color($theme, accent, 200), 0.4), rgba(0, 0, 0, 0));
+    background: rgba(16, 20, 24, 1);
     font-family: 'Roboto', sans-serif;
   }
 

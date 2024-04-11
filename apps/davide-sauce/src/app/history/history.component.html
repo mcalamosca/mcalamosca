@@ -18,8 +18,10 @@
           <h2>{{ card.title }}</h2>
           <p>{{ card.summary }}</p>
           <img [src]="card.images[0].src" [alt]="card.images[0].alt" (click)="flipCard(card)" />
-          <button mat-raised-button color="primary" (click)="flipCard(card)">Learn More</button>
         </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" (click)="flipCard(card)">Learn More</button>
+        </mat-card-actions>
       </mat-card>
     </ng-template>
   </ng-container>

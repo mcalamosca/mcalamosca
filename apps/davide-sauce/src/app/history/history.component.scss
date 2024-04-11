@@ -21,7 +21,7 @@
     border-radius: 1rem;
 
     img {
-      border-radius: 1rem 1rem 0 0;
+      max-width: fit-content;
     }
   }
   mat-card {
@@ -55,6 +55,7 @@
       mat-card-content {
         flex-direction: column;
         justify-content: start;
+        align-items: center;
         img,
         h2,
         p {
@@ -65,8 +66,12 @@
         }
         img {
           object-fit: contain;
+          max-width: 100%;
         }
       }
+    }
+    mat-card-actions {
+      justify-content: center;
     }
   }
 
@@ -116,14 +121,4 @@
       }
     }
   }
-  // @media (min-width: 1800px) {
-  //   mat-card {
-  //     &.full {
-  //       max-width: calc(60% - 2rem);
-  //     }
-  //     &.small {
-  //       max-width: calc(25% - 2rem);
-  //     }
-  //   }
-  // }
 }

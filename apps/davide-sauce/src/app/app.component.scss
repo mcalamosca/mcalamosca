@@ -12,12 +12,14 @@ mcui-social-media-icons {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin-top: auto;
 }
 .main-container {
   display: flex;
   flex-direction: column;
   height: 100vh;
+}
+main {
+  padding-bottom: 1rem;
 }
 ::ng-deep {
   .mat-drawer-container {
@@ -26,6 +28,7 @@ mcui-social-media-icons {
   .mat-drawer-content {
     display: flex !important;
     flex-direction: column;
+    margin-bottom: 1rem;
 
     mcui-footer {
       margin-top: auto;

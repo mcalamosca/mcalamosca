@@ -15,6 +15,7 @@ export class RandomQuoteComponent implements OnInit {
   showReplay = false;
   clickWait = false;
   animationState: string | null = null;
+  @Input() animate = true;
 
   @Input() quotes!: string[];
 

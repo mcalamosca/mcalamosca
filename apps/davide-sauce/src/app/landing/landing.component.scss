@@ -7,7 +7,7 @@
     text-align: center;
     margin: 2rem 0;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     height: auto;
   }
   .highlight {
@@ -16,6 +16,12 @@
     border-radius: 1rem;
     a {
       text-decoration: none;
+    }
+  }
+  //media query on small devices
+  @media (max-width: 768px) {
+    .highlights-container {
+      min-height: 500px;
     }
   }
 }
