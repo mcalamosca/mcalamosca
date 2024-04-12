@@ -1,15 +1,21 @@
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatDrawerMode } from '@angular/material/sidenav';
 import { NavItem } from '@mcalamosca/ui-components';
+import { Firestore, collectionData, collection } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import {DocumentData} from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'forest-bjorn-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
+  item$!: Observable<DocumentData[]>;
+  firestore: Firestore = inject(Firestore);
+
   appName = 'Forest Björn';
+  subtitle = 'Discover Nature Through A New Lens';
   navItems: NavItem[] = [
     { label: 'Home', route: '/home' },
     {
@@ -26,20 +32,12 @@ export class AppComponent implements OnInit {
     },
     { label: 'About', route: '/about' },
     { label: 'Contact', route: '/contact' },
+    { label: 'Login', route: '/login' },
   ];
   mode: MatDrawerMode = 'side';
-  opened = true;
-  constructor(private breakpointObserver: BreakpointObserver) {}
-
-  ngOnInit() {
-    this.breakpointObserver.observe([Breakpoints.XSmall, Breakpoints.Small]).subscribe((result) => {
-      if (result.matches) {
-        this.mode = 'over';
-        this.opened = false;
-      } else {
-        this.mode = 'side';
-        this.opened = false;
-      }
-    });
+  opened = false;
+  constructor() {
+    // const itemCollection = collection(this.firestore, 'items');
+    // this.item$ = collectionData(itemCollection);
   }
 }

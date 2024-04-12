@@ -2,87 +2,124 @@
 
 @include mat.core();
 
-$dark-primary-text: rgba(black, 0.87);
-$dark-secondary-text: rgba(black, 0.54);
-$dark-disabled-text: rgba(black, 0.38);
-$dark-dividers: rgba(black, 0.12);
-$dark-focused: rgba(black, 0.12);
-$light-primary-text: white;
-$light-secondary-text: rgba(white, 0.7);
-$light-disabled-text: rgba(white, 0.5);
-$light-dividers: rgba(white, 0.12);
-$light-focused: rgba(white, 0.12);
+$dark-color: #000000;
+$light-color: #ffffff;
+
+$dark-primary-text: rgba($dark-color, 0.87);
+$dark-secondary-text: rgba($dark-color, 0.54);
+$dark-disabled-text: rgba($dark-color, 0.38);
+$dark-dividers: rgba($dark-color, 0.12);
+$dark-focused: rgba($dark-color, 0.12);
+
+$light-primary-text: rgba($light-color, 0.87);
+$light-secondary-text: rgba($light-color, 0.7);
+$light-disabled-text: rgba($light-color, 0.5);
+$light-dividers: rgba($light-color, 0.12);
+$light-focused: rgba($light-color, 0.12);
 
 $primary-palette: (
-  50: #e8f5e9,
-  100: #c8e6c9,
-  200: #a5d6a7,
-  300: #81c784,
-  400: #66bb6a,
-  500: #4caf50,
-  600: #43a047,
-  700: #388e3c,
-  800: #2e7d32,
-  900: #1b5e20,
-  A100: #b9f6ca,
-  A200: #69f0ae,
-  A400: #00e676,
-  A700: #00c853,
-  contrast: (
-    50: $dark-primary-text,
-    100: $dark-primary-text,
-    200: $dark-primary-text,
-    300: $dark-primary-text,
-    400: $dark-primary-text,
-    500: $light-primary-text,
-    600: $light-primary-text,
-    700: $light-primary-text,
-    800: $light-primary-text,
-    900: $light-primary-text,
-    A100: $dark-primary-text,
-    A200: $light-primary-text,
-    A400: $light-primary-text,
-    A700: $light-primary-text,
-  ),
+  50: #e5efe6,
+  // Soft Mint
+  100: #b8d9bf,
+  // Light Sage
+  200: #8ac294,
+  // Lush Green
+  300: #5cac6a,
+  // Forest Green
+  400: #3f9c4e,
+  // Deep Shamrock
+  500: #2e8b45,
+  // Pine Green
+  600: #277b3f,
+  // Dense Forest
+  700: #206b39,
+  // Dark Jungle Green
+  800: #195b33,
+  // Deep Green
+  900: #0e4727,
+  // Almost Black Green
+  A100: #a2edc5,
+  // Mint Highlight
+  A200: #70e3a3,
+  // Neon Green
+  A400: #3dd582,
+  // Vivid Green
+  A700: #2c9e5e,
+
+  // Rich Emerald
+  contrast:
+    (
+      50: $dark-primary-text,
+      100: $dark-primary-text,
+      200: $dark-primary-text,
+      300: $dark-secondary-text,
+      400: $dark-secondary-text,
+      500: $light-primary-text,
+      600: $light-primary-text,
+      700: $light-secondary-text,
+      800: $light-secondary-text,
+      900: $light-primary-text,
+      A100: $dark-primary-text,
+      A200: $dark-primary-text,
+      A400: $light-secondary-text,
+      A700: $light-primary-text,
+    ),
 );
+
 $accent-palette: (
-  50: #f8ffea,
-  100: #dae7c9,
-  200: #becbae,
-  300: #a3af94,
-  400: #89957b,
-  500: #6f7b62,
-  600: #57624b,
-  700: #4b563f,
-  800: #29341f,
-  900: #151e0c,
-  A100: #becbae,
-  A200: #a3af94,
-  A400: #89957b,
-  A700: #57624b,
-  contrast: (
-    50: $dark-primary-text,
-    100: $dark-primary-text,
-    200: $dark-primary-text,
-    300: $dark-primary-text,
-    400: $dark-primary-text,
-    500: $light-primary-text,
-    600: $light-primary-text,
-    700: $light-primary-text,
-    800: $light-primary-text,
-    900: $light-primary-text,
-    A100: $dark-primary-text,
-    A200: $light-primary-text,
-    A400: $light-primary-text,
-    A700: $light-primary-text,
-  ),
+  50: #fdf1e0,
+  // Warm Beige
+  100: #f9e0b2,
+  // Soft Peach
+  200: #f5cf83,
+  // Sandy Gold
+  300: #f1be55,
+  // Golden Sunrise
+  400: #eeb132,
+  // Sunlit Earth
+  500: #ea9f0e,
+  // Amber Dawn
+  600: #c7890c,
+  // Rich Gold
+  700: #a5730a,
+  // Deep Mustard
+  800: #836d08,
+  // Darkened Gold
+  900: #625706,
+  // Almost Brown
+  A100: #fff7e6,
+  // Ivory Mist
+  A200: #ffe8ba,
+  // Light Goldenrod
+  A400: #ffd98e,
+  // Mellow Gold
+  A700: #ffc75c,
+
+  // Bright Gold
+  contrast:
+    (
+      50: $dark-primary-text,
+      100: $dark-primary-text,
+      200: $dark-primary-text,
+      300: $dark-secondary-text,
+      400: $dark-secondary-text,
+      500: $light-primary-text,
+      600: $light-primary-text,
+      700: $light-secondary-text,
+      800: $light-secondary-text,
+      900: $light-primary-text,
+      A100: $dark-primary-text,
+      A200: $light-primary-text,
+      A400: $light-secondary-text,
+      A700: $light-primary-text,
+    ),
 );
 
 $my-primary: mat.define-palette($primary-palette);
 $my-accent: mat.define-palette($accent-palette);
 $my-warn: mat.define-palette(mat.$red-palette);
 
-$my-light-theme: mat.define-light-theme(
+$my-dark-theme: mat.define-dark-theme(
   (
     color: (
       primary: $my-primary,
@@ -95,22 +132,35 @@ $my-light-theme: mat.define-light-theme(
 );
 
 @mixin customizations($theme) {
-  $primary-50: mat.get-theme-color($theme, primary, 50);
-  $text-color: mat.get-color-from-palette(
-    mat.get-color-config($theme, 'primary'),
-    'contrast'
-  );
+  $text-color: mat.get-theme-color($theme, primary, 800);
+
+  $landing-text-color: mat.get-theme-color($theme, primary, 100);
+
+  mcui-random-quote {
+    .quote {
+      color: $landing-text-color;
+    }
+  }
+  header {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.315) 0%, rgba(0, 0, 0, 0) 70%);
+  }
+  footer {
+    background: rgba(16, 20, 24, 1);
+    font-family: 'Roboto', sans-serif;
+  }
 
   //Sidenav
   mat-sidenav-content {
     height: 100%;
-    background: linear-gradient(
-      to top,
-      mat.get-theme-color($theme, primary, 200),
-      white
-    );
-    //opacity 50%
-    opacity: 0.7;
+  }
+  mat-sidenav-container {
+    background-color: transparent !important;
+    .mat-drawer-container {
+      background-color: transparent !important;
+    }
+    .mat-drawer-backdrop {
+      background-color: transparent !important;
+    }
   }
   mat-nav-list {
     .sub-item {
@@ -121,6 +171,20 @@ $my-light-theme: mat.define-light-theme(
       }
     }
   }
+
+  $card-color: mat.get-theme-color($theme, primary, 600);
+  $card-text-color: mat.get-theme-color($theme, primary, 600-contrast);
+
+  mat-card {
+    background-color: rgb(red($card-color), green($card-color), blue($card-color), 0.75) !important;
+    .overlay-text {
+      color: $card-text-color;
+    }
+    color: $card-text-color;
+  }
+  mat-card-title {
+    color: $card-text-color;
+  }
   .sidenav {
     color: $text-color;
 
@@ -128,27 +192,24 @@ $my-light-theme: mat.define-light-theme(
       a {
         color: inherit;
       }
-
-      a.mat-list-item {
-        &:hover,
-        &:focus {
-          background-color: mat.get-color-from-palette(
-            mat.get-color-config($theme, 'primary'),
-            100
-          ); // Adjust for hover/focus state
-        }
-      }
     }
   }
-  //Toolbar
-  mat-toolbar-row {
-    background-color: white;
+}
+@include mat.core-theme($my-dark-theme);
+@include mat.button-theme($my-dark-theme);
+@include mat.list-theme($my-dark-theme);
+@include mat.sidenav-theme($my-dark-theme);
+@include mat.toolbar-theme($my-dark-theme);
+
+@include customizations($my-dark-theme);
+
+//fonts
+mcui-nav-header {
+  .title-text {
+    font-family: 'Fjalla One', sans-serif;
+  }
+  .subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem !important;
   }
 }
-@include mat.core-theme($my-light-theme);
-@include mat.button-theme($my-light-theme);
-@include mat.list-theme($my-light-theme);
-@include mat.sidenav-theme($my-light-theme);
-@include mat.toolbar-theme($my-light-theme);
-
-@include customizations($my-light-theme);

@@ -1,50 +1,38 @@
 <header>
-  <mat-toolbar>
-    <mat-toolbar-row class="main-toolbar">
-      <div class="left-align">
-        <button class="menu-button" mat-icon-button (click)="toggleSidenav.emit()" aria-label="Toggle sidenav">
-          <mat-icon>menu</mat-icon>
-        </button>
-        <span class="title-text parisienne" *ngIf="headerVariant === NavHeaderVariant.Left">
-          <img class="toolbar-logo" *ngIf="leftImageUrl" [src]="leftImageUrl" alt="left-logo" /><a
-            [routerLink]="navItems[0].route"
-            >{{ appName }}</a
-          ><img class="toolbar-logo" *ngIf="rightImageUrl" [src]="rightImageUrl" alt="right-logo" />
-        </span>
-      </div>
-      <div class="center-align">
-        <span class="title-text parisienne" *ngIf="headerVariant === NavHeaderVariant.Center">
-          <img class="toolbar-logo" *ngIf="leftImageUrl" [src]="leftImageUrl" alt="left-logo" /><a
-            [routerLink]="navItems[0].route"
-            >{{ appName }}</a
-          ><img class="toolbar-logo" *ngIf="rightImageUrl" [src]="rightImageUrl" alt="right-logo" />
-        </span>
-      </div>
-      <div class="right-align">
-        <span class="title-text parisienne" *ngIf="headerVariant === NavHeaderVariant.Right">
-          <img class="toolbar-logo" *ngIf="leftImageUrl" [src]="leftImageUrl" alt="left-logo" /><a
-            [routerLink]="navItems[0].route"
-            >{{ appName }}</a
-          ><img class="toolbar-logo" *ngIf="rightImageUrl" [src]="rightImageUrl" alt="right-logo" />
-        </span>
-      </div>
+  <mat-toolbar [ngStyle]="{ '--toolbar-justify-content': align }">
+    <mat-toolbar-row class="title-toolbar">
+      <button
+        mat-icon-button
+        class="menu-icon"
+        [class.right]="align === 'flex-start'"
+        [class.left]="align === 'center' || align === 'flex-end'"
+        (click)="toggleSidenav.emit()"
+        aria-label="Toggle sidenav"
+        *ngIf="!subNav"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+
+      <span class="title-text">
+        <img class="toolbar-logo" *ngIf="leftImageUrl" [src]="leftImageUrl" alt="left-logo" />
+        <a [routerLink]="navItems[0].route">{{ appName }}</a>
+        <img class="toolbar-logo" *ngIf="rightImageUrl" [src]="rightImageUrl" alt="right-logo" />
+      </span>
     </mat-toolbar-row>
-    <mat-toolbar-row>
-      <span *ngIf="subtitle" class="subtitle parisienne">{{ subtitle }}</span>
+    <mat-toolbar-row *ngIf="subtitle">
+      <span class="subtitle">{{ subtitle }}</span>
     </mat-toolbar-row>
-    <mat-toolbar-row>
-      <div class="full-width">
-        <a
-          *ngFor="let item of navItems"
-          [routerLink]="item.route"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }"
-          mat-button
-          class="nav-item-under"
-        >
-          {{ item.label }}
-        </a>
-      </div>
+    <mat-toolbar-row class="full-width">
+      <a
+        *ngFor="let item of navItems"
+        [routerLink]="item.route"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        mat-button
+        class="nav-item-under"
+      >
+        {{ item.label }}
+      </a>
     </mat-toolbar-row>
   </mat-toolbar>
 </header>

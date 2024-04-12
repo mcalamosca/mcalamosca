@@ -4,19 +4,40 @@
 
 html,
 body,
-forest-bjorn-root,
-div,
-main {
+ds-root {
   height: 100%;
+}
+body {
   margin: 0;
-  padding: 0;
 }
-.mat-sidenav-container {
-  height: 100%;
-}
-.title-text {
-  font-family: 'Parisienne', cursive;
+.fjalla-one-regular {
+  font-family: "Fjalla One", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 3rem;
+}
+.parisienne-regular {
+  font-family: "Parisienne", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 13px;
+  }
+}
+@media (min-width: 768px) and (max-width: 992px) {
+  body {
+    font-size: 15px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1200px) {
+  body {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1200px) {
+  body {
+    font-size: 17px;
+  }
 }

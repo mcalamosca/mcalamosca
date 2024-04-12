@@ -1,8 +1,20 @@
 {
   "projects": {
-    "default": "davide-sauce-firebase",
-    "davide-sauce": "davide-sauce-firebase"
+    "default": "forest-bjorn-photography",
+    "davide-sauce": "davide-sauce-firebase",
+    "forest-bjorn": "forest-bjorn-photography"
   },
-  "targets": {},
+  "targets": {
+    "forest-bjorn-photography": {
+      "hosting": {
+        "forest-bjorn": [
+          "forest-bjorn-photography"
+        ],
+        "davide-sauce": [
+          "davide-sauce-firebase"
+        ]
+      }
+    }
+  },
   "etags": {}
 }

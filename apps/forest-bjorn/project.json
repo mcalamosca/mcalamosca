@@ -16,7 +16,15 @@
         "main": "apps/forest-bjorn/src/main.ts",
         "polyfills": ["zone.js"],
         "tsConfig": "apps/forest-bjorn/tsconfig.app.json",
-        "assets": ["apps/forest-bjorn/src/favicon.ico", "apps/forest-bjorn/src/assets"],
+        "assets": [
+          "apps/forest-bjorn/src/favicon.ico",
+          "apps/forest-bjorn/src/assets",
+          {
+            "glob": "**/*",
+            "input": "libs/ui-components/src/assets/icons",
+            "output": "/assets"
+          }
+        ],
         "styles": [
           "apps/forest-bjorn/src/styles.scss",
           "apps/forest-bjorn/src/themes.scss",
@@ -30,7 +38,7 @@
             {
               "type": "initial",
               "maximumWarning": "500kb",
-              "maximumError": "1mb"
+              "maximumError": "2mb"
             },
             {
               "type": "anyComponentStyle",
@@ -38,7 +46,11 @@
               "maximumError": "4kb"
             }
           ],
-          "outputHashing": "all"
+          "outputHashing": "all",
+          "optimization": true,
+          "extractLicenses": true,
+          "sourceMap": false,
+          "aot": true
         },
         "development": {
           "buildOptimizer": false,

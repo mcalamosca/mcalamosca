@@ -13,11 +13,7 @@ export interface NavItem {
   children?: NavItem[];
 }
 
-export enum NavHeaderVariant {
-  Left = 'left',
-  Center = 'center',
-  Right = 'right',
-}
+export type NavHeaderAlign = 'flex-start' | 'center' | 'flex-end' | 'custom';
 
 @Component({
   selector: 'mcui-nav-header',
@@ -32,7 +28,7 @@ export class NavHeaderComponent implements OnInit {
   @Input() navItems: NavItem[] = [];
   @Input() leftImageUrl: string | null = null;
   @Input() rightImageUrl: string | null = null;
-  @Input() headerVariant: NavHeaderVariant = NavHeaderVariant.Center;
+  @Input() align: NavHeaderAlign = 'center';
   @Input() subNav = false;
   active: string | string[] = '';
   @Output() toggleSidenav = new EventEmitter();
@@ -50,7 +46,6 @@ export class NavHeaderComponent implements OnInit {
     });
   }
 
-  NavHeaderVariant = NavHeaderVariant;
   emitToggle() {
     this.toggleSidenav.emit();
   }

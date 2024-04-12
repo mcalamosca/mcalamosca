@@ -3,8 +3,11 @@
     position: relative;
     width: 100%;
   }
+  mat-toolbar {
+    padding: 1rem;
+  }
   .active {
-    background-color: rgb(81 90 65);
+    background-color: rgb(81, 90, 65);
     color: white;
   }
   .title-text {
@@ -18,100 +21,65 @@
       color: inherit;
     }
   }
-  .toolbar-logo {
+  .toolbar-logo,
+  .menu-icon {
     max-height: 100%;
     width: auto;
     opacity: 0.7;
   }
-  .mat-toolbar-non-sticky {
-    position: static;
+  .menu-icon {
+    display: none;
+    position: absolute; // Uses absolute positioning to place the icon
+
+    &.left {
+      left: 0; // Aligns the icon to the left
+    }
+
+    &.right {
+      right: 0; // Aligns the icon to the right
+    }
   }
-  mat-toolbar {
+
+  .mat-toolbar {
     background-color: transparent !important;
-    gap: 0.5;
-  }
-  mat-toolbar-row {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
     width: 100%;
-    background: transparent;
-
-    .left-align,
-    .right-align,
-    .center-align {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-    }
-
-    .left-align {
-      justify-content: flex-start;
-    }
-
-    .right-align,
-    .left-align {
-      flex: 1;
-    }
-
-    .center-align {
-      flex-grow: 2;
-      justify-content: center;
-      .title-text {
-        white-space: nowrap;
-      }
-    }
-    .nav-item {
-      display: none;
-    }
   }
+  mat-toolbar-row,
   .full-width {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    align-items: center;
+    justify-content: var(--toolbar-justify-content, flex-start);
     width: 100%;
+    background: transparent;
   }
-
   .nav-item-under {
     margin: 0 0.625rem;
-    display: none;
   }
-
-  .main-toolbar {
-    margin-top: 2.5rem;
-  }
-
-  //span just below title text, center and full width
   .subtitle {
     display: flex;
-    justify-content: center;
     width: 100%;
     font-size: 1.5rem;
   }
 
-  @media (min-width: 640px) {
-    mat-toolbar-row {
-      flex-direction: row;
-      .left-align {
-        .show-sidenav {
-          display: none;
-        }
-      }
-      .nav-item {
-        display: inline-flex;
-      }
-      .menu-button {
-        display: none;
-      }
-      .nav-item-under {
-        display: inline-flex;
-        margin: 0 1.25rem;
-      }
-      .subtitle {
-        margin: 0 0;
-      }
+  @media (max-width: 640px) {
+    .menu-icon {
+      display: block; // Show menu icon on small screens
+    }
+    .full-width,
+    .nav-item-under {
+      display: none; // Hide navigation items on smaller screens
+    }
+  }
+
+  @media (min-width: 641px) {
+    .menu-icon {
+      display: none; // Hide menu icon on larger screens
+    }
+    .full-width,
+    .nav-item-under {
+      display: flex; // Show full-width nav items on larger screens
     }
   }
 }
