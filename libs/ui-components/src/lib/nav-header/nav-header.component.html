@@ -18,11 +18,33 @@
         <a [routerLink]="navItems[0].route">{{ appName }}</a>
         <img class="toolbar-logo" *ngIf="rightImageUrl" [src]="rightImageUrl" alt="right-logo" />
       </span>
+      <div
+        class="auth"
+        *ngIf="enableAuth"
+        [ngClass]="{ 'align-left': align === 'flex-end', 'align-right': align === 'flex-start' }"
+      >
+        <span *ngIf="user; else loginDisplay">
+          <span class="user-email">{{ user.email }}</span>
+          <button
+            mat-icon-button
+            [ngClass]="{ 'align-left': align === 'flex-end', 'align-right': align !== 'flex-end' }"
+            (click)="handleAuthAction()"
+            aria-label="Logout"
+          >
+            <mat-icon>exit_to_app</mat-icon>
+          </button>
+        </span>
+        <ng-template #loginDisplay>
+          <button mat-icon-button (click)="handleAuthAction()" aria-label="Login">
+            <img src="../../assets/images/google-sm-rnd.png" alt="Login" class="toolbar-logo" />
+          </button>
+        </ng-template>
+      </div>
     </mat-toolbar-row>
     <mat-toolbar-row *ngIf="subtitle">
       <span class="subtitle">{{ subtitle }}</span>
     </mat-toolbar-row>
-    <mat-toolbar-row class="full-width">
+    <mat-toolbar-row class="full-width" *ngIf="subNav">
       <a
         *ngFor="let item of navItems"
         [routerLink]="item.route"

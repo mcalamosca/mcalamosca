@@ -1,34 +1,22 @@
-import { Injectable } from '@angular/core';
-import {
-  AngularFirestore,
-  AngularFirestoreCollection,
-} from '@angular/fire/compat/firestore';
-import { Observable, map } from 'rxjs';
+import { Injectable, inject } from '@angular/core';
+import { DocumentData } from '@angular/fire/compat/firestore';
+import { Firestore, collection, collectionData } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FirebaseService {
-  item$!: Observable<any[]>;
-  flApp!: any;
+  items$!: Observable<DocumentData[]>;
+  firestore: Firestore = inject(Firestore);
 
-  constructor(private afs: AngularFirestore) {
-    // Access the 'fl_files' collection from Firestore
-    const itemCollection: AngularFirestoreCollection<any> =
-      this.afs.collection('fl_files');
-    // Use snapshotChanges() if you need metadata along with the document data
-    this.item$ = itemCollection.snapshotChanges().pipe(
-      map((actions) =>
-        actions.map((a) => {
-          const data = a.payload.doc.data();
-          const id = a.payload.doc.id;
-          return { id, ...data };
-        })
-      )
-    );
+  constructor() {
+    const itemCollection = collection(this.firestore, 'drone_photos');
+    this.items$ = collectionData(itemCollection);
+    this.items$.subscribe((next) => console.log(next));
 
     // Example subscription to the observable (this can be done in the component)
-    this.item$.subscribe((data) => {
+    this.items$.subscribe((data) => {
       console.log(data);
     });
   }

@@ -1,6 +1,7 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { User } from '@angular/fire/auth';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
@@ -33,6 +34,11 @@ export class NavHeaderComponent implements OnInit {
   active: string | string[] = '';
   @Output() toggleSidenav = new EventEmitter();
 
+  //auth related interactions
+  @Input() enableAuth = false;
+  @Input() user!: User | null;
+  @Output() authAction = new EventEmitter<'login' | 'logout'>();
+
   //constructor with breakpoint observer to determine if the sidenav should be open or closed
   constructor(private breakpointObserver: BreakpointObserver) {}
 
@@ -46,7 +52,15 @@ export class NavHeaderComponent implements OnInit {
     });
   }
 
-  emitToggle() {
+  handleToggle() {
     this.toggleSidenav.emit();
+  }
+
+  handleAuthAction() {
+    if (this.user) {
+      this.authAction.emit('logout');
+    } else {
+      this.authAction.emit('login');
+    }
   }
 }

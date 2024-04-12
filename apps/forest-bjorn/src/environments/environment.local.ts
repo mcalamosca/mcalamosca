@@ -1,4 +1,4 @@
-import {Environment} from "./environment.model";
+import { Environment } from './environment.model';
 
 export const environment: Environment = {
   firebase: {
@@ -10,5 +10,5 @@ export const environment: Environment = {
     appId: '1:184115682031:web:2df8228df49643c4e4d91a',
     measurementId: 'G-2SG24WEYBV',
   },
-  production: true,
+  production: false,
 };

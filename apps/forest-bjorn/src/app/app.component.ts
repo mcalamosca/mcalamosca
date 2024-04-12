@@ -1,9 +1,7 @@
 import { Component, inject } from '@angular/core';
-import { DocumentData } from '@angular/fire/compat/firestore';
-import { Firestore, collection, collectionData } from '@angular/fire/firestore';
+import { Auth, GoogleAuthProvider, User, authState, signInWithPopup } from '@angular/fire/auth';
 import { MatDrawerMode } from '@angular/material/sidenav';
 import { NavItem } from '@mcalamosca/ui-components';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'forest-bjorn-root',
@@ -11,11 +9,11 @@ import { Observable } from 'rxjs';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  items$!: Observable<DocumentData[]>;
-  firestore: Firestore = inject(Firestore);
+  auth: Auth = inject(Auth);
+  user!: User | null;
 
   appName = 'Forest Björn';
-  subtitle = 'Discover Nature Through A New Lens';
+  subtitle = 'Capturing the Unreachable';
   navItems: NavItem[] = [
     { label: 'Home', route: '/home' },
     {
@@ -32,13 +30,26 @@ export class AppComponent {
     },
     { label: 'About', route: '/about' },
     { label: 'Contact', route: '/contact' },
-    { label: 'Login', route: '/login' },
   ];
   mode: MatDrawerMode = 'side';
   opened = false;
   constructor() {
-    const itemCollection = collection(this.firestore, 'drone_photos');
-    this.items$ = collectionData(itemCollection);
-    this.items$.subscribe(next => console.log(next))
+    authState(this.auth).subscribe((user) => {
+      this.user = user;
+    });
+  }
+  googleLogin() {
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(this.auth, provider);
+  }
+  logout() {
+    this.auth.signOut();
+  }
+  authAction(action: 'login' | 'logout') {
+    if (action === 'login') {
+      this.googleLogin();
+    } else if (action === 'logout') {
+      this.logout();
+    }
   }
 }

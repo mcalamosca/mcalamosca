@@ -22,7 +22,12 @@
           {
             "glob": "**/*",
             "input": "libs/ui-components/src/assets/icons",
-            "output": "/assets"
+            "output": "/assets/icons"
+          },
+          {
+            "glob": "**/*",
+            "input": "libs/ui-components/src/assets/images",
+            "output": "/assets/images"
           }
         ],
         "styles": [
@@ -58,7 +63,13 @@
           "vendorChunk": true,
           "extractLicenses": false,
           "sourceMap": true,
-          "namedChunks": true
+          "namedChunks": true,
+          "fileReplacements": [
+            {
+              "replace": "apps/forest-bjorn/src/environments/environment.ts",
+              "with": "apps/forest-bjorn/src/environments/environment.local.ts"
+            }
+          ]
         }
       },
       "defaultConfiguration": "production"

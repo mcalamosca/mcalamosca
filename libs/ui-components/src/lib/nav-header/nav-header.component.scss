@@ -6,9 +6,11 @@
   mat-toolbar {
     padding: 1rem;
   }
-  .active {
-    background-color: rgb(81, 90, 65);
-    color: white;
+  .mat-toolbar {
+    background-color: transparent !important;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }
   .title-text {
     font-size: 3rem;
@@ -39,13 +41,6 @@
       right: 0; // Aligns the icon to the right
     }
   }
-
-  .mat-toolbar {
-    background-color: transparent !important;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
   mat-toolbar-row,
   .full-width {
     display: flex;
@@ -54,22 +49,51 @@
     width: 100%;
     background: transparent;
   }
-  .nav-item-under {
-    margin: 0 0.625rem;
-  }
   .subtitle {
     display: flex;
     width: 100%;
     font-size: 1.5rem;
   }
+  .align-right {
+    margin-left: auto;
+  }
+  .align-left {
+    margin-right: auto;
+  }
+  //auth
+  .auth {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+    align-items: center;
 
+    &[class*='align-left'] {
+      justify-content: flex-start;
+    }
+
+    &[class*='align-right'] {
+      justify-content: flex-end;
+    }
+    span {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  //subnav highlighting
+  .active {
+    background-color: rgb(81, 90, 65);
+    color: white;
+  }
+  .nav-item-under {
+    margin: 0 0.625rem;
+  }
   @media (max-width: 640px) {
     .menu-icon {
       display: block; // Show menu icon on small screens
     }
-    .full-width,
-    .nav-item-under {
-      display: none; // Hide navigation items on smaller screens
+    .user-email {
+      display: none !important;
     }
   }
 

@@ -30,13 +30,19 @@ export class SocialMediaIconsComponent implements OnInit {
   constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer) {
     this.matIconRegistry.addSvgIcon(
       'myfacebook',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('assets/facebook.svg')
+      this.domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/facebook.svg')
     );
-    this.matIconRegistry.addSvgIcon('twitter', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/twitter.svg'));
+    this.matIconRegistry.addSvgIcon(
+      'twitter',
+      this.domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/twitter.svg')
+    );
     this.matIconRegistry.addSvgIcon(
       'instagram',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('assets/instagram.svg')
+      this.domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/instagram.svg')
     );
-    this.matIconRegistry.addSvgIcon('youtube', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/youtube.svg'));
+    this.matIconRegistry.addSvgIcon(
+      'youtube',
+      this.domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/youtube.svg')
+    );
   }
 }
