@@ -1,9 +1,9 @@
 import { Component, inject } from '@angular/core';
+import { DocumentData } from '@angular/fire/compat/firestore';
+import { Firestore, collection, collectionData } from '@angular/fire/firestore';
 import { MatDrawerMode } from '@angular/material/sidenav';
 import { NavItem } from '@mcalamosca/ui-components';
-import { Firestore, collectionData, collection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import {DocumentData} from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'forest-bjorn-root',
@@ -11,7 +11,7 @@ import {DocumentData} from '@angular/fire/compat/firestore';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  item$!: Observable<DocumentData[]>;
+  items$!: Observable<DocumentData[]>;
   firestore: Firestore = inject(Firestore);
 
   appName = 'Forest Björn';
@@ -37,7 +37,8 @@ export class AppComponent {
   mode: MatDrawerMode = 'side';
   opened = false;
   constructor() {
-    // const itemCollection = collection(this.firestore, 'items');
-    // this.item$ = collectionData(itemCollection);
+    const itemCollection = collection(this.firestore, 'drone_photos');
+    this.items$ = collectionData(itemCollection);
+    this.items$.subscribe(next => console.log(next))
   }
 }

@@ -25,22 +25,14 @@ import { LoginComponent } from './login/login.component';
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
-    // old
-    // AngularFireModule.initializeApp(environment.firebase),
-    // AngularFirestoreModule,
-    // AngularFireAuthModule,
-    // FirebaseUIModule.forRoot(environment.firebaseUiAuthConfig),
-    // new
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     // provideAuth(() => getAuth()),
-
-    // provideAuth(() => {
-    //   const auth = getAuth();
-    //   connectAuthEmulator(auth, 'http://localhost:9099', { disableWarnings: true });
-    //   return auth;
-    // }),
-
+    provideAuth(() => {
+      const auth = getAuth();
+      connectAuthEmulator(auth, 'http://localhost:9099', { disableWarnings: true });
+      return auth;
+    }),
     // Material Modules
     MatSidenavModule,
     MatExpansionModule,
