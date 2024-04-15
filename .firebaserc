@@ -4,17 +4,5 @@
     "davide-sauce": "davide-sauce-firebase",
     "forest-bjorn": "forest-bjorn-photography"
   },
-  "targets": {
-    "forest-bjorn-photography": {
-      "hosting": {
-        "forest-bjorn": [
-          "forest-bjorn-photography"
-        ],
-        "davide-sauce": [
-          "davide-sauce-firebase"
-        ]
-      }
-    }
-  },
   "etags": {}
 }
