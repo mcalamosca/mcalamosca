@@ -1,7 +1,13 @@
 <div class="video-background">
-  <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-    <source src="../assets/video/forest bjorn background.mp4" type="video/mp4" />
-  </video>
+  <video
+    playsinline
+    autoplay
+    loop
+    type="video/mp4"
+    [muted]="true"
+    [src]="bgVideoUrl"
+    codecs="avc1.4d002a, mp4a.40.2"
+  ></video>
   <header>
     <mcui-nav-header
       [align]="'flex-start'"
@@ -20,14 +26,12 @@
       <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [mode]="mode" [opened]="opened" [position]="'end'">
         <mat-icon class="chevron" (click)="drawer.toggle()">chevron_right</mat-icon>
         <mat-nav-list>
-          <ng-container *ngFor="let item of navItems">
-            <a mat-list-item [routerLink]="item.route" (click)="drawer.toggle()">{{ item.label }}</a>
-            <ng-container *ngFor="let child of item.children">
-              <a class="sub-item" mat-list-item [routerLink]="child.route" (click)="drawer.toggle()">{{
-                child.label
-              }}</a>
-            </ng-container>
+          @for (item of navItems; track $index) {
+          <a mat-list-item [routerLink]="item.route" (click)="drawer.toggle()">{{ item.label }}</a>
+          <ng-container *ngFor="let child of item.children">
+            <a class="sub-item" mat-list-item [routerLink]="child.route" (click)="drawer.toggle()">{{ child.label }}</a>
           </ng-container>
+          }
         </mat-nav-list>
       </mat-sidenav>
       <mat-sidenav-content>

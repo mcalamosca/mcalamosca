@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Auth, GoogleAuthProvider, User, authState, signInWithPopup } from '@angular/fire/auth';
+import { Storage, getDownloadURL, ref } from '@angular/fire/storage';
 import { MatDrawerMode } from '@angular/material/sidenav';
 import { NavItem } from '@mcalamosca/ui-components';
 
@@ -10,6 +11,10 @@ import { NavItem } from '@mcalamosca/ui-components';
 })
 export class AppComponent {
   auth: Auth = inject(Auth);
+  storage: Storage = inject(Storage);
+  ref = ref(this.storage, 'gs://forest-bjorn-photography.appspot.com/forest-bjorn-background.mp4');
+  bgVideoUrl!: string;
+
   user!: User | null;
 
   appName = 'Forest Björn';
@@ -33,7 +38,14 @@ export class AppComponent {
   ];
   mode: MatDrawerMode = 'side';
   opened = false;
+  getBackgroundVideo() {
+    getDownloadURL(this.ref).then((url) => {
+      this.bgVideoUrl = url;
+    });
+  }
+
   constructor() {
+    this.getBackgroundVideo();
     authState(this.auth).subscribe((user) => {
       this.user = user;
     });

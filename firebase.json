@@ -18,11 +18,7 @@
     {
       "target": "davide-sauce",
       "public": "dist/apps/davide-sauce",
-      "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**"
-      ],
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
         {
           "source": "**",
@@ -33,11 +29,7 @@
     {
       "target": "forest-bjorn",
       "public": "dist/apps/forest-bjorn",
-      "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**"
-      ],
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
         {
           "source": "**",

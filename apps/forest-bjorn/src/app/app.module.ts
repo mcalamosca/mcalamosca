@@ -14,6 +14,7 @@ import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
 import { LandingComponent } from './landing/landing.component';
+import {getStorage, provideStorage} from '@angular/fire/storage';
 
 @NgModule({
   declarations: [AppComponent, LandingComponent],
@@ -23,6 +24,7 @@ import { LandingComponent } from './landing/landing.component';
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage()),
     provideAuth(() => {
       const auth = getAuth();
       if (!environment.production) {
