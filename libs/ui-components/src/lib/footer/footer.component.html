@@ -2,17 +2,17 @@
   <ng-content select="mcui-social-media-icons"></ng-content>
   <div class="main-footer">
     <div class="info">
-      <span *ngIf="companyName">&copy; {{ year }} {{ companyName }}</span>
+      @if(companyName){<span>&copy; {{ year }} {{ companyName }}</span
+      >}
       <span>All rights reserved.</span>
-      <span *ngIf="address">{{ address }</span>
+      @if(address){<span>{{ address }}</span
+      >}
     </div>
     <div class="links">
-      <ng-container *ngIf="phone"
-        ><a [href]="'tel:' + phone">{{ phone }}</a></ng-container
-      >
-      <ng-container *ngIf="sitemapUrl"><a [href]="sitemapUrl">Sitemap</a></ng-container>
-      <ng-container *ngIf="privacyPolicyUrl"><a [href]="privacyPolicyUrl">Privacy Policy</a></ng-container>
-      <ng-container *ngIf="termsOfServiceUrl"><a [href]="termsOfServiceUrl">Terms of Service</a></ng-container>
+      @if(phone){<a [href]="'tel:' + phone">{{ phone }}</a
+      >} @if(sitemapUrl){<a [href]="sitemapUrl">Sitemap</a>} @if(privacyPolicyUrl){<a [href]="privacyPolicyUrl"
+        >Privacy Policy</a
+      >} @if(termsOfServiceUrl){<a [href]="termsOfServiceUrl">Terms of Service</a>}
     </div>
   </div>
 </footer>

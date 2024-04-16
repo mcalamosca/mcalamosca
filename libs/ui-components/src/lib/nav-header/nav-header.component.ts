@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
+import { MatMenuModule } from '@angular/material/menu';
 
 export interface NavItem {
   label: string;
@@ -19,7 +20,7 @@ export type NavHeaderAlign = 'flex-start' | 'center' | 'flex-end' | 'custom';
 @Component({
   selector: 'mcui-nav-header',
   standalone: true,
-  imports: [CommonModule, RouterModule, MatToolbarModule, MatListModule, MatButtonModule, MatIconModule, RouterModule],
+  imports: [CommonModule, RouterModule, MatToolbarModule, MatListModule, MatButtonModule, MatIconModule, RouterModule, MatMenuModule],
   templateUrl: './nav-header.component.html',
   styleUrl: './nav-header.component.scss',
 })

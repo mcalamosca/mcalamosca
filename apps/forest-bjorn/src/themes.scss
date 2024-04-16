@@ -194,6 +194,18 @@ $my-dark-theme: mat.define-dark-theme(
       }
     }
   }
+
+  //Menu
+  $menu-background-color: #6d7782;
+  $menu-text-color: mat.get-theme-color($theme, primary, 600-contrast);
+
+  .mat-mdc-menu-panel {
+    background-color: $menu-background-color !important;
+    color: $menu-text-color !important;
+  }
+  .mat-mdc-menu-item {
+    text-align: center !important;
+  }
 }
 @include mat.core-theme($my-dark-theme);
 @include mat.button-theme($my-dark-theme);

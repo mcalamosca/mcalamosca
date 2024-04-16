@@ -41,8 +41,10 @@
       right: 0; // Aligns the icon to the right
     }
   }
-  mat-toolbar-row,
-  .full-width {
+  .subnav {
+    padding-left: 0;
+  }
+  mat-toolbar-row {
     display: flex;
     align-items: center;
     justify-content: var(--toolbar-justify-content, flex-start);
