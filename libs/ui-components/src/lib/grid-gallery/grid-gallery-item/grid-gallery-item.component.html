@@ -2,5 +2,6 @@
 <img  #img
       [src]="image.src"
       [alt]="image.alt"
-      (load)="calculateRows()"/>
+      (load)="calculateRows()"
+      (error)="calculateRows()"/>
 

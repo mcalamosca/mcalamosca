@@ -17,8 +17,9 @@ export class GridGalleryItemComponent {
 
   public rows = 0;
 
-  @HostListener('window:resize')
+  @HostListener('load', ['$event.target'])
   calculateRows() {
-    this.rows = Math.floor(this.img.nativeElement.offsetHeight / (this.rowHeight + this.gutterSize));
+    const rowPixelHeight = this.rowHeight + this.gutterSize;
+    this.rows = Math.ceil(this.img.nativeElement.offsetHeight / rowPixelHeight);
   }
 }
