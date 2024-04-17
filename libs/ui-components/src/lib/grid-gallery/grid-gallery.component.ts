@@ -1,9 +1,10 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { Subscription, map } from 'rxjs';
 import { GridGalleryItemComponent } from './grid-gallery-item/grid-gallery-item.component';
+import { LightboxComponent } from './lightbox/lightbox.component';
 
 export interface Image {
   src: string;
@@ -29,6 +30,7 @@ export class GridGalleryComponent implements OnInit, OnDestroy {
   @Input() gutterSize = 1;
   @Input() colsMax!: number;
 
+  @ViewChild('lightboxContainer', { read: ViewContainerRef, static: true }) lightboxContainer!: ViewContainerRef;
   private breakpointSubscription: Subscription | undefined;
 
   constructor(private breakpointObserver: BreakpointObserver) {}
@@ -68,6 +70,18 @@ export class GridGalleryComponent implements OnInit, OnDestroy {
           this.cols = cols;
         }
       });
+  }
+  openLightbox(image: Image) {
+    const componentRef = this.lightboxContainer.createComponent(LightboxComponent);
+    componentRef.instance.image = image;
+    componentRef.instance.images = this.images;
+    componentRef.instance.closeEvent.subscribe(() => {
+      componentRef.destroy();
+    });
+  }
+
+  closeLightbox() {
+    this.lightboxContainer.clear();
   }
 
   ngOnDestroy() {
