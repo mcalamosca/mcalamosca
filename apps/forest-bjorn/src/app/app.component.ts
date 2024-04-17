@@ -18,7 +18,7 @@ export class AppComponent {
   user!: User | null;
 
   appName = 'Forest Björn';
-  subtitle = 'Capturing the Unreachable';
+  subtitle = 'Capture the Extraordinary';
   navItems: NavItem[] = [
     { label: 'Home', route: '/home' },
     {

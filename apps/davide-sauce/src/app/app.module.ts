@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { FooterComponent, NavHeaderComponent, SocialMediaIconsComponent } from '@mcalamosca/ui-components';
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,7 +27,7 @@ import { appRoutes } from './app.routes';
     // Other Component Modules
     NavHeaderComponent,
     FooterComponent,
-    SocialMediaIconsComponent,
+    SocialMediaIconsComponent
   ],
   bootstrap: [AppComponent],
 })

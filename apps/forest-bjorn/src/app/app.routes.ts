@@ -7,6 +7,10 @@ export const appRoutes: Routes = [
     component: LandingComponent,
   },
   {
+    path: 'portfolio',
+    loadChildren: () => import('./portfolio/portfolio.routes').then((m) => m.portfolioRoutes),
+  },
+  {
     path: '**',
     redirectTo: '',
   },
