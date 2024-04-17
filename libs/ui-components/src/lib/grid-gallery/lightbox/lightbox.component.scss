@@ -7,17 +7,16 @@
   background: rgba(0, 0, 0, 0.8);
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
-  padding: 1rem;
   z-index: 100;
   overflow: auto;
+  gap: 1rem;
 
   img {
     max-width: 90%;
     max-height: 90%;
     margin: 1rem;
-    // margin: auto;
   }
 }
 .overlay-content {
@@ -25,4 +24,46 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+@media (max-width: 767px) {
+  .overlay {
+    overflow: hidden;
+  }
+
+  .overlay-content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .overlay-content img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .navigate-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+  }
+
+  .navigate-button:first-child {
+    left: 1rem;
+  }
+
+  .navigate-button:last-child {
+    right: 1rem;
+  }
+}
+@media (max-height: 400px) {
+  .close-button {
+    position: absolute;
+    bottom: 1rem;
+    background-color: black;
+  }
 }

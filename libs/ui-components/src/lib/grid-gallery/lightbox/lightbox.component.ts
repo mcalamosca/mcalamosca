@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, HostListener, Input, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, Input, Output, ViewChild } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { Image } from '../grid-gallery.component';
@@ -21,14 +21,14 @@ export class LightboxComponent {
     this.close();
   }
 
-  @HostListener('click', ['$event']) onClickHandler(event: MouseEvent) {
-    const imgElement = this.elementRef.nativeElement.querySelector('img');
-    const navigateButtons = this.elementRef.nativeElement.querySelectorAll('.navigate-button');
-
-    // if (event.target !== imgElement || event.target !== navigateButtons[0] || event.target !== navigateButtons[1]) {
-    //   this.close();
-    // }
+  @HostListener('swipeleft', ['$event']) onSwipeLeft() {
+    this.next();
   }
+
+  @HostListener('swiperight', ['$event']) onSwipeRight() {
+    this.previous();
+  }
+  @ViewChild('targetImage') lightboxImage!: ElementRef;
 
   next() {
     const index = this.images.indexOf(this.image);

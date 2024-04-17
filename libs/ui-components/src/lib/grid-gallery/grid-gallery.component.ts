@@ -42,25 +42,24 @@ export class GridGalleryComponent implements OnInit, OnDestroy {
         map((result) => {
           if (result.matches) {
             if (this.breakpointObserver.isMatched(Breakpoints.XSmall)) {
-              return 1;
+              return this.cols_xs;
             }
             if (this.breakpointObserver.isMatched(Breakpoints.Small)) {
-              return 2;
+              return this.cols_sm;
             }
             if (this.breakpointObserver.isMatched(Breakpoints.Medium)) {
-              return 3;
+              return this.cols_md;
             }
             if (this.breakpointObserver.isMatched(Breakpoints.Large)) {
-              return 4;
+              return this.cols_lg;
             }
             if (this.breakpointObserver.isMatched(Breakpoints.XLarge)) {
-              return 5;
+              return this.cols_xl;
             }
           }
           return 3;
         })
       )
-      // don't allow cols to be greater than number of images or colsMax
       .subscribe((cols) => {
         if (this.images.length < cols) {
           this.cols = this.images.length;
