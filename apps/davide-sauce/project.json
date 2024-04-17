@@ -12,7 +12,7 @@
       "options": {
         "outputPath": "dist/apps/davide-sauce",
         "index": "apps/davide-sauce/src/index.html",
-        "browser": "apps/davide-sauce/src/main.ts",
+        "main": "apps/davide-sauce/src/main.ts",
         "polyfills": ["zone.js"],
         "tsConfig": "apps/davide-sauce/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
