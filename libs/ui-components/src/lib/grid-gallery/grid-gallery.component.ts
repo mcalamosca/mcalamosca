@@ -1,6 +1,6 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { Subscription, map } from 'rxjs';
 import { GridGalleryItemComponent } from './grid-gallery-item/grid-gallery-item.component';

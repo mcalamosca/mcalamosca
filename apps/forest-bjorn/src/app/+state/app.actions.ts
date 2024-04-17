@@ -1,4 +1,4 @@
-// File: state.actions.ts
+import { HttpErrorResponse } from '@angular/common/http';
 import { User } from '@angular/fire/auth';
 import { Image } from '@mcalamosca/ui-components';
 import { createAction, props } from '@ngrx/store';
@@ -15,11 +15,11 @@ export enum AppStateActionTypes {
 export const setUser = createAction(AppStateActionTypes.SetUser, props<{ user: User }>());
 export const setDroneImages = createAction(AppStateActionTypes.SetDroneImages, props<{ droneImages: Image[] }>());
 export const loadDronePhotos = createAction(AppStateActionTypes.LoadDronePhotos);
-export const loadDronePhotosSuccess = createAction(AppStateActionTypes.LoadDronePhotosSuccess, props<{ images: Image[] }>());
-export const loadDronePhotosFailure = createAction(AppStateActionTypes.LoadDronePhotosFailure, props<{ error: any }>());
-
-
-
-
-
-
+export const loadDronePhotosSuccess = createAction(
+  AppStateActionTypes.LoadDronePhotosSuccess,
+  props<{ images: Image[] }>()
+);
+export const loadDronePhotosFailure = createAction(
+  AppStateActionTypes.LoadDronePhotosFailure,
+  props<{ error: HttpErrorResponse }>()
+);
