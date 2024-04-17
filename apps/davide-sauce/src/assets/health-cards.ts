@@ -35,7 +35,7 @@ export const healthCards = [
     altText: "fresh-vegetables",
   },
   {
-    title: "Rich in Lycopene",
+    title: "Cancer Fighting Lycopene",
     content:
       "The health benefits of tomatoes don't just end at their natural sweetness. They're a fantastic source of lycopene, an antioxidant with potential cancer-fighting properties. Our sauce maximizes this nutrient's presence, contributing to a healthier diet.",
     imgSrc: "../../assets/images/raw-tomato.jpg",
