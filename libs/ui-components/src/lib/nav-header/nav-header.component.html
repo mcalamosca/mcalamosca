@@ -45,9 +45,10 @@
       </div>
     </mat-toolbar-row>
     @if(subtitle){
-    <mat-toolbar-row>
+    <mat-toolbar-row [ngStyle]="{ 'justify-content': align }">
       <span class="subtitle">{{ subtitle }}</span>
     </mat-toolbar-row>
+
     } @if(subNav){
     <mat-toolbar-row class="subnav">
       @for (item of navItems; track item.route; let i = $index;) { @if(item.children){
