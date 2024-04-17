@@ -8,33 +8,31 @@
     [src]="bgVideoUrl"
     codecs="avc1.4d002a, mp4a.40.2"
   ></video>
-  <header>
-    <mcui-nav-header
-      [align]="'flex-start'"
-      [appName]="appName"
-      [subtitle]="subtitle"
-      [navItems]="navItems"
-      [enableAuth]="true"
-      [user]="user"
-      (authAction)="authAction($event)"
-      (toggleSidenav)="drawer.toggle()"
-    ></mcui-nav-header>
-  </header>
-  <main>
-    <mat-sidenav-container>
-      <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [mode]="mode" [opened]="opened" [position]="'end'">
-        <mat-icon class="chevron" (click)="drawer.toggle()">chevron_right</mat-icon>
-        <mat-nav-list>
-          @for (item of navItems; track item.children) {
-          <a mat-list-item [routerLink]="item.route" (click)="drawer.toggle()">{{ item.label }}</a>
-          @for (child of item.children; track child.label) {
-          <a class="sub-item" mat-list-item [routerLink]="child.route" (click)="drawer.toggle()">{{ child.label }}</a
-          >} }
-        </mat-nav-list>
-      </mat-sidenav>
-      <mat-sidenav-content>
+  <mat-sidenav-container>
+    <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [mode]="mode" [opened]="opened" [position]="'end'">
+      <mat-icon class="chevron" (click)="drawer.toggle()">chevron_right</mat-icon>
+      <mat-nav-list>
+        @for (item of navItems; track item.children) {
+        <a mat-list-item [routerLink]="item.route" (click)="drawer.toggle()">{{ item.label }}</a>
+        @for (child of item.children; track child.label) {
+        <a class="sub-item" mat-list-item [routerLink]="child.route" (click)="drawer.toggle()">{{ child.label }}</a
+        >} }
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mcui-nav-header
+        [align]="'flex-start'"
+        [appName]="appName"
+        [subtitle]="subtitle"
+        [navItems]="navItems"
+        [enableAuth]="true"
+        [user]="user"
+        (authAction)="authAction($event)"
+        (toggleSidenav)="drawer.toggle()"
+      ></mcui-nav-header>
+      <main>
         <router-outlet></router-outlet>
-      </mat-sidenav-content>
-    </mat-sidenav-container>
-  </main>
+      </main>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>

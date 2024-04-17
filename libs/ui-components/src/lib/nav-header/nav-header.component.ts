@@ -5,9 +5,9 @@ import { User } from '@angular/fire/auth';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
-import { MatMenuModule } from '@angular/material/menu';
 
 export interface NavItem {
   label: string;
@@ -20,7 +20,16 @@ export type NavHeaderAlign = 'flex-start' | 'center' | 'flex-end' | 'custom';
 @Component({
   selector: 'mcui-nav-header',
   standalone: true,
-  imports: [CommonModule, RouterModule, MatToolbarModule, MatListModule, MatButtonModule, MatIconModule, RouterModule, MatMenuModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    MatToolbarModule,
+    MatListModule,
+    MatButtonModule,
+    MatIconModule,
+    RouterModule,
+    MatMenuModule,
+  ],
   templateUrl: './nav-header.component.html',
   styleUrl: './nav-header.component.scss',
 })
@@ -33,6 +42,8 @@ export class NavHeaderComponent implements OnInit {
   @Input() align: NavHeaderAlign = 'center';
   @Input() subNav = false;
   active: string | string[] = '';
+  showMenuIcon = false;
+
   @Output() toggleSidenav = new EventEmitter();
 
   //auth related interactions
@@ -44,12 +55,9 @@ export class NavHeaderComponent implements OnInit {
   constructor(private breakpointObserver: BreakpointObserver) {}
 
   ngOnInit(): void {
-    this.breakpointObserver.observe(['(max-width: 640px)']).subscribe((result) => {
-      if (result.matches) {
-        this.subNav = false;
-      } else {
-        this.subNav = true;
-      }
+    this.breakpointObserver.observe(['(max-device-width: 640px)']).subscribe((result) => {
+      this.subNav = !result.matches;
+      this.showMenuIcon = result.matches;
     });
   }
 

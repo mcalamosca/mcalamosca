@@ -1,7 +1,7 @@
 <header>
   <mat-toolbar [ngStyle]="{ '--toolbar-justify-content': align }">
     <mat-toolbar-row class="title-toolbar">
-      @if (!subNav) {
+      @if (showMenuIcon) {
       <button
         mat-icon-button
         class="menu-icon"

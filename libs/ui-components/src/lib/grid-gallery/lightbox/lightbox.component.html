@@ -1,5 +1,8 @@
 <div class="overlay">
-  <img [src]="image.src" [alt]="image.alt">
-  <button (click)="close()">Close</button>
-  <!-- Add next and previous buttons -->
+  <div class="overlay-content">
+    <button class="navigate-button" mat-icon-button (click)="previous()"><mat-icon>arrow_back_ios</mat-icon></button>
+    <img [src]="image.src" [alt]="image.alt" />
+    <button class="navigate-button" mat-icon-button (click)="next()"><mat-icon>arrow_forward_ios</mat-icon></button>
+  </div>
+  <button mat-stroked-button (click)="close()">Close</button>
 </div>
