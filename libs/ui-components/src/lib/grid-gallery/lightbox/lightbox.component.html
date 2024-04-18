@@ -1,4 +1,4 @@
-<div class="overlay">
+<div class="overlay" (click)="onOverlayClick($event)">
   <div class="overlay-content">
     <button class="navigate-button" mat-icon-button (click)="previous()"><mat-icon>arrow_back_ios</mat-icon></button>
     <img #targetImage [src]="image.src" [alt]="image.alt" />

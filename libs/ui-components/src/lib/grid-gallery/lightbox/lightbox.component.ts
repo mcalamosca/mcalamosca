@@ -29,6 +29,11 @@ export class LightboxComponent {
     this.previous();
   }
   @ViewChild('targetImage') lightboxImage!: ElementRef;
+  onOverlayClick(event: MouseEvent) {
+    if (event.target === event.currentTarget) {
+      this.close();
+    }
+  }
 
   next() {
     const index = this.images.indexOf(this.image);

@@ -10,13 +10,13 @@
   justify-content: center;
   align-items: center;
   z-index: 100;
-  overflow: auto;
-  gap: 1rem;
+  padding: 1rem 3rem;
+  box-sizing: border-box;
 
   img {
-    max-width: 90%;
-    max-height: 90%;
-    margin: 1rem;
+    max-width: 100%;
+    max-height: calc(100vh - 6rem);
+    object-fit: contain;
   }
 }
 .overlay-content {
@@ -25,6 +25,10 @@
   align-items: center;
   justify-content: center;
 }
+.close-button {
+  margin-top: 1rem;
+}
+
 @media (max-width: 767px) {
   .overlay {
     overflow: hidden;
@@ -58,12 +62,5 @@
 
   .navigate-button:last-child {
     right: 1rem;
-  }
-}
-@media (max-height: 400px) {
-  .close-button {
-    position: absolute;
-    bottom: 1rem;
-    background-color: black;
   }
 }
