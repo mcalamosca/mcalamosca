@@ -1,13 +1,9 @@
-//angular routes
-
-import {Routes} from "@angular/router";
-import {DroneComponent} from "./drone/drone.component";
-
+import { Routes } from '@angular/router';
+import { GalleryComponent } from './gallery/gallery.component';
 
 export const portfolioRoutes: Routes = [
   {
-    path: 'drone',
-    component: DroneComponent,
+    path: ':type',
+    component: GalleryComponent,
   },
 ];
-

@@ -20,21 +20,20 @@ export class AppComponent {
   appName = 'Forest Björn';
   subtitle = 'Capture the Extraordinary';
   navItems: NavItem[] = [
-    { label: 'Home', route: '/home' },
+    { label: 'Home', path: '/home' },
     {
       label: 'Portfolio',
-      route: '/portfolio',
+      path: '/portfolio',
       children: [
-        { label: 'Drone', route: '/portfolio/drone' },
-        { label: 'Portrait', route: '/portfolio/portrait' },
-        { label: 'Pets', route: '/portfolio/pets' },
-        { label: 'Real Estate', route: '/portfolio/real-estate' },
-        { label: 'Family', route: '/portfolio/family' },
-        { label: 'Headshot', route: '/portfolio/headshot' },
+        { label: 'Drone', path: '/portfolio/drone' },
+        { label: 'Portrait', path: '/portfolio/portrait' },
+        { label: 'Pets', path: '/portfolio/pets' },
+        { label: 'Real Estate', path: '/portfolio/real-estate' },
+        { label: 'Family', path: '/portfolio/family' },
       ],
     },
-    { label: 'About', route: '/about' },
-    { label: 'Contact', route: '/contact' },
+    { label: 'About', path: '/about' },
+    { label: 'Contact', path: '/contact' },
   ];
   mode: MatDrawerMode = 'side';
   opened = false;

@@ -11,7 +11,7 @@ import { RouterModule } from '@angular/router';
 
 export interface NavItem {
   label: string;
-  route: string;
+  path: string;
   children?: NavItem[];
 }
 
