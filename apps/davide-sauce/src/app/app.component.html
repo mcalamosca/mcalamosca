@@ -4,9 +4,9 @@
       <mat-icon class="chevron_left" (click)="drawer.toggle()">chevron_left</mat-icon>
       <mat-nav-list>
         <ng-container *ngFor="let item of navItems">
-          <a mat-list-item [routerLink]="item.route" (click)="drawer.toggle()">{{ item.label }}</a>
+          <a mat-list-item [routerLink]="item.path" (click)="drawer.toggle()">{{ item.label }}</a>
           <ng-container *ngFor="let child of item.children">
-            <a class="sub-item" mat-list-item [routerLink]="child.route" (click)="drawer.toggle()">{{ child.label }}</a>
+            <a class="sub-item" mat-list-item [routerLink]="child.path" (click)="drawer.toggle()">{{ child.label }}</a>
           </ng-container>
         </ng-container>
       </mat-nav-list>

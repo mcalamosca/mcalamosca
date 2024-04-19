@@ -18,12 +18,12 @@ export class AppComponent implements OnInit {
   leftImageUrl = '../assets/images/olive-left-white.png';
   rightImageUrl = '../assets/images/olive-right-white.png';
   navItems: NavItem[] = [
-    { label: 'Home', route: '' },
-    { label: 'History', route: '/history' },
-    { label: 'Health', route: '/health' },
-    { label: 'Products', route: '/products' },
-    // { label: 'Recipes', route: '/recipes' },
-    { label: 'Contact Us', route: '/contact-us' },
+    { label: 'Home', path: '' },
+    { label: 'History', path: '/history' },
+    { label: 'Health', path: '/health' },
+    { label: 'Products', path: '/products' },
+    // { label: 'Recipes', path: '/recipes' },
+    { label: 'Contact Us', path: '/contact-us' },
   ];
   mode: MatDrawerMode = 'side';
   opened = true;

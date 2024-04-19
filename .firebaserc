@@ -12,9 +12,9 @@
         ]
       }
     },
-    "davide-sauce": {
+    "davide-sauce-firebase": {
       "hosting": {
-        "davide": [
+        "davide-sauce": [
           "davide-sauce-firebase"
         ]
       }

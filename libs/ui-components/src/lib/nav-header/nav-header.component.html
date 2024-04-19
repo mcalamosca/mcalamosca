@@ -17,7 +17,7 @@
         @if (leftImageUrl) {
         <img class="toolbar-logo" [src]="leftImageUrl" alt="left-logo" />
         }
-        <a [routerLink]="navItems[0].route">{{ appName }}</a>
+        <a [routerLink]="navItems[0].path">{{ appName }}</a>
         @if (rightImageUrl) {
         <img class="toolbar-logo" [src]="rightImageUrl" alt="right-logo" />
         }
@@ -51,16 +51,16 @@
 
     } @if(subNav){
     <mat-toolbar-row class="subnav">
-      @for (item of navItems; track item.route; let i = $index;) { @if(item.children){
+      @for (item of navItems; track item.path; let i = $index;) { @if(item.children){
       <button mat-button [matMenuTriggerFor]="i">{{ item.label }}</button>
       <mat-menu #i="matMenu" [xPosition]="'after'">
-        @for (child of item.children; track $index) {<button mat-menu-item [routerLink]="child.route">
+        @for (child of item.children; track $index) {<button mat-menu-item [routerLink]="child.path">
           {{ child.label }}</button
         >}
       </mat-menu>
       } @else {
       <a
-        [routerLink]="item.route"
+        [routerLink]="item.path"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
         mat-button
