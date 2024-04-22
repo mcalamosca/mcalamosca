@@ -25,11 +25,11 @@ export class AppComponent {
       label: 'Portfolio',
       path: '/portfolio',
       children: [
+        //portfolio/* path should line up to GCP Bucket folders
         { label: 'Drone', path: '/portfolio/drone' },
         { label: 'Portrait', path: '/portfolio/portrait' },
         { label: 'Pets', path: '/portfolio/pets' },
-        { label: 'Real Estate', path: '/portfolio/real-estate' },
-        { label: 'Family', path: '/portfolio/family' },
+        { label: 'Misc', path: '/portfolio/misc' }
       ],
     },
     { label: 'About', path: '/about' },
