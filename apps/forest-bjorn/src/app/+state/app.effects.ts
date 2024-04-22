@@ -1,22 +1,32 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, map, of, switchMap } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { catchError, map, of, switchMap, withLatestFrom } from 'rxjs';
 import { FirebaseService } from '../services/firebase.service';
-import { AppStateActionTypes, setDroneImages } from './app.actions';
+import { loadImages, loadImagesFailure, loadImagesSuccess, setGalleryType } from './app.actions';
+import { selectCurrentGalleryType } from './app.selectors';
 
 @Injectable()
 export class AppEffects {
-  loadDronePhotos$ = createEffect(() =>
+  loadImages$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(AppStateActionTypes.LoadDronePhotos),
-      switchMap(() =>
-        this.firebaseService.getDronePhotos().pipe(
-          map((images) => setDroneImages({ droneImages: images })),
-          catchError((error) => of({ type: '[AppState] Set Drone Images Failure', error }))
+      ofType(loadImages),
+      withLatestFrom(this.store.select(selectCurrentGalleryType)),
+      switchMap(([_, galleryType]) =>
+        this.firebaseService.getImages(galleryType).pipe(
+          map((images) => loadImagesSuccess({ images })),
+          catchError((error) => of(loadImagesFailure({ error })))
         )
       )
     )
   );
 
-  constructor(private actions$: Actions, private firebaseService: FirebaseService) {}
+  setGalleryType$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(setGalleryType),
+      map(({ galleryType }) => loadImages())
+    )
+  );
+
+  constructor(private actions$: Actions, private firebaseService: FirebaseService, private store: Store) {}
 }

@@ -1,18 +1,21 @@
-// File: state.reducer.ts
 import { createReducer, on } from '@ngrx/store';
-import { setUser, setDroneImages } from './app.actions';
+import { loadImagesSuccess, setGalleryType } from './app.actions';
 import { AppState } from './app.state';
 
 export const initialState: AppState = {
   user: null,
-  images: {
-    drone: []
-  }
+  currentGalleryType: '',
+  images: {},
 };
 
 export const appStateReducer = createReducer(
   initialState,
-  on(setUser, (state, { user }) => ({ ...state, user })),
-  on(setDroneImages, (state, { droneImages }) => ({ ...state, images: { ...state.images, drone: droneImages } }))
+  on(setGalleryType, (state, { galleryType }) => ({
+    ...state,
+    currentGalleryType: galleryType,
+  })),
+  on(loadImagesSuccess, (state, { images }) => ({
+    ...state,
+    images: { ...state.images, [state.currentGalleryType]: images },
+  }))
 );
-

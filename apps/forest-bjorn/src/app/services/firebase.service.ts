@@ -9,15 +9,16 @@ import { map, mergeMap, toArray } from 'rxjs/operators';
 })
 export class FirebaseService {
   storage: Storage = inject(Storage);
-  droneRef = ref(this.storage, 'gs://forest-bjorn-photography.appspot.com/drone');
 
-  getDronePhotos(): Observable<Image[]> {
-    return from(listAll(this.droneRef)).pipe(
-      mergeMap((result) => result.items),
+  getImages(galleryType: string): Observable<Image[]> {
+    const galleryRef = ref(this.storage, `gs://forest-bjorn-photography.appspot.com/${galleryType}`);
+
+    return from(listAll(galleryRef)).pipe(
+      mergeMap((result) => from(result.items.sort((a, b) => a.name.localeCompare(b.name)))),
       mergeMap((itemRef) =>
-        from(getDownloadURL(itemRef)).pipe(map((url) => ({ src: url, alt: 'Drone photo' } as Image)))
+        from(getDownloadURL(itemRef)).pipe(map((url) => ({ src: url, alt: `${galleryType} photo` } as Image)))
       ),
-      toArray() 
+      toArray()
     );
   }
 }
