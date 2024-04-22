@@ -1,6 +1,6 @@
 @if(showInfo){
 <div class="info-sections">
-  <mcui-info-section>
+  <mcui-info-section [image]="vehicles">
     <div info-text>
       <h2>Our Mission</h2>
       <p>
@@ -16,7 +16,7 @@
       <img [src]="vehicles.src" [alt]="vehicles.alt" />
     </div>
   </mcui-info-section>
-  <mcui-info-section>
+  <mcui-info-section [image]="gear">
     <div info-text>
       <h2>Our Gear</h2>
       <p>

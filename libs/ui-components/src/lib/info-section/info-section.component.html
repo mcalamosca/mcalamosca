@@ -4,7 +4,10 @@
       <ng-content select="[info-text]"></ng-content>
     </div>
     <div class="image-area">
-      <ng-content select="[info-image]"></ng-content>
+      <div (click)="openLightbox(image)">
+        <ng-content select="[info-image]"></ng-content>
+      </div>
     </div>
   </div>
 </div>
+<ng-template #lightboxContainer></ng-template>
