@@ -24,7 +24,7 @@ export class AppEffects {
   setGalleryType$ = createEffect(() =>
     this.actions$.pipe(
       ofType(setGalleryType),
-      map(({ galleryType }) => loadImages())
+      map(() => loadImages())
     )
   );
 
