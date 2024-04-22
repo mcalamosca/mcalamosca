@@ -3,8 +3,8 @@
     display: flex;
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.6);
-    padding: 20px;
-    margin: 20px 0;
+    padding: 1.25rem;
+    margin: 1.25rem 0;
   }
 
   .content-area {
@@ -17,7 +17,7 @@
 
   .text-area {
     flex: 1;
-    padding: 20px;
+    padding: 1.25rem;
   }
 
   @media (max-width: 768px) {
