@@ -27,3 +27,4 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_FOREST_BJORN_PHOTOGRAPHY }}'
           channelId: live
           projectId: forest-bjorn-photography
+          target: forest-bjorn
