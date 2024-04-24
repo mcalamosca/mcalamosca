@@ -8,6 +8,10 @@ name: Forest Bjorn Deploy to Firebase Hosting on merge
       - main
     paths:
       - 'apps/forest-bjorn/**'
+permissions:
+  checks: write
+  contents: read
+  pull-requests: write
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
@@ -17,11 +21,10 @@ jobs:
         run: npm install
       - name: Build Production
         run: npx nx run forest-bjorn:build:production
-      - name: Set firebase to use forst-bjorn
-        run: npx firebase use forest-bjorn
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_FOREST_BJORN_PHOTOGRAPHY }}'
           channelId: live
           projectId: forest-bjorn-photography
+          target: forest-bjorn
