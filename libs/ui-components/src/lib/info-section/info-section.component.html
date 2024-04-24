@@ -1,13 +1,22 @@
 <div class="info-section">
   <div class="content-area">
-    <div class="text-area">
-      <ng-content select="[info-text]"></ng-content>
-    </div>
-    <div class="image-area">
-      <div (click)="openLightbox(image)">
-        <ng-content select="[info-image]"></ng-content>
+    <ng-container *ngIf="imageFirst; else textFirst">
+      <div class="image-area" (click)="openLightbox(image)">
+        <ng-container *ngTemplateOutlet="infoImage"></ng-container>
       </div>
-    </div>
+      <div class="text-area">
+        <ng-container *ngTemplateOutlet="infoText"></ng-container>
+      </div>
+    </ng-container>
+
+    <ng-template #textFirst>
+      <div class="text-area">
+        <ng-container *ngTemplateOutlet="infoText"></ng-container>
+      </div>
+      <div class="image-area" (click)="openLightbox(image)">
+        <ng-container *ngTemplateOutlet="infoImage"></ng-container>
+      </div>
+    </ng-template>
   </div>
 </div>
 <ng-template #lightboxContainer></ng-template>

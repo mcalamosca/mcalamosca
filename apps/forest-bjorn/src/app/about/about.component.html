@@ -1,7 +1,7 @@
 @if(showInfo){
 <div class="info-sections">
   <mcui-info-section [image]="vehicles">
-    <div info-text>
+    <ng-template #infoText>
       <h2>Our Mission</h2>
       <p>
         At Forest Björn, we are passionate about unveiling the hidden beauty of remote landscapes that are beyond the
@@ -11,13 +11,13 @@
         surroundings. Our dedication lies in preserving these moments and showcasing the earth’s spectacular diversity
         through our lenses.
       </p>
-    </div>
-    <div info-image>
+    </ng-template>
+    <ng-template #infoImage>
       <img [src]="vehicles.src" [alt]="vehicles.alt" />
-    </div>
+    </ng-template>
   </mcui-info-section>
-  <mcui-info-section [image]="gear">
-    <div info-text>
+  <mcui-info-section [image]="gear" [imageFirst]="false">
+    <ng-template #infoText>
       <h2>Our Gear</h2>
       <p>
         To navigate and photograph the challenging terrains of remote areas, we employ a robust array of specialized
@@ -27,10 +27,10 @@
         conditions. Our navigation is enhanced by GPX mapping and live location tracking, ensuring that we are always
         well-prepared and precisely positioned to capture the perfect shot.
       </p>
-    </div>
-    <div info-image>
+    </ng-template>
+    <ng-template #infoImage>
       <img [src]="gear.src" [alt]="gear.alt" />
-    </div>
+    </ng-template>
   </mcui-info-section>
 </div>
 }
