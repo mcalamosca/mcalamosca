@@ -5,9 +5,7 @@ name: Forest Bjorn Deploy to Firebase Hosting on merge
 'on':
   push:
     branches:
-      - main
-    paths:
-      - 'apps/forest-bjorn/**'
+      - forest-bjorn
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
