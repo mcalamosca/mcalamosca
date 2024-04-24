@@ -5,7 +5,9 @@ name: Davide Sauce Deploy to Firebase Hosting on merge
 'on':
   push:
     branches:
-      - davide
+      - main
+    paths:
+      - 'apps/davide-sauce/**'
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
