@@ -1,0 +1,44 @@
+:host {
+  .info-section {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 1.25rem;
+    margin: 1.25rem 0;
+  }
+
+  .content-area {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    // max-width: 1200px;
+    width: 100%;
+  }
+
+  .text-area {
+    flex: 1;
+    padding: 1.25rem;
+  }
+
+  @media (max-width: 768px) {
+    .content-area {
+      flex-direction: column;
+    }
+    .text-area,
+    .image-area {
+      padding: 10px;
+    }
+  }
+}
+::ng-deep .image-area {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    max-height: 30vh;
+    width: auto;
+    max-width: 100%;
+    object-fit: cover;
+  }
+}

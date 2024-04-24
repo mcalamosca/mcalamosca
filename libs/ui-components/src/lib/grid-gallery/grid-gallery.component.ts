@@ -4,7 +4,7 @@ import { Component, Input, OnDestroy, OnInit, ViewChild, ViewContainerRef } from
 import { MatGridListModule } from '@angular/material/grid-list';
 import { Subscription, map } from 'rxjs';
 import { GridGalleryItemComponent } from './grid-gallery-item/grid-gallery-item.component';
-import { LightboxComponent } from './lightbox/lightbox.component';
+import { LightboxComponent } from '../lightbox/lightbox.component';
 
 export interface Image {
   src: string;

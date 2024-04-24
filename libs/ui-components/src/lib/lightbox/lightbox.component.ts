@@ -1,7 +1,7 @@
 import { Component, ElementRef, EventEmitter, HostListener, Input, Output, ViewChild } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { Image } from '../grid-gallery.component';
+import { Image } from '../grid-gallery/grid-gallery.component';
 
 @Component({
   selector: 'mcui-lightbox',

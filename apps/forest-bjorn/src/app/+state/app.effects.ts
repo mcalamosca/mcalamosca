@@ -13,7 +13,7 @@ export class AppEffects {
       ofType(loadImages),
       withLatestFrom(this.store.select(selectCurrentGalleryType)),
       switchMap(([_, galleryType]) =>
-        this.firebaseService.getImages(galleryType).pipe(
+        this.firebaseService.getGalleryImages(galleryType).pipe(
           map((images) => loadImagesSuccess({ images })),
           catchError((error) => of(loadImagesFailure({ error })))
         )

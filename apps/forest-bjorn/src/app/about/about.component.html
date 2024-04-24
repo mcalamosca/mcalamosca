@@ -1,1 +1,36 @@
-<p>about works!</p>
+@if(showInfo){
+<div class="info-sections">
+  <mcui-info-section [image]="vehicles">
+    <div info-text>
+      <h2>Our Mission</h2>
+      <p>
+        At Forest Björn, we are passionate about unveiling the hidden beauty of remote landscapes that are beyond the
+        reach of conventional vehicles. Our mission is to capture the untouched and less traveled areas, bringing their
+        unique stories and breathtaking beauty to the forefront through stunning photography. We specialize in rural
+        properties and wild areas, focusing on locations that offer unexplored vistas and exceptional natural
+        surroundings. Our dedication lies in preserving these moments and showcasing the earth’s spectacular diversity
+        through our lenses.
+      </p>
+    </div>
+    <div info-image>
+      <img [src]="vehicles.src" [alt]="vehicles.alt" />
+    </div>
+  </mcui-info-section>
+  <mcui-info-section [image]="gear">
+    <div info-text>
+      <h2>Our Gear</h2>
+      <p>
+        To navigate and photograph the challenging terrains of remote areas, we employ a robust array of specialized
+        equipment. Our Mavic Drones provide us with the capability to capture aerial views and scout locations that are
+        otherwise inaccessible. The rugged Can Am Commander allows us to traverse rough terrains safely and efficiently.
+        With the Sony Alpha Mirrorless cameras, we capture high-resolution, detailed images even in the most demanding
+        conditions. Our navigation is enhanced by GPX mapping and live location tracking, ensuring that we are always
+        well-prepared and precisely positioned to capture the perfect shot.
+      </p>
+    </div>
+    <div info-image>
+      <img [src]="gear.src" [alt]="gear.alt" />
+    </div>
+  </mcui-info-section>
+</div>
+}
