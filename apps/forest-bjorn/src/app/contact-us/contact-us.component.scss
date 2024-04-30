@@ -1,0 +1,33 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+mat-card {
+  max-width: 500px;
+  padding: 20px;
+}
+mat-form-field {
+  width: 100%;
+  margin-bottom: 16px;
+  padding-top: 8px;
+}
+
+.mat-input-element {
+  padding: 10px; /* Add some padding around the input element */
+}
+
+mat-input-placeholder {
+  font-size: 1rem; /* Adjust the font size of the placeholder text */
+}
+
+mat-card-actions {
+  padding: 10px;
+}
+.input-label {
+  font-weight: bold;
+  margin-bottom: 4px;
+  display: block;
+}

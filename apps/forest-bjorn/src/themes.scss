@@ -206,6 +206,12 @@ $my-dark-theme: mat.define-dark-theme(
   .mat-mdc-menu-item {
     text-align: center !important;
   }
+
+  //Inputs
+  $input-label-color: mat.get-theme-color($theme, accent, 100);
+  .input-label {
+    color: $input-label-color;
+  }
 }
 @include mat.core-theme($my-dark-theme);
 @include mat.button-theme($my-dark-theme);
@@ -213,6 +219,67 @@ $my-dark-theme: mat.define-dark-theme(
 @include mat.sidenav-theme($my-dark-theme);
 @include mat.toolbar-theme($my-dark-theme);
 @include mat.progress-spinner-theme($my-dark-theme);
+@include mat.icon-theme($my-dark-theme);
+@include mat.checkbox-theme($my-dark-theme);
+@include mat.input-theme($my-dark-theme);
+@include mat.card-theme($my-dark-theme);
+@include mat.menu-theme($my-dark-theme);
+@include mat.tabs-theme($my-dark-theme);
+@include mat.slider-theme($my-dark-theme);
+@include mat.dialog-theme($my-dark-theme);
+@include mat.snack-bar-theme($my-dark-theme);
+@include mat.expansion-theme($my-dark-theme);
+@include mat.tooltip-theme($my-dark-theme);
+@include mat.select-theme($my-dark-theme);
+@include mat.autocomplete-theme($my-dark-theme);
+@include mat.radio-theme($my-dark-theme);
+@include mat.form-field-theme($my-dark-theme);
+@include mat.progress-bar-theme($my-dark-theme);
+@include mat.chips-theme($my-dark-theme);
+@include mat.table-theme($my-dark-theme);
+@include mat.paginator-theme($my-dark-theme);
+@include mat.sort-theme($my-dark-theme);
+@include mat.datepicker-theme($my-dark-theme);
+@include mat.button-toggle-theme($my-dark-theme);
+@include mat.slide-toggle-theme($my-dark-theme);
+@include mat.grid-list-theme($my-dark-theme);
+@include mat.stepper-theme($my-dark-theme);
+@include mat.tree-theme($my-dark-theme);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @include customizations($my-dark-theme);
 

@@ -1,1 +1,48 @@
-<p>contact-us works!</p>
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+  <mat-card>
+    <mat-card-content>
+      <mat-card-title>Interested in Our Services?</mat-card-title>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Inquiry Type</mat-label>
+        <select matNativeControl matInput formControlName="inquiryType" required>
+          <option value="">Select an option</option>
+          <option value="realEstateDrone">Real Estate Drone Photography (Remote Areas)</option>
+          <option value="drone">Drone Photography</option>
+          <option value="portrait">Portrait Photography</option>
+          <option value="family">Family Photography</option>
+          <option value="pet">Pet Photography</option>
+        </select>
+        <mat-error *ngIf="contactForm.get('inquiryType')?.hasError('required')">
+          Please select an inquiry type
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" required />
+        <mat-error *ngIf="contactForm.get('name')?.hasError('required')"> Please enter your name </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" required email />
+        <mat-error *ngIf="contactForm.get('email')?.hasError('required')"> Please enter your email </mat-error>
+        <mat-error *ngIf="contactForm.get('email')?.hasError('email')"> Please enter a valid email </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Phone Number</mat-label>
+        <input matInput formControlName="phoneNumber" required />
+        <mat-error *ngIf="contactForm.get('phoneNumber')?.hasError('required')">
+          Please enter your phone number
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Message</mat-label>
+        <textarea matInput formControlName="message" required></textarea>
+        <mat-error *ngIf="contactForm.get('message')?.hasError('required')"> Please enter your message </mat-error>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions [align]="'end'">
+      <button [disabled]="!contactForm.valid" mat-raised-button color="primary" type="submit">Submit</button>
+    </mat-card-actions>
+  </mat-card>
+</form>
