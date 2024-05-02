@@ -1,31 +1,32 @@
-<div class="video-background">
-  <video
-    playsinline
-    autoplay
-    loop
-    type="video/mp4"
-    [muted]="true"
-    [src]="bgVideoUrl"
-    codecs="avc1.4d002a, mp4a.40.2"
-  ></video>
-  <mat-sidenav-container>
-    <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [mode]="mode" [opened]="opened" [position]="'end'">
-      <mat-icon class="chevron" (click)="drawer.toggle()">chevron_right</mat-icon>
-      <mat-nav-list>
-        @for (item of navItems; track item.children) {
-        <a mat-list-item [routerLink]="item.path" (click)="drawer.toggle()">{{ item.label }}</a>
-        @for (child of item.children; track child.label) {
-        <a class="sub-item" mat-list-item [routerLink]="child.path" (click)="drawer.toggle()">{{ child.label }}</a
-        >} }
-      </mat-nav-list>
-    </mat-sidenav>
-    <mat-sidenav-content>
+<mat-sidenav-container>
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [mode]="mode" [opened]="opened" [position]="'end'">
+    <mat-icon class="chevron" (click)="drawer.toggle()">chevron_right</mat-icon>
+    <mat-nav-list>
+      @for (item of navItems; track item.children) {
+      <a mat-list-item [routerLink]="item.path" (click)="drawer.toggle()">{{ item.label }}</a>
+      @for (child of item.children; track child.label) {
+      <a class="sub-item" mat-list-item [routerLink]="child.path" (click)="drawer.toggle()">{{ child.label }}</a
+      >} }
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content
+    ><div class="video-background">
+      <video
+        playsinline
+        autoplay
+        loop
+        type="video/mp4"
+        [muted]="true"
+        [src]="bgVideoUrl"
+        codecs="avc1.4d002a, mp4a.40.2"
+      ></video>
+    </div>
+    <div class="main-wrapper">
       <mcui-nav-header
         [align]="'flex-start'"
         [appName]="appName"
         [subtitle]="subtitle"
         [navItems]="navItems"
-        [enableAuth]="true"
         [user]="user"
         (authAction)="authAction($event)"
         (toggleSidenav)="drawer.toggle()"
@@ -33,6 +34,6 @@
       <main>
         <router-outlet></router-outlet>
       </main>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-</div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

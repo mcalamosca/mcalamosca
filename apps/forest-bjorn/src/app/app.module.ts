@@ -22,7 +22,7 @@ import { appRoutes } from './app.routes';
 import { LandingComponent } from './landing/landing.component';
 
 @NgModule({
-  declarations: [AppComponent, LandingComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

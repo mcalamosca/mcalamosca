@@ -30,11 +30,7 @@
             "output": "/assets/images"
           }
         ],
-        "styles": [
-          "apps/forest-bjorn/src/styles.scss",
-          "apps/forest-bjorn/src/themes.scss",
-          "node_modules/firebaseui/dist/firebaseui.css"
-        ],
+        "styles": ["apps/forest-bjorn/src/styles.scss", "apps/forest-bjorn/src/themes.scss"],
         "scripts": []
       },
       "configurations": {

@@ -22,8 +22,6 @@ jobs:
         run: npm install
       - name: Build Production
         run: npx nx run davide-sauce:build:production
-      - name: Set firebase to use davide-sauce
-        run: npx firebase use davide-sauce
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
