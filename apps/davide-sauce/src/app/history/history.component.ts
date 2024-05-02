@@ -2,8 +2,9 @@ import { CommonModule } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { GridGalleryComponent, fadeIn } from '@mcalamosca/ui-components';
+import { GridGalleryComponent, InfoSectionComponent, fadeIn } from '@mcalamosca/ui-components';
 import { historyCards } from '../../assets/history-cards';
+import {MatIconModule} from '@angular/material/icon';
 
 interface HistoryCard {
   title: string;
@@ -19,7 +20,7 @@ interface Image {
 @Component({
   selector: 'ds-history',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatButtonModule, GridGalleryComponent],
+  imports: [CommonModule, MatCardModule, MatButtonModule, GridGalleryComponent, InfoSectionComponent, MatIconModule],
   templateUrl: './history.component.html',
   styleUrl: './history.component.scss',
   animations: [fadeIn],

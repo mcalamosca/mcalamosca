@@ -19,6 +19,18 @@ export const historyCards = [
         src: "assets/images/history/palmiera.jpg",
         alt: "Palmiera Calamosca in High School",
       },
+      {
+        src: "assets/images/history/Sheep-on-Road-Umbria-1986.jpg",
+        alt: "Sheep on Road Umbria 1986",
+      },
+      {
+        src: "assets/images/history/senigallia beach fisherman.jpg",
+        alt: "Senigallia beach fisherman",
+      },
+      {
+        src: "assets/images/history/Serafina-&-Enzo- Vaccara 1960.jpg",
+        alt: "Serafina & Enzo Vaccara 1960",
+      },
     ],
   },
   {
@@ -31,28 +43,17 @@ export const historyCards = [
     expand: false,
     images: [
       {
-        src: "assets/images/history/Serafina-&-Enzo- Vaccara 1960.jpg",
-        alt: "Serafina & Enzo Vaccara 1960",
+        src: "assets/images/history/Thelma.Beppi.Polly.jpg",
+        alt: "Thelma Beppi Polly",
       },
       {
         src: "assets/images/history/micah-in-pot-age-2.jpg",
         alt: "Micah Age 2",
       },
-      {
-        src: "assets/images/history/Thelma.Beppi.Polly.jpg",
-        alt: "Thelma Beppi Polly",
-      },
+
       {
         src: "assets/images/history/David-Italy-1958.jpg",
         alt: "David Italy 1958",
-      },
-      {
-        src: "assets/images/history/Sheep-on-Road-Umbria-1986.jpg",
-        alt: "Sheep on Road Umbria 1986",
-      },
-      {
-        src: "assets/images/history/senigallia beach fisherman.jpg",
-        alt: "Senigallia beach fisherman",
       },
       {
         src: "assets/images/history/davide-pot.jpg",

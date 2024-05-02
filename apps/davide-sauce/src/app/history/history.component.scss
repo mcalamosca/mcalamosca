@@ -1,124 +1,102 @@
-.history-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  gap: 2rem;
-  text-align: left;
-  height: auto;
-  align-items: center;
+:host {
+  .history-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    text-align: left;
+    height: auto;
+    align-items: center;
+    margin: 0 1rem;
 
-  .subtitle {
-    text-align: center;
-  }
-  mat-card.full mat-card-content {
-    mcui-grid-gallery {
-      width: 100%;
-      flex-direction: column;
+    .subtitle {
+      text-align: center;
+    }
+    mat-card.full mat-card-content {
+      mcui-grid-gallery {
+        width: 100%;
+        flex-direction: column;
+      }
+    }
+    .round {
+      border-radius: 1rem;
+
+      img {
+        max-width: fit-content;
+      }
+    }
+    mat-card {
+      max-width: 100%;
+      mat-card-content {
+        display: flex;
+      }
+      &.full {
+        mat-card-content {
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          gap: 1rem;
+          .close-button {
+            position: absolute;
+            top: 0;
+            right: 0;
+          }
+          h2 {
+            flex-basis: 100%;
+            text-align: center;
+            margin: unset;
+          }
+          .story {
+            margin: unset;
+          }
+          button {
+            flex-basis: 100%;
+            margin-top: auto;
+          }
+        }
+      }
+      mat-card-actions {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 576px) {
+      mat-card {
+        &.full {
+          mat-card-content {
+            flex-direction: column;
+            flex-wrap: nowrap;
+          }
+        }
+      }
+    }
+    @media (min-width: 577px) {
+      mat-card {
+        &.full {
+          mat-card-content {
+            flex-direction: column;
+            flex-wrap: nowrap;
+          }
+        }
+      }
+    }
+    @media (min-width: 900px) {
+      mat-card {
+        &.full {
+          max-width: calc(80% - 2rem);
+        }
+      }
+    }
+    @media (min-width: 1200px) {
+      mat-card {
+        &.full {
+          max-width: calc(70% - 2rem);
+        }
+      }
     }
   }
-  .round {
+}
+::ng-deep {
+  .info-section {
     border-radius: 1rem;
-
-    img {
-      max-width: fit-content;
-    }
-  }
-  mat-card {
-    max-width: 100%;
-    mat-card-content {
-      display: flex;
-    }
-    &.full {
-      mat-card-content {
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        gap: 1rem;
-
-        h2 {
-          flex-basis: 100%;
-          text-align: center;
-          margin: unset;
-        }
-        .story {
-          margin: unset;
-        }
-        button {
-          flex-basis: 100%;
-          margin-top: auto;
-        }
-      }
-    }
-    &.small {
-      height: fit-content;
-      mat-card-content {
-        flex-direction: column;
-        justify-content: start;
-        align-items: center;
-        img,
-        h2,
-        p {
-          height: auto;
-        }
-        h2 {
-          text-align: center;
-        }
-        img {
-          object-fit: contain;
-          max-width: 100%;
-        }
-      }
-    }
-    mat-card-actions {
-      justify-content: center;
-    }
-  }
-
-  @media (max-width: 576px) {
-    mat-card {
-      &.full {
-        mat-card-content {
-          flex-direction: column;
-          flex-wrap: nowrap;
-        }
-      }
-      &.small {
-        max-width: calc(100% - 2rem);
-      }
-    }
-  }
-  @media (min-width: 577px) {
-    mat-card {
-      &.full {
-        mat-card-content {
-          flex-direction: column;
-          flex-wrap: nowrap;
-        }
-      }
-      &.small {
-        max-width: calc(80% - 2rem);
-      }
-    }
-  }
-  @media (min-width: 900px) {
-    mat-card {
-      &.full {
-        max-width: calc(80% - 2rem);
-      }
-      &.small {
-        max-width: calc(50% - 2rem);
-      }
-    }
-  }
-  @media (min-width: 1200px) {
-    mat-card {
-      &.full {
-        max-width: calc(70% - 2rem);
-      }
-      &.small {
-        max-width: calc(33% - 2rem);
-      }
-    }
   }
 }
