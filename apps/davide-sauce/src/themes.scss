@@ -186,6 +186,10 @@ $my-dark-theme: mat.define-dark-theme(
   .accent {
     color: mat.get-theme-color($theme, accent, 500-contrast);
   }
+
+  .info-section {
+    background-color: mat.get-theme-color($theme, primary, 600, 0.75) !important;
+  }
 }
 @include mat.core-theme($my-dark-theme);
 @include mat.button-theme($my-dark-theme);

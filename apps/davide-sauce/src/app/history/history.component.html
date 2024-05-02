@@ -1,28 +1,39 @@
 <div class="history-container" [@fadeIn]>
-  <ng-container *ngFor="let card of historyCards">
+  <ng-container *ngFor="let card of historyCards; let i = index">
     <ng-container *ngIf="card.expand; else summary">
       <mat-card class="full round">
         <mat-card-content>
+          <div class="close-button">
+            <button mat-icon-button (click)="flipCard(card)">
+              <mat-icon>close</mat-icon>
+            </button>
+          </div>
           <h2>{{ card.title }}</h2>
           <div class="story">
             <p *ngFor="let paragraph of card.paragraphs">{{ paragraph }}</p>
           </div>
           <mcui-grid-gallery [images]="card.images" [colsMax]="3"></mcui-grid-gallery>
-          <button mat-raised-button color="primary" (click)="flipCard(card)">Go Back</button>
         </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" (click)="flipCard(card)">Go Back</button>
+        </mat-card-actions>
       </mat-card>
     </ng-container>
     <ng-template #summary>
-      <mat-card class="small round" [ngStyle]="showExpandedOnly(card)">
-        <mat-card-content>
+      <mcui-info-section
+        [image]="{ src: card.images[0].src, alt: card.images[0].alt }"
+        [imageFirst]="i % 2 === 0"
+        [ngStyle]="showExpandedOnly(card)"
+      >
+        <ng-template #infoText>
           <h2>{{ card.title }}</h2>
           <p>{{ card.summary }}</p>
-          <img [src]="card.images[0].src" [alt]="card.images[0].alt" (click)="flipCard(card)" />
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-raised-button color="primary" (click)="flipCard(card)">Learn More</button>
-        </mat-card-actions>
-      </mat-card>
+          <button (click)="flipCard(card)" mat-raised-button color="primary">Read More</button>
+        </ng-template>
+        <ng-template #infoImage>
+          <img [src]="card.images[0].src" [alt]="card.images[0].alt" />
+        </ng-template>
+      </mcui-info-section>
     </ng-template>
   </ng-container>
 </div>
