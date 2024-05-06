@@ -172,11 +172,12 @@ $my-dark-theme: mat.define-dark-theme(
     }
   }
 
-  $card-color: mat.get-theme-color($theme, primary, 600);
+  $card-color: mat.get-theme-color($theme, primary, 700);
   $card-text-color: mat.get-theme-color($theme, primary, 600-contrast);
+  $card-background-color: rgb(red($card-color), green($card-color), blue($card-color), 0.75);
 
   mat-card {
-    background-color: rgb(red($card-color), green($card-color), blue($card-color), 0.75) !important;
+    background-color: $card-background-color !important;
     .overlay-text {
       color: $card-text-color;
     }
@@ -212,6 +213,15 @@ $my-dark-theme: mat.define-dark-theme(
   .input-label {
     color: $input-label-color;
   }
+  .content {
+    background: $card-background-color;
+  }
+
+  .portfolio-icons {
+    a {
+      color: mat.get-theme-color($theme, primary, 500-contrast);
+    }
+  }
 }
 @include mat.core-theme($my-dark-theme);
 @include mat.button-theme($my-dark-theme);
@@ -245,41 +255,6 @@ $my-dark-theme: mat.define-dark-theme(
 @include mat.grid-list-theme($my-dark-theme);
 @include mat.stepper-theme($my-dark-theme);
 @include mat.tree-theme($my-dark-theme);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @include customizations($my-dark-theme);
 

@@ -1,35 +1,88 @@
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  // height: 100vh;
-  margin: 0 auto;
-  padding: 1rem;
-  box-sizing: border-box;
-}
+:host {
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+  .content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+    font-size: 1.2rem;
+    text-align: center;
+    width: 90%;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  .divider {
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #fff, transparent);
+    margin: 2rem 0;
+  }
+  .portfolio-icons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    min-width: 90%;
 
-.quote {
-  padding: 2rem;
-  background: rgba(0, 0, 0, 0.4); /* Darker background for better readability */
-  color: #fff; /* White text color */
-  font-size: 1.2rem;
-  text-align: center;
-  max-width: 90%; /* Responsive max-width */
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Subtle box shadow */
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Text shadow for better visibility on contrasting backgrounds */
-}
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.2);
+      transition: background-color 0.3s ease;
 
-.divider {
-  border: none;
-  height: 2px;
-  background: linear-gradient(to right, transparent, #fff, transparent); /* Stylish gradient divider */
-  margin: 2rem 0;
-}
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.4);
+      }
 
-@media (max-width: 768px) {
-  .quote {
-    font-size: 1rem; /* Smaller font size for mobile devices */
-    padding: 1.5rem;
+      mat-icon {
+        font-size: 48px;
+        width: auto;
+        height: auto;
+      }
+    }
+  }
+  .show-more-icon {
+    font-size: 48px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    height: 30px;
+    width: 40px;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  @media (max-width: 768px) {
+    .quote {
+      font-size: 1rem;
+      padding: 1.5rem;
+    }
+
+    .portfolio-icons {
+      a {
+        width: 70px;
+        height: 70px;
+
+        mat-icon {
+          font-size: 36px;
+        }
+      }
+    }
+    .show-more-icon {
+      font-size: 36px;
+    }
   }
 }
