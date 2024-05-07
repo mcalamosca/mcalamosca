@@ -14,13 +14,13 @@ jobs:
     if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@main
       - name: Install Dependencies
         run: npm install
       - name: Build Production and Generate Sitemap
         run: |
           npx nx run forest-bjorn:build:production
-          node ./tools/sitemap.js --domain=https://forestbjorn.com --routes=./apps/forest-bjorn/src/app/app.routes.ts --out=./dist/apps/forest-bjorn/browser
+          node ./tools/sitemap.js --domain=https://forestbjorn.com --routes=../apps/forest-bjorn/src/app/app.routes.ts --out=./dist/apps/forest-bjorn/browser
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'

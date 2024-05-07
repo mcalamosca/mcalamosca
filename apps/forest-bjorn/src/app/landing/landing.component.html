@@ -1,13 +1,20 @@
 <div class="container">
-  <div class="quote" (click)="showMore = !showMore">
-    Welcome to Forest Bjorn Photography! @if(showMore){
-    <hr class="divider" />
-    Explore a unique collection that ranges from serene landscapes and vibrant portraits to breathtaking aerial views of
-    wilderness real estate.
-    <hr class="divider" />
-    Each photograph is a window into the diverse beauty of our world, inviting you to pause, explore, and connect with
-    the scenes captured through my lens. Enjoy your journey through each gallery, where every shot tells a story. }
-    <br />
-    <mat-icon>{{ showMore ? 'arrow_drop_up' : 'arrow_drop_down' }}</mat-icon>
+  <div class="content">
+    <div class="portfolio-icons">
+      <a [routerLink]="['/portfolio', 'drone']"><mat-icon>flight</mat-icon></a>
+      <a [routerLink]="['/portfolio', 'portrait']"><mat-icon>face</mat-icon></a>
+      <a [routerLink]="['/portfolio', 'pets']"><mat-icon>pets</mat-icon></a>
+      <a [routerLink]="['/portfolio', 'misc']"><mat-icon>category</mat-icon></a>
+    </div>
+    <div *ngIf="showMore">
+      Welcome to Forest Bjorn Photography
+      <hr class="divider" />
+      Explore a unique collection that ranges from serene landscapes and vibrant portraits to breathtaking aerial views
+      of wilderness real estate.
+      <hr class="divider" />
+      Each photograph is a window into the diverse beauty of our world, inviting you to pause, explore, and connect with
+      the scenes captured through my lens. Enjoy your journey through each gallery, where every shot tells a story.
+    </div>
+    <mat-icon class="show-more-icon" (click)="showMore = !showMore">{{ showMore ? 'arrow_drop_up' : 'arrow_drop_down' }}</mat-icon>
   </div>
 </div>
