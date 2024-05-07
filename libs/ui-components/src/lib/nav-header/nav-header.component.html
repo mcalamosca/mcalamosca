@@ -61,6 +61,7 @@
       } @else {
       <a
         [routerLink]="item.path"
+        [routerLinkActiveOptions]="{ exact: true }"
         routerLinkActive="active"
         mat-button
         class="nav-item-under"
