@@ -51,6 +51,9 @@ export class NavHeaderComponent implements OnInit {
   @Input() user!: User | null;
   @Output() authAction = new EventEmitter<'login' | 'logout'>();
 
+  //ecwid cart
+  @Input() ecwidCart = false;
+
   //constructor with breakpoint observer to determine if the sidenav should be open or closed
   constructor(private breakpointObserver: BreakpointObserver) {}
 

@@ -19,10 +19,12 @@
         [subNav]="true"
         [leftImageUrl]="leftImageUrl"
         [rightImageUrl]="rightImageUrl"
+        [ecwidCart]="true"
         (toggleSidenav)="drawer.toggle()"
       ></mcui-nav-header>
       <main>
         <router-outlet></router-outlet>
+        <div [hidden]="!showShop" id="my-store-103756056"></div>
       </main>
       <mcui-footer
         [companyName]="footerName"

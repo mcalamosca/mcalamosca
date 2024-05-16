@@ -5,7 +5,8 @@ import { HistoryComponent } from './history/history.component';
 import { LandingComponent } from './landing/landing.component';
 import { ProductsComponent } from './products/products.component';
 import { RecipesComponent } from './recipes/recipes.component';
-import {TermsOfServiceComponent} from './terms-of-service/terms-of-service.component';
+import { ShopComponent } from './shop/shop.component';
+import { TermsOfServiceComponent } from './terms-of-service/terms-of-service.component';
 
 //Order by SEO priority for sitemap.js script
 export const appRoutes: Routes = [
@@ -30,12 +31,16 @@ export const appRoutes: Routes = [
     component: RecipesComponent,
   },
   {
+    path: 'shop',
+    component: ShopComponent,
+  },
+  {
     path: 'contact-us',
     component: ContactUsComponent,
   },
   {
     path: 'terms-of-service',
-    component: TermsOfServiceComponent
+    component: TermsOfServiceComponent,
   },
   {
     path: '**',

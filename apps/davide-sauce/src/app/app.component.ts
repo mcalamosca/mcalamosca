@@ -1,6 +1,7 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { MatDrawerMode } from '@angular/material/sidenav';
+import { NavigationEnd, Router } from '@angular/router';
 import { NavItem } from '@mcalamosca/ui-components';
 
 @Component({
@@ -22,12 +23,21 @@ export class AppComponent implements OnInit {
     { label: 'History', path: '/history' },
     { label: 'Health', path: '/health' },
     { label: 'Products', path: '/products' },
+    { label: 'Shop', path: '/shop' },
     // { label: 'Recipes', path: '/recipes' },
     { label: 'Contact Us', path: '/contact-us' },
   ];
   mode: MatDrawerMode = 'side';
   opened = true;
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  showShop = false;
+
+  constructor(private breakpointObserver: BreakpointObserver, private router: Router) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.showShop = event.url === '/shop';
+      }
+    });
+  }
 
   ngOnInit() {
     this.breakpointObserver.observe([Breakpoints.XSmall, Breakpoints.Small]).subscribe((result) => {

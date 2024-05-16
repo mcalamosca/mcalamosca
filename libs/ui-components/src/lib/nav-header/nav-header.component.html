@@ -67,7 +67,11 @@
         class="nav-item-under"
       >
         {{ item.label }} </a
-      >}}
+      >}} @if(ecwidCart){
+      <div class="ecwid">
+        <div class="ec-cart-widget"></div>
+      </div>
+      }
     </mat-toolbar-row>
     }
   </mat-toolbar>

@@ -80,11 +80,13 @@
       align-items: center;
     }
   }
+  .ecwid {
+
+  }
 
   .menu-icon {
-    display: block; // Show menu icon on small screens
+    display: block;
   }
-  //subnav highlighting
   .active {
     background-color: rgb(81, 90, 65);
     color: white;
