@@ -19,7 +19,7 @@ jobs:
       - name: Build Production and Generate Sitemap
         run: |
           npx nx run davide-sauce:build:production
-          node ./tools/sitemap.js --domain=https://davidesauce.com --routes=./apps/davide-sauce/src/app/app.routes.ts --out=./dist/apps/davide-sauce/browser
+          node ./tools/sitemap.js --domain=https://davidesauce.com --routes=../apps/davide-sauce/src/app/app.routes.ts --out=./dist/apps/davide-sauce/browser
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
