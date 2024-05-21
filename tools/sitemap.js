@@ -8,7 +8,8 @@ example command:
       }
     }
 */
-
+const cwd = process.cwd(); // Get the current working directory
+console.log('Current working directory:', cwd);
 const fs = require('fs');
 const { resolve } = require('path');
 
