@@ -9,7 +9,7 @@ import { NavItem } from '@mcalamosca/ui-components';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  appName = "Davide's";
+  appName = "Davide";
   subtitle = 'All Natural Tomato Sauce';
   footerName = "Davide's All Natural Tomato Sauce";
   phoneNumber = '(412) 793-3527';
