@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   appName = 'Davide';
   subtitle = 'All Natural Tomato Sauce';
   footerName = "Davide's All Natural Tomato Sauce";
-  phoneNumber = '(412) 793-3527';
+  phoneNumber = '(412) 532-6155';
   sitemapUrl = '/sitemap.xml';
   termsOfServiceUrl = '/terms-of-service';
   leftImageUrl = '../assets/images/olive-left-white.png';
