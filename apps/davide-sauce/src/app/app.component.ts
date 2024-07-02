@@ -9,7 +9,7 @@ import { NavItem } from '@mcalamosca/ui-components';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  appName = "Davide";
+  appName = 'Davide';
   subtitle = 'All Natural Tomato Sauce';
   footerName = "Davide's All Natural Tomato Sauce";
   phoneNumber = '(412) 793-3527';
@@ -23,8 +23,9 @@ export class AppComponent implements OnInit {
     { label: 'Health', path: '/health' },
     { label: 'Products', url: 'https://store.davidesauce.com/collections/all' },
     // { label: 'Recipes', path: '/recipes' },
+    { label: 'News', url: 'https://store.davidesauce.com/blogs/news' },
     { label: 'Contact Us', url: 'https://store.davidesauce.com/pages/contact' },
-    { label: 'Store', url: 'https://store.davidesauce.com/', highlight: true}
+    { label: 'Store', url: 'https://store.davidesauce.com/', highlight: true },
   ];
   mode: MatDrawerMode = 'side';
   opened = true;
