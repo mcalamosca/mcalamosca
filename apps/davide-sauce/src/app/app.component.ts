@@ -24,6 +24,7 @@ export class AppComponent implements OnInit {
     { label: 'Products', path: '/products' },
     // { label: 'Recipes', path: '/recipes' },
     { label: 'Contact Us', path: '/contact-us' },
+    { label: 'Store', url: 'https://store.davidesauce.com/', highlight: true}
   ];
   mode: MatDrawerMode = 'side';
   opened = true;

@@ -58,16 +58,24 @@
           {{ child.label }}</button
         >}
       </mat-menu>
-      } @else {
+      } @else if (item.url) {
       <a
-        [routerLink]="item.path"
-        [routerLinkActiveOptions]="{ exact: true }"
-        routerLinkActive="active"
+        [href]="item.url"
         mat-button
         class="nav-item-under"
+        [class.highlighted]="item.highlight"
       >
         {{ item.label }} </a
-      >}}
+      >}@else {
+        <a
+          [routerLink]="item.path"
+          [routerLinkActiveOptions]="{ exact: true }"
+          routerLinkActive="active"
+          mat-button
+          class="nav-item-under"
+        >
+          {{ item.label }} </a
+        >}}
     </mat-toolbar-row>
     }
   </mat-toolbar>

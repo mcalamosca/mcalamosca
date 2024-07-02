@@ -11,8 +11,10 @@ import { RouterModule } from '@angular/router';
 
 export interface NavItem {
   label: string;
-  path: string;
+  path?: string;
   children?: NavItem[];
+  highlight?: boolean;
+  url?: string;
 }
 
 export type NavHeaderAlign = 'flex-start' | 'center' | 'flex-end' | 'custom';
