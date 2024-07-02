@@ -11,6 +11,8 @@ import { quotes } from '../../assets/quotes';
 interface Highlight {
   text: string;
   route?: string;
+  url?: string;
+  button?: boolean;
 }
 @Component({
   selector: 'ds-landing',
@@ -47,6 +49,11 @@ export class LandingComponent implements OnInit {
       text: 'Learn More about Health Benefits',
       route: '/health',
     },
+    {
+      text: 'Buy Now',
+      url: 'https://store.davidesauce.com/collections/all',
+      button: true
+    }
   ];
 
   visibleHighlights: Highlight[] = [];
@@ -55,6 +62,10 @@ export class LandingComponent implements OnInit {
     setTimeout(() => {
       this.fadeInHighlights();
     }, 4000);
+  }
+
+  goToUrl(link: string){
+    window.open(link, '_self');
   }
 
   fadeInHighlights() {

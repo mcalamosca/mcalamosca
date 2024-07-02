@@ -18,6 +18,10 @@
       text-decoration: none;
     }
   }
+  .buy-button {
+    font-size: 2rem;
+    padding: 2rem;
+  }
   //media query on small devices
   @media (max-width: 768px) {
     .highlights-container {

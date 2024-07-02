@@ -1,16 +1,22 @@
 <mcui-random-quote [quotes]="quotes"></mcui-random-quote>
 <div class="highlights-container">
   <ng-container *ngFor="let highlight of visibleHighlights; let i = index">
+    @if(highlight.route){
+    <ng-template
+      ><a @fadeIn class="highlight accent" [routerLink]="highlight.route">{{ highlight.text }}</a></ng-template
+    >
+
+    } @else if(highlight.url){
+    <button class="buy-button" mat-raised-button color="accent" (click)="goToUrl(highlight.url)" @fadeIn><a class="playfair-display">{{ highlight.text }}</a></button>
+    } @else {
     <span
-      *ngIf="!highlight.route; else linked"
+      *ngIf="!highlight.route"
       [ngClass]="highlight.route ? 'accent' : ''"
       class="highlight playfair-display"
       @fadeIn
     >
       {{ highlight.text }}</span
     >
-    <ng-template #linked
-      ><a @fadeIn class="highlight accent" [routerLink]="highlight.route">{{ highlight.text }}</a></ng-template
-    >
+    }
   </ng-container>
 </div>
