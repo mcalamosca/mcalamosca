@@ -7,6 +7,7 @@ export const products = [
     description:
       "A classic and versatile tomato sauce that's perfect for any dish.",
     contrastColor: "#dae7c9",
+    storeLink: 'https://store.davidesauce.com/products/original-tomato-sauce-26oz'
   },
   {
     name: "Garlic Tomato",
@@ -15,6 +16,7 @@ export const products = [
     bgColor: "#29341f",
     description: "Rich and aromatic, infused with the robust flavor of garlic.",
     contrastColor: "#dae7c9",
+    storeLink: 'https://store.davidesauce.com/products/garlic-tomato-sauce-26oz'
   },
   {
     name: "Basil Tomato",
@@ -24,6 +26,7 @@ export const products = [
     description:
       "Fresh and herby, featuring the light, peppery layers of basil.",
     contrastColor: "#dae7c9",
+    storeLink: 'https://store.davidesauce.com/products/sweet-basil-sauce-26oz'
   },
   {
     name: "Spicy Tomato",

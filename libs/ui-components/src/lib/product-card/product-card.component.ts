@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { fade, fadeIn } from '../animations';
 
@@ -10,7 +11,7 @@ export enum CardType {
 @Component({
   selector: 'mcui-product-card',
   standalone: true,
-  imports: [CommonModule, MatCardModule],
+  imports: [CommonModule, MatCardModule, MatButtonModule],
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.scss',
   animations: [fadeIn, fade],
@@ -19,6 +20,7 @@ export class ProductCardComponent {
   @Input() name = '';
   @Input() imageUrl = '';
   @Input() image2Url = '';
+  @Input() storeLink = '';
 
   @Input() bgColor = 'transparent';
   @Input() titleColor = '#000000';
@@ -38,6 +40,9 @@ export class ProductCardComponent {
     const b = parseInt(hex.slice(4, 6), 16);
 
     return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+  }
+  openStoreLink() {
+    window.open(this.storeLink, '_self');
   }
   showHideImage() {
     this.showImage = !this.showImage;

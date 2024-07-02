@@ -11,4 +11,9 @@
   <mat-card-footer>
     <p class="desc">{{ description }}</p></mat-card-footer
   >
+  @if(this.storeLink){
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="openStoreLink()">Buy Now</button>
+  </mat-card-actions>
+  }
 </mat-card>
