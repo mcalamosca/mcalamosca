@@ -2,7 +2,7 @@
   .history-container {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
     text-align: left;
     height: auto;
     align-items: center;
@@ -98,5 +98,8 @@
 ::ng-deep {
   .info-section {
     border-radius: 1rem;
+  }
+  mcui-info-section {
+    width: 90%;
   }
 }

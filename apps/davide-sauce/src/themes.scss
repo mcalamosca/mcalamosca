@@ -2,15 +2,14 @@
 
 @include mat.core();
 
-$dark-color: #000000;
+$dark-color: #121212;
 $light-color: #ffffff;
 
-$dark-primary-text:  rgba($dark-color, 0.87);
+$dark-primary-text: rgba($dark-color, 0.87);
 $dark-secondary-text: rgba($dark-color, 0.54);
 $dark-disabled-text: rgba($dark-color, 0.38);
 $dark-dividers: rgba($dark-color, 0.12);
 $dark-focused: rgba($dark-color, 0.12);
-
 
 $light-primary-text: rgba($light-color, 0.87);
 $light-secondary-text: rgba($light-color, 0.7);
@@ -34,23 +33,22 @@ $primary-palette: (
   A400: #ff6c6c,
   A700: #4a773c,
 
-  contrast:
-    (
-      50: $dark-primary-text,
-      100: $dark-primary-text,
-      200: $dark-primary-text,
-      300: $dark-secondary-text,
-      400: $dark-secondary-text,
-      500: $light-primary-text,
-      600: $light-primary-text,
-      700: $light-secondary-text,
-      800: $light-secondary-text,
-      900: $light-primary-text,
-      A100: $light-primary-text,
-      A200: $light-primary-text,
-      A400: $light-secondary-text,
-      A700: $light-primary-text,
-    ),
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-secondary-text,
+    400: $dark-secondary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-secondary-text,
+    800: $light-secondary-text,
+    900: $light-primary-text,
+    A100: $light-primary-text,
+    A200: $light-primary-text,
+    A400: $light-secondary-text,
+    A700: $light-primary-text,
+  ),
 );
 
 $accent-palette: (
@@ -69,23 +67,22 @@ $accent-palette: (
   A400: #f1daa3,
   A700: #d49703,
 
-  contrast:
-    (
-      50: $dark-primary-text,
-      100: $dark-primary-text,
-      200: $dark-primary-text,
-      300: $dark-secondary-text,
-      400: $dark-secondary-text,
-      500: $light-primary-text,
-      600: $light-primary-text,
-      700: $light-secondary-text,
-      800: $light-secondary-text,
-      900: $light-primary-text,
-      A100: $dark-primary-text,
-      A200: $light-primary-text,
-      A400: $light-secondary-text,
-      A700: $light-primary-text,
-    ),
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-secondary-text,
+    400: $dark-secondary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-secondary-text,
+    800: $light-secondary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-secondary-text,
+    A700: $light-primary-text,
+  ),
 );
 $my-primary: mat.define-palette($primary-palette);
 $my-accent: mat.define-palette($accent-palette);
@@ -151,8 +148,8 @@ $my-dark-theme: mat.define-dark-theme(
     }
   }
 
-  $card-color: mat.get-theme-color($theme, primary, 600);
-  $card-text-color: mat.get-theme-color($theme, primary, 600-contrast);
+  $card-color: mat.get-theme-color($theme, accent, 100);
+  $card-text-color: mat.get-theme-color($theme, accent, 100-contrast);
 
   mat-card {
     background-color: rgb(red($card-color), green($card-color), blue($card-color), 0.75) !important;
@@ -188,7 +185,11 @@ $my-dark-theme: mat.define-dark-theme(
   }
 
   .info-section {
-    background-color: mat.get-theme-color($theme, primary, 600, 0.75) !important;
+    background-color: rgb(red($card-color), green($card-color), blue($card-color), 0.75) !important;
+  }
+
+  .text-area {
+    color: $card-text-color;
   }
 }
 @include mat.core-theme($my-dark-theme);

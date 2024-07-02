@@ -21,9 +21,9 @@ export class AppComponent implements OnInit {
     { label: 'Home', path: '' },
     { label: 'History', path: '/history' },
     { label: 'Health', path: '/health' },
-    { label: 'Products', path: '/products' },
+    { label: 'Products', url: 'https://store.davidesauce.com/collections/all' },
     // { label: 'Recipes', path: '/recipes' },
-    { label: 'Contact Us', path: '/contact-us' },
+    { label: 'Contact Us', url: 'https://store.davidesauce.com/pages/contact' },
     { label: 'Store', url: 'https://store.davidesauce.com/', highlight: true}
   ];
   mode: MatDrawerMode = 'side';
