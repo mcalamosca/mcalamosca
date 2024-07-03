@@ -57,7 +57,7 @@ $accent-palette: (
   200: #ebd39d,
   300: #e4c177,
   400: #deaf59,
-  500: #d79d3b,
+  500: #dab661,
   600: #cf8b1d,
   700: #c77900,
   800: #bf6700,
@@ -169,6 +169,12 @@ $my-dark-theme: mat.define-dark-theme(
         color: inherit;
       }
     }
+  }
+  .mat-mdc-raised-button.mat-accent {
+    color: #333 !important;
+  }
+  .mdc-button-label {
+    font-family: 'Roboto', sans-serif !important;
   }
 
   $highlight-color: mat.get-theme-color($theme, primary, 500);

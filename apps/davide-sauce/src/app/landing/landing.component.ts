@@ -50,7 +50,7 @@ export class LandingComponent implements OnInit {
       route: '/health',
     },
     {
-      text: 'Buy Now',
+      text: 'Shop Now',
       url: 'https://store.davidesauce.com/collections/all',
       button: true
     }
@@ -72,7 +72,7 @@ export class LandingComponent implements OnInit {
     for (let i = 0; i < this.highlights.length; i++) {
       setTimeout(() => {
         this.visibleHighlights.push(this.highlights[i]);
-      }, i * 2000);
+      }, i * 1000);
     }
   }
 }
