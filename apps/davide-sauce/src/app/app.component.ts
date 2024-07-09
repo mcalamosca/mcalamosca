@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
     { label: 'History', path: '/history' },
     { label: 'Health', path: '/health' },
     { label: 'Products', url: 'https://store.davidesauce.com/collections/all' },
-    // { label: 'Recipes', path: '/recipes' },
+    { label: 'Recipes', url: 'https://store.davidesauce.com/blogs/recipes' },
     { label: 'News', url: 'https://store.davidesauce.com/blogs/news' },
     { label: 'Contact Us', url: 'https://store.davidesauce.com/pages/contact' },
     { label: 'Store', url: 'https://store.davidesauce.com/', highlight: true },
