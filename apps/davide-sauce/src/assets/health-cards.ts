@@ -2,7 +2,7 @@ export const healthCards = [
   {
     title: "Ingredients",
     content:
-      "When comparing ingredients among different sauces, it's essential to recognize the importance of ingredient quality and health implications. Regulations mandate that ingredients be listed by volume, offering an insight into what you're primarily consuming.",
+      "Many sauce producers use bitter pastes and sweeten them with sugar or corn syrup. Davide Sauces stand out by using vine-ripened, hand-selected naturally sweet whole tomatoes. We blend fresh produce into every sauce, cooked in extra virgin olive oil. Carrots add a natural sweetness, resulting in purity, simplicity, and digestibility.\n\nThousands have reported, “I can eat your sauce and it doesn’t bother me.” This has become a trademark of Davide Sauces. Our sauces are nutritionally approved and recommended by nutritionists, dietitians, faculty members at the University of Pittsburgh, and health-conscious foodies. As Ralph Waldo Emerson said, “The first wealth is health!”",
     imgSrc: "../../assets/images/ingredients.jpg",
     altText: "ingredients",
   },
