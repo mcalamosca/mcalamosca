@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
   termsOfServiceUrl = '/terms-of-service';
   leftImageUrl = '../assets/images/olive-left-white.png';
   rightImageUrl = '../assets/images/olive-right-white.png';
+  showOnlyContent = true;
   navItems: NavItem[] = [
     { label: 'Home', path: '' },
     { label: 'History', path: '/history' },

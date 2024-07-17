@@ -44,16 +44,16 @@ export class LandingComponent implements OnInit {
     },
     {
       text: 'Low Sodium',
-    },
-    {
-      text: 'Learn More about Health Benefits',
-      route: '/health',
-    },
-    {
-      text: 'Shop Now',
-      url: 'https://store.davidesauce.com/collections/all',
-      button: true
-    }
+    }, //,
+    // {
+    //   text: 'Learn More about Health Benefits',
+    //   route: '/health',
+    // },
+    // {
+    //   text: 'Explore Products',
+    //   url: 'https://store.davidesauce.com/collections/all',
+    //   button: true,
+    // },
   ];
 
   visibleHighlights: Highlight[] = [];
@@ -64,7 +64,7 @@ export class LandingComponent implements OnInit {
     }, 4000);
   }
 
-  goToUrl(link: string){
+  goToUrl(link: string) {
     window.open(link, '_self');
   }
 

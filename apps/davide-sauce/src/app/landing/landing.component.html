@@ -3,7 +3,7 @@
   <ng-container *ngFor="let highlight of visibleHighlights; let i = index">
     @if(highlight.route){<a @fadeIn class="highlight accent" [routerLink]="highlight.route">{{ highlight.text }}</a>
     } @else if(highlight.url){
-    <button class="buy-button" mat-raised-button color="accent" (click)="goToUrl(highlight.url)" @fadeIn>
+    <button class="buy-button" mat-stroked-button color="accent" (click)="goToUrl(highlight.url)" @fadeIn>
       <a class="playfair-display">{{ highlight.text }}</a>
     </button>
     } @else {
