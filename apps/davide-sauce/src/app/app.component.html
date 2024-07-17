@@ -1,46 +1,56 @@
-<div class="main-container">
-  <mat-sidenav-container>
-    <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [mode]="mode" [opened]="opened">
-      <mat-icon class="chevron_left" (click)="drawer.toggle()">chevron_left</mat-icon>
-      <mat-nav-list>
-        <ng-container *ngFor="let item of navItems">
-          @if(item.url){
+<ng-container *ngIf="showOnlyContent; else showFullLayout">
+  <div class="only-content">
+    <router-outlet></router-outlet>
+  </div>
+</ng-container>
+
+<ng-template #showFullLayout>
+  <div class="main-container">
+    <mat-sidenav-container>
+      <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [mode]="mode" [opened]="opened">
+        <mat-icon class="chevron_left" (click)="drawer.toggle()">chevron_left</mat-icon>
+        <mat-nav-list>
+          <ng-container *ngFor="let item of navItems">
+            @if(item.url){
             <a mat-list-item [href]="item.url">{{ item.label }}</a>
-          } @else {
-          <a mat-list-item [routerLink]="item.path" (click)="drawer.toggle()">{{ item.label }}</a>
-          <ng-container *ngFor="let child of item.children">
-            <a class="sub-item" mat-list-item [routerLink]="child.path" (click)="drawer.toggle()">{{ child.label }}</a>
+            } @else {
+            <a mat-list-item [routerLink]="item.path" (click)="drawer.toggle()">{{ item.label }}</a>
+            <ng-container *ngFor="let child of item.children">
+              <a class="sub-item" mat-list-item [routerLink]="child.path" (click)="drawer.toggle()">{{
+                child.label
+              }}</a>
+            </ng-container>
+            }
           </ng-container>
-        }
-        </ng-container>
-      </mat-nav-list>
-    </mat-sidenav>
-    <mat-sidenav-content>
-      <mcui-nav-header
-        [appName]="appName"
-        [subtitle]="subtitle"
-        [navItems]="navItems"
-        [subNav]="true"
-        [leftImageUrl]="leftImageUrl"
-        [rightImageUrl]="rightImageUrl"
-        (toggleSidenav)="drawer.toggle()"
-      ></mcui-nav-header>
-      <main>
-        <router-outlet></router-outlet>
-      </main>
-      <mcui-footer
-        [companyName]="footerName"
-        [phone]="phoneNumber"
-        [sitemapUrl]="sitemapUrl"
-        [termsOfServiceUrl]="termsOfServiceUrl"
-      >
-        <mcui-social-media-icons
-          [twitterId]="'davidesauce'"
-          [instagramId]="'davide_sauce'"
-          [facebookId]="'DavidePastaSauce'"
-          [youtubeId]="'UC1QjGXqBRrU6WlOtM0AXpnQ'"
-        ></mcui-social-media-icons>
-      </mcui-footer>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-</div>
+        </mat-nav-list>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <mcui-nav-header
+          [appName]="appName"
+          [subtitle]="subtitle"
+          [navItems]="navItems"
+          [subNav]="true"
+          [leftImageUrl]="leftImageUrl"
+          [rightImageUrl]="rightImageUrl"
+          (toggleSidenav)="drawer.toggle()"
+        ></mcui-nav-header>
+        <main>
+          <router-outlet></router-outlet>
+        </main>
+        <mcui-footer
+          [companyName]="footerName"
+          [phone]="phoneNumber"
+          [sitemapUrl]="sitemapUrl"
+          [termsOfServiceUrl]="termsOfServiceUrl"
+        >
+          <mcui-social-media-icons
+            [twitterId]="'davidesauce'"
+            [instagramId]="'davide_sauce'"
+            [facebookId]="'DavidePastaSauce'"
+            [youtubeId]="'UC1QjGXqBRrU6WlOtM0AXpnQ'"
+          ></mcui-social-media-icons>
+        </mcui-footer>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+</ng-template>
