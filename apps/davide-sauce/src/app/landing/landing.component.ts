@@ -49,11 +49,11 @@ export class LandingComponent implements OnInit {
     //   text: 'Learn More about Health Benefits',
     //   route: '/health',
     // },
-    {
-      text: 'Explore Products',
-      url: 'https://store.davidesauce.com/collections/all',
-      button: true,
-    },
+    // {
+    //   text: 'Explore Products',
+    //   url: 'https://store.davidesauce.com/collections/all',
+    //   button: true,
+    // },
   ];
 
   visibleHighlights: Highlight[] = [];
