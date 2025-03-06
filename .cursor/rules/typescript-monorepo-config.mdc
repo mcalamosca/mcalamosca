@@ -1,0 +1,147 @@
+---
+description: TypeScript Configuration for Monorepo
+globs: apps/*/tsconfig*.json, libs/*/tsconfig*.json
+alwaysApply: false
+---
+# TypeScript Configuration for Monorepo
+
+Best practices for configuring TypeScript in an Angular/Nx monorepo to avoid common build issues.
+
+<rule>
+name: typescript_monorepo_config
+description: Standards for TypeScript configuration in Angular/Nx monorepo projects
+filters:
+  # Match any tsconfig files in apps or libs directories
+  - type: file_path
+    pattern: "(apps|libs)/[^/]+/tsconfig.*\\.json$"
+  # Match file edit events
+  - type: event
+    pattern: "file_edit"
+
+actions:
+  - type: suggest
+    conditions:
+      - pattern: "\"composite\":\\s*true"
+        message: "The 'composite' flag in tsconfig files can cause build issues with Angular applications. Consider removing it."
+    
+  - type: suggest
+    conditions:
+      - pattern: "\"rootDir\":\\s*\"\\.\"" 
+        message: "Setting 'rootDir' to '.' in app tsconfig files can cause issues with imports from outside that directory. Consider removing this setting."
+
+  - type: inform
+    message: |
+      ## TypeScript Configuration Guidelines for Angular/Nx Monorepo
+
+      ### Common Issues to Avoid:
+      
+      1. **Avoid `composite: true` in application tsconfig files**
+         - This setting can cause the error: "Cannot destructure property 'pos' of 'file.referencedFiles[index]' as it is undefined"
+         - Only use it in library projects where project references are needed
+      
+      2. **Be careful with `rootDir` settings**
+         - Setting `rootDir: "."` in app configs can cause issues when importing from outside that directory
+         - For apps that import from libs, avoid setting rootDir or ensure it's set to the workspace root
+      
+      3. **Declaration settings**
+         - For application tsconfig.app.json, use `"declaration": false`
+         - For libraries, use `"declaration": true`
+      
+      4. **Managing generated files**
+         - Ensure `.js` and `.js.map` files are properly directed to output directories
+         - Add these files to `.gitignore` to prevent them from being committed
+         - Use the `outDir` setting to control where compiled files are placed
+      
+      ### Recommended Configuration:
+      
+      #### For Applications (apps/*/tsconfig.json):
+      ```json
+      {
+        "compilerOptions": {
+          "target": "es2022",
+          "useDefineForClassFields": false,
+          "forceConsistentCasingInFileNames": true,
+          "strict": true,
+          "noImplicitOverride": true,
+          "noPropertyAccessFromIndexSignature": true,
+          "noImplicitReturns": true,
+          "noFallthroughCasesInSwitch": true
+          // No rootDir or composite settings
+        },
+        "extends": "../../tsconfig.base.json",
+        // other settings...
+      }
+      ```
+      
+      #### For Application Build Config (apps/*/tsconfig.app.json):
+      ```json
+      {
+        "extends": "./tsconfig.json",
+        "compilerOptions": {
+          "outDir": "../../dist/out-tsc",
+          "types": [],
+          "declaration": false
+          // No rootDir or composite settings
+        },
+        "files": ["src/main.ts"],
+        "include": ["src/**/*.ts", "src/**/*.d.ts"],
+        "exclude": ["jest.config.ts", "src/**/*.test.ts", "src/**/*.spec.ts"]
+      }
+      ```
+      
+      #### For Libraries (libs/*/tsconfig.json):
+      ```json
+      {
+        "compilerOptions": {
+          // Library settings can use composite if needed
+          "composite": true,
+          "declaration": true,
+          // other settings...
+        },
+        "extends": "../../tsconfig.base.json"
+      }
+      ```
+      
+      ### Handling Generated Files
+      
+      Add these patterns to your `.gitignore` file to prevent generated files from being committed:
+      
+      ```
+      # Generated JavaScript files
+      **/*.js
+      **/*.js.map
+      # Except specific JS files that should be committed
+      !jest.config.js
+      !**/jest-global-mocks.js
+      
+      # Output directories
+      dist/
+      out-tsc/
+      ```
+
+examples:
+  - input: |
+      // Bad: Application tsconfig with composite and rootDir
+      {
+        "compilerOptions": {
+          "composite": true,
+          "rootDir": ".",
+          "declaration": true
+        }
+      }
+    output: |
+      // Good: Application tsconfig without problematic settings
+      {
+        "compilerOptions": {
+          "declaration": false
+          // No rootDir or composite
+        }
+      }
+
+metadata:
+  priority: high
+  version: 1.0
+  created: "2024-11-14"
+  author: "Claude"
+  issue_fixed: "Cannot destructure property 'pos' of 'file.referencedFiles[index]' as it is undefined"
+</rule> 

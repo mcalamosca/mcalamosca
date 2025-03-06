@@ -1,5 +1,6 @@
 @use '@angular/material' as mat;
 @use 'sass:map';
+@use 'sass:color';
 
 @include mat.core();
 
@@ -174,7 +175,12 @@ $my-dark-theme: mat.m2-define-dark-theme(
 
   $card-color: mat.get-theme-color($theme, 'primary', 20);
   $card-text-color: mat.get-theme-color($theme, 'primary', '30-contrast');
-  $card-background-color: rgb(red($card-color), green($card-color), blue($card-color), 0.75);
+  $card-background-color: rgba(
+    color.channel($card-color, "red", $space: rgb),
+    color.channel($card-color, "green", $space: rgb),
+    color.channel($card-color, "blue", $space: rgb),
+    0.75
+  );
 
   mat-card {
     background-color: $card-background-color !important;

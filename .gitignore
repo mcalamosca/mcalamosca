@@ -54,3 +54,14 @@ firebase-export*
 .secret.local
 
 .nx/cache
+
+# Generated JavaScript files
+**/*.js
+**/*.js.map
+# Except specific JS files that should be committed
+!jest.config.js
+!**/jest-global-mocks.js
+
+# Output directories
+dist/
+out-tsc/
