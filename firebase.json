@@ -32,7 +32,7 @@
     },
     {
       "target": "forest-bjorn",
-      "public": "dist/apps/forest-bjorn",
+      "public": "dist/apps/forest-bjorn/browser",
       "ignore": [
         "firebase.json",
         "**/.*",
