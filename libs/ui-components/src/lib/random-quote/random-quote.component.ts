@@ -3,12 +3,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { floatIn } from '../animations';
 
 @Component({
-  selector: 'mcui-random-quote',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './random-quote.component.html',
-  styleUrl: './random-quote.component.scss',
-  animations: [floatIn],
+    selector: 'mcui-random-quote',
+    imports: [CommonModule],
+    templateUrl: './random-quote.component.html',
+    styleUrl: './random-quote.component.scss',
+    animations: [floatIn]
 })
 export class RandomQuoteComponent implements OnInit {
   quote = '';

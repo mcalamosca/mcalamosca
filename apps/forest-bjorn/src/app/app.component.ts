@@ -1,13 +1,25 @@
 import { Component, inject } from '@angular/core';
 import { Auth, GoogleAuthProvider, User, authState, signInWithPopup } from '@angular/fire/auth';
 import { Storage, getDownloadURL, ref } from '@angular/fire/storage';
-import { MatDrawerMode } from '@angular/material/sidenav';
+import { MatDrawerMode, MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { RouterModule } from '@angular/router';
+import { NavHeaderComponent } from '@mcalamosca/ui-components';
 import { NavItem } from '@mcalamosca/ui-components';
 
 @Component({
-  selector: 'forest-bjorn-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+    selector: 'forest-bjorn-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
+    standalone: true,
+    imports: [
+        RouterModule,
+        MatSidenavModule,
+        MatIconModule,
+        MatListModule,
+        NavHeaderComponent
+    ]
 })
 export class AppComponent {
   auth: Auth = inject(Auth);

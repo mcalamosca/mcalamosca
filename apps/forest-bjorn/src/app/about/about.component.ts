@@ -3,11 +3,10 @@ import { Image, InfoSectionComponent } from '@mcalamosca/ui-components';
 import { FirebaseService } from '../services/firebase.service';
 
 @Component({
-  selector: 'forest-bjorn-about',
-  standalone: true,
-  imports: [InfoSectionComponent],
-  templateUrl: './about.component.html',
-  styleUrl: './about.component.scss',
+    selector: 'forest-bjorn-about',
+    imports: [InfoSectionComponent],
+    templateUrl: './about.component.html',
+    styleUrl: './about.component.scss'
 })
 export class AboutComponent {
   gear!: Image;

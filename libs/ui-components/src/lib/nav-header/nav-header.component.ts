@@ -20,20 +20,19 @@ export interface NavItem {
 export type NavHeaderAlign = 'flex-start' | 'center' | 'flex-end' | 'custom';
 
 @Component({
-  selector: 'mcui-nav-header',
-  standalone: true,
-  imports: [
-    CommonModule,
-    RouterModule,
-    MatToolbarModule,
-    MatListModule,
-    MatButtonModule,
-    MatIconModule,
-    RouterModule,
-    MatMenuModule,
-  ],
-  templateUrl: './nav-header.component.html',
-  styleUrl: './nav-header.component.scss',
+    selector: 'mcui-nav-header',
+    imports: [
+        CommonModule,
+        RouterModule,
+        MatToolbarModule,
+        MatListModule,
+        MatButtonModule,
+        MatIconModule,
+        RouterModule,
+        MatMenuModule,
+    ],
+    templateUrl: './nav-header.component.html',
+    styleUrl: './nav-header.component.scss'
 })
 export class NavHeaderComponent implements OnInit {
   @Input() appName = '';

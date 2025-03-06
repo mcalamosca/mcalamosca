@@ -9,12 +9,11 @@ export enum CardType {
   round = 'round',
 }
 @Component({
-  selector: 'mcui-product-card',
-  standalone: true,
-  imports: [CommonModule, MatCardModule, MatButtonModule],
-  templateUrl: './product-card.component.html',
-  styleUrl: './product-card.component.scss',
-  animations: [fadeIn, fade],
+    selector: 'mcui-product-card',
+    imports: [CommonModule, MatCardModule, MatButtonModule],
+    templateUrl: './product-card.component.html',
+    styleUrl: './product-card.component.scss',
+    animations: [fadeIn, fade]
 })
 export class ProductCardComponent {
   @Input() name = '';

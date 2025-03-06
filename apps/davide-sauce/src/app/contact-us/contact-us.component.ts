@@ -8,19 +8,18 @@ import { MatInputModule } from '@angular/material/input';
 import { SocialMediaIconsComponent } from '@mcalamosca/ui-components';
 
 @Component({
-  selector: 'ds-contact-us',
-  standalone: true,
-  imports: [
-    CommonModule,
-    MatCardModule,
-    MatFormFieldModule,
-    ReactiveFormsModule,
-    MatInputModule,
-    MatButtonModule,
-    SocialMediaIconsComponent,
-  ],
-  templateUrl: './contact-us.component.html',
-  styleUrl: './contact-us.component.scss',
+    selector: 'ds-contact-us',
+    imports: [
+        CommonModule,
+        MatCardModule,
+        MatFormFieldModule,
+        ReactiveFormsModule,
+        MatInputModule,
+        MatButtonModule,
+        SocialMediaIconsComponent,
+    ],
+    templateUrl: './contact-us.component.html',
+    styleUrl: './contact-us.component.scss'
 })
 export class ContactUsComponent implements OnInit {
   contactForm!: FormGroup;

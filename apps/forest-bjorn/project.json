@@ -7,13 +7,13 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:browser",
+      "executor": "@angular-devkit/build-angular:application",
       "outputs": ["{options.outputPath}"],
       "options": {
         "allowedCommonJsDependencies": ["dialog-polyfill"],
         "outputPath": "dist/apps/forest-bjorn",
         "index": "apps/forest-bjorn/src/index.html",
-        "main": "apps/forest-bjorn/src/main.ts",
+        "browser": "apps/forest-bjorn/src/main.ts",
         "polyfills": ["zone.js"],
         "tsConfig": "apps/forest-bjorn/tsconfig.app.json",
         "assets": [
@@ -50,16 +50,12 @@
           "outputHashing": "all",
           "optimization": true,
           "extractLicenses": true,
-          "sourceMap": false,
-          "aot": true
+          "sourceMap": false
         },
         "development": {
-          "buildOptimizer": false,
           "optimization": false,
-          "vendorChunk": true,
           "extractLicenses": false,
           "sourceMap": true,
-          "namedChunks": true,
           "fileReplacements": [
             {
               "replace": "apps/forest-bjorn/src/environments/environment.ts",

@@ -14,11 +14,10 @@ import { Image } from '../grid-gallery/grid-gallery.component';
 import { LightboxComponent } from '../lightbox/lightbox.component';
 
 @Component({
-  selector: 'mcui-info-section',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './info-section.component.html',
-  styleUrl: './info-section.component.scss',
+    selector: 'mcui-info-section',
+    imports: [CommonModule],
+    templateUrl: './info-section.component.html',
+    styleUrl: './info-section.component.scss'
 })
 export class InfoSectionComponent {
   @ViewChild('lightboxContainer', { read: ViewContainerRef, static: true }) lightboxContainer!: ViewContainerRef;

@@ -1,6 +1,7 @@
 @use '@angular/material' as mat;
 
-@include mat.core();
+@include mat.elevation-classes();
+@include mat.app-background();
 
 $dark-color: #121212;
 $light-color: #ffffff;
@@ -198,7 +199,8 @@ $my-dark-theme: mat.define-dark-theme(
     color: $card-text-color;
   }
 }
-@include mat.core-theme($my-dark-theme);
+@include mat.elevation-classes();
+@include mat.app-background();
 @include mat.button-theme($my-dark-theme);
 @include mat.list-theme($my-dark-theme);
 @include mat.sidenav-theme($my-dark-theme);

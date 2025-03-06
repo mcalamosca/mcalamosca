@@ -12,11 +12,10 @@ export interface Image {
 }
 
 @Component({
-  selector: 'mcui-grid-gallery',
-  standalone: true,
-  imports: [CommonModule, MatGridListModule, GridGalleryItemComponent],
-  styleUrls: ['./grid-gallery.component.scss'],
-  templateUrl: './grid-gallery.component.html',
+    selector: 'mcui-grid-gallery',
+    imports: [CommonModule, MatGridListModule, GridGalleryItemComponent],
+    styleUrls: ['./grid-gallery.component.scss'],
+    templateUrl: './grid-gallery.component.html'
 })
 export class GridGalleryComponent implements OnInit, OnDestroy {
   @Input() images!: Image[];

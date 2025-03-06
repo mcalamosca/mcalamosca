@@ -18,12 +18,11 @@ interface Image {
   alt: string;
 }
 @Component({
-  selector: 'ds-history',
-  standalone: true,
-  imports: [CommonModule, MatCardModule, MatButtonModule, GridGalleryComponent, InfoSectionComponent, MatIconModule],
-  templateUrl: './history.component.html',
-  styleUrl: './history.component.scss',
-  animations: [fadeIn],
+    selector: 'ds-history',
+    imports: [CommonModule, MatCardModule, MatButtonModule, GridGalleryComponent, InfoSectionComponent, MatIconModule],
+    templateUrl: './history.component.html',
+    styleUrl: './history.component.scss',
+    animations: [fadeIn]
 })
 export class HistoryComponent {
   historyCards: HistoryCard[] = historyCards;

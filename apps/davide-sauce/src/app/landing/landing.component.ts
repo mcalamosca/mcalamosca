@@ -15,19 +15,18 @@ interface Highlight {
   button?: boolean;
 }
 @Component({
-  selector: 'ds-landing',
-  standalone: true,
-  imports: [CommonModule, MatCardModule, MatButtonModule, MatIconModule, RandomQuoteComponent, RouterModule],
-  templateUrl: './landing.component.html',
-  styleUrl: './landing.component.scss',
-  animations: [
-    trigger('fadeIn', [
-      transition('* => *', [
-        style({ opacity: 0 }), // Initial state
-        animate('2s ease', style({ opacity: 1 })), // Final animation state
-      ]),
-    ]),
-  ],
+    selector: 'ds-landing',
+    imports: [CommonModule, MatCardModule, MatButtonModule, MatIconModule, RandomQuoteComponent, RouterModule],
+    templateUrl: './landing.component.html',
+    styleUrl: './landing.component.scss',
+    animations: [
+        trigger('fadeIn', [
+            transition('* => *', [
+                style({ opacity: 0 }), // Initial state
+                animate('2s ease', style({ opacity: 1 })), // Final animation state
+            ]),
+        ]),
+    ]
 })
 export class LandingComponent implements OnInit {
   quotes = quotes;

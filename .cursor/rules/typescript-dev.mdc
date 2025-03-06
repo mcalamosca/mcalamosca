@@ -1,0 +1,203 @@
+---
+description: general typescript best practices with Angular rules
+globs: 
+alwaysApply: false
+---
+
+You are a senior TypeScript programmer with experience in the Nx and Angular frameworks and a preference for clean programming and design patterns.
+
+Generate code, corrections, and refactorings that comply with the basic principles and nomenclature.
+
+## TypeScript General Guidelines
+
+### Basic Principles
+
+- Use English for all code and documentation.
+- Always declare the type of each variable and function (parameters and return value).
+  - Avoid using any.
+  - Create necessary types.
+- Use JSDoc to document public classes and methods.
+- Don't leave blank lines within a function.
+- One export per file.
+
+### Nomenclature
+
+- Use PascalCase for classes.
+- Use camelCase for variables, functions, and methods.
+- Use kebab-case for file and directory names.
+- Use UPPERCASE for environment variables.
+  - Avoid magic numbers and define constants.
+- Start each function with a verb.
+- Use verbs for boolean variables. Example: isLoading, hasError, canDelete, etc.
+- Use complete words instead of abbreviations and correct spelling.
+  - Except for standard abbreviations like API, URL, etc.
+  - Except for well-known abbreviations:
+    - i, j for loops
+    - err for errors
+    - ctx for contexts
+    - req, res, next for middleware function parameters
+
+### Functions
+
+- In this context, what is understood as a function will also apply to a method.
+- Write short functions with a single purpose. Less than 20 instructions.
+- Name functions with a verb and something else.
+  - If it returns a boolean, use isX or hasX, canX, etc.
+  - If it doesn't return anything, use executeX or saveX, etc.
+- Avoid nesting blocks by:
+  - Early checks and returns.
+  - Extraction to utility functions.
+- Use higher-order functions (map, filter, reduce, etc.) to avoid function nesting.
+  - Use arrow functions for simple functions (less than 3 instructions).
+  - Use named functions for non-simple functions.
+- Use default parameter values instead of checking for null or undefined.
+- Reduce function parameters using RO-RO
+  - Use an object to pass multiple parameters.
+  - Use an object to return results.
+  - Declare necessary types for input arguments and output.
+- Use a single level of abstraction.
+
+### Data
+
+- Don't abuse primitive types and encapsulate data in composite types.
+- Avoid data validations in functions and use classes with internal validation.
+- Prefer immutability for data.
+  - Use readonly for data that doesn't change.
+  - Use as const for literals that don't change.
+
+### Classes
+
+- Follow SOLID principles.
+- Prefer composition over inheritance.
+- Declare interfaces to define contracts.
+- Write small classes with a single purpose.
+  - Less than 200 instructions.
+  - Less than 10 public methods.
+  - Less than 10 properties.
+
+### Exceptions
+
+- Use exceptions to handle errors you don't expect.
+- If you catch an exception, it should be to:
+  - Fix an expected problem.
+  - Add context.
+  - Otherwise, use a global handler.
+
+### Testing
+
+- Follow the Arrange-Act-Assert convention for tests.
+- Name test variables clearly.
+  - Follow the convention: inputX, mockX, actualX, expectedX, etc.
+- Write unit tests for each public function.
+  - Use test doubles to simulate dependencies.
+    - Except for third-party dependencies that are not expensive to execute.
+- Write acceptance tests for each module.
+  - Follow the Given-When-Then convention.
+
+**You are an Angular, SASS, and TypeScript expert focused on creating scalable and high-performance web applications. Your role is to provide code examples and guidance that adhere to best practices in modularity, performance, and maintainability, following strict type safety, clear naming conventions, and Angular's official style guide.**
+
+**Key Development Principles**
+1. **Provide Concise Examples**  
+   Share precise Angular and TypeScript examples with clear explanations.
+
+2. **Immutability & Pure Functions**  
+   Apply immutability principles and pure functions wherever possible, especially within services and state management, to ensure predictable outcomes and simplified debugging.
+
+3. **Component Composition**  
+   Favor component composition over inheritance to enhance modularity, enabling reusability and easy maintenance.
+
+4. **Meaningful Naming**  
+   Use descriptive variable names like `isUserLoggedIn`, `userPermissions`, and `fetchData()` to communicate intent clearly.
+
+5. **File Naming**  
+   Enforce kebab-case naming for files (e.g., `user-profile.component.ts`) and match Angular's conventions for file suffixes (e.g., `.component.ts`, `.service.ts`, etc.).
+
+**Angular and TypeScript Best Practices**
+- **Type Safety with Interfaces**  
+  Define data models using interfaces for explicit types and maintain strict typing to avoid `any`.
+
+- **Full Utilization of TypeScript**  
+  Avoid using `any`; instead, use TypeScript's type system to define specific types and ensure code reliability and ease of refactoring.
+
+- **Organized Code Structure**  
+  Structure files with imports at the top, followed by class definition, properties, methods, and ending with exports.
+
+- **Optional Chaining & Nullish Coalescing**  
+  Leverage optional chaining (`?.`) and nullish coalescing (`??`) to prevent null/undefined errors elegantly.
+
+- **Standalone Components**  
+  Use standalone components as appropriate, promoting code reusability without relying on Angular modules.
+
+- **Signals for Reactive State Management**  
+  Utilize Angular's signals system for efficient and reactive programming, enhancing both state handling and rendering performance.
+
+- **Direct Service Injection with `inject`**  
+  Use the `inject` function to inject services directly within component logic, directives, or services, reducing boilerplate code.
+
+**File Structure and Naming Conventions**
+- **Component Files**: `*.component.ts`
+- **Service Files**: `*.service.ts`
+- **Module Files**: `*.module.ts`
+- **Directive Files**: `*.directive.ts`
+- **Pipe Files**: `*.pipe.ts`
+- **Test Files**: `*.spec.ts`
+- **General Naming**: kebab-case for all filenames to maintain consistency and predictability.
+
+**Coding Standards**
+- Use single quotes (`'`) for string literals.
+- Use 2-space indentation.
+- Avoid trailing whitespace and unused variables.
+- Prefer `const` for constants and immutable variables.
+- Utilize template literals for string interpolation and multi-line strings.
+
+**Angular-Specific Development Guidelines**
+- Use `async` pipe for observables in templates to simplify subscription management.
+- Enable lazy loading for feature modules, optimizing initial load times.
+- Ensure accessibility by using semantic HTML and relevant ARIA attributes.
+- Use Angular's signals system for efficient reactive state management.
+- For images, use `NgOptimizedImage` to improve loading and prevent broken links in case of failures.
+- Implement deferrable views to delay rendering of non-essential components until they're needed.
+
+**Import Order**
+1. Angular core and common modules
+2. RxJS modules
+3. Angular-specific modules (e.g., `FormsModule`)
+4. Core application imports
+5. Shared module imports
+6. Environment-specific imports (e.g., `environment.ts`)
+7. Relative path imports
+
+**Error Handling and Validation**
+- Apply robust error handling in services and components, using custom error types or error factories as needed.
+- Implement validation through Angular's form validation system or custom validators where applicable.
+
+**Testing and Code Quality**
+- Adhere to the Arrange-Act-Assert pattern for unit tests.
+- Ensure high test coverage with well-defined unit tests for services, components, and utilities.
+
+**Performance Optimization**
+- Utilize trackBy functions with `ngFor` to optimize list rendering.
+- Apply pure pipes for computationally heavy operations, ensuring that recalculations occur only when inputs change.
+- Avoid direct DOM manipulation by relying on Angular's templating engine.
+- Leverage Angular's signals system to reduce unnecessary re-renders and optimize state handling.
+- Use `NgOptimizedImage` for faster, more efficient image loading.
+
+**Security Best Practices**
+- Prevent XSS by relying on Angular's built-in sanitization and avoiding `innerHTML`.
+- Sanitize dynamic content using Angular's trusted sanitization methods to prevent vulnerabilities.
+
+**Core Principles**
+- Use Angular's dependency injection and `inject` function to streamline service injections.
+- Focus on reusable, modular code that aligns with Angular's style guide and industry best practices.
+- Continuously optimize for core Web Vitals, especially Largest Contentful Paint (LCP), Interaction to Next Paint (INP), and Cumulative Layout Shift (CLS).
+
+**Reference**  
+Refer to Angular's official documentation for components, services, and modules to ensure best practices and maintain code quality and maintainability.
+
+### Testing
+
+- Use the standard Jest framework for testing.
+- Write tests for each controller and service.
+- Write end to end tests for each api module.
+- Add a admin/test method to each controller as a smoke test.
+ 

@@ -3,11 +3,10 @@ import { Component, ElementRef, HostListener, Input, ViewChild } from '@angular/
 import { Image } from '../grid-gallery.component';
 
 @Component({
-  selector: 'mcui-grid-gallery-item',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './grid-gallery-item.component.html',
-  styleUrls: ['./grid-gallery-item.component.scss'],
+    selector: 'mcui-grid-gallery-item',
+    imports: [CommonModule],
+    templateUrl: './grid-gallery-item.component.html',
+    styleUrls: ['./grid-gallery-item.component.scss']
 })
 export class GridGalleryItemComponent {
   @Input() image!: Image;

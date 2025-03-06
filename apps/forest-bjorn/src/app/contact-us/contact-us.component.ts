@@ -7,12 +7,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
 @Component({
-  selector: 'forest-bjorn-contact-us',
-  standalone: true,
-  //material form
-  imports: [CommonModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule, MatCardModule, MatButtonModule],
-  templateUrl: './contact-us.component.html',
-  styleUrls: ['./contact-us.component.scss'],
+    selector: 'forest-bjorn-contact-us',
+    //material form
+    imports: [CommonModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule, MatCardModule, MatButtonModule],
+    templateUrl: './contact-us.component.html',
+    styleUrls: ['./contact-us.component.scss']
 })
 export class ContactUsComponent {
   contactForm = new FormGroup({

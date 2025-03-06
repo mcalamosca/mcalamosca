@@ -4,11 +4,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { Image } from '../grid-gallery/grid-gallery.component';
 
 @Component({
-  selector: 'mcui-lightbox',
-  standalone: true,
-  imports: [MatButtonModule, MatIconModule],
-  templateUrl: './lightbox.component.html',
-  styleUrl: './lightbox.component.scss',
+    selector: 'mcui-lightbox',
+    imports: [MatButtonModule, MatIconModule],
+    templateUrl: './lightbox.component.html',
+    styleUrl: './lightbox.component.scss'
 })
 export class LightboxComponent {
   @Input() image!: Image;

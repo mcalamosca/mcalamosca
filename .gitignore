@@ -41,6 +41,7 @@ Thumbs.db
 .angular
 # Nx-Firebase
 .nx/cache
+.nx/workspace-data
 .runtimeconfig.json
 **/.emulators/*
 **/.firebase/*

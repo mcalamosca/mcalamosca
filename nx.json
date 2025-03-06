@@ -1,8 +1,5 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "affected": {
-    "defaultBase": "master"
-  },
   "targetDefaults": {
     "build": {
       "dependsOn": ["^build"],
@@ -64,5 +61,7 @@
       "style": "scss"
     }
   },
-  "nxCloudAccessToken": "OGVkMDY4ZWItOGQ0OC00OWMxLTkxNmYtMzIxMDMwZmE0NWM3fHJlYWQtd3JpdGU="
+  "nxCloudAccessToken": "OGVkMDY4ZWItOGQ0OC00OWMxLTkxNmYtMzIxMDMwZmE0NWM3fHJlYWQtd3JpdGU=",
+  "defaultBase": "master",
+  "useLegacyCache": true
 }

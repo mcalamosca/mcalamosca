@@ -7,11 +7,10 @@ import { Store } from '@ngrx/store';
 import { loadImages, selectImages, setGalleryType } from '../../+state';
 
 @Component({
-  selector: 'forest-bjorn-gallery',
-  standalone: true,
-  imports: [CommonModule, GridGalleryComponent, MatProgressSpinnerModule],
-  templateUrl: './gallery.component.html',
-  styleUrls: ['./gallery.component.scss'],
+    selector: 'forest-bjorn-gallery',
+    imports: [CommonModule, GridGalleryComponent, MatProgressSpinnerModule],
+    templateUrl: './gallery.component.html',
+    styleUrls: ['./gallery.component.scss']
 })
 export class GalleryComponent {
   images!: Image[];

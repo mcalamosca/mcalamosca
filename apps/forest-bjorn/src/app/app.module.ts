@@ -17,26 +17,14 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { AppEffects, appStateReducer } from './+state';
-import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
 import { LandingComponent } from './landing/landing.component';
 
 @NgModule({
-  declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideFirestore(() => getFirestore()),
-    provideStorage(() => getStorage()),
-    provideAuth(() => {
-      const auth = getAuth();
-      if (!environment.production) {
-        // connectAuthEmulator(auth, 'http://localhost:9099', { disableWarnings: true });
-      }
-      return auth;
-    }),
     // Material Modules
     MatSidenavModule,
     MatExpansionModule,
@@ -44,6 +32,8 @@ import { LandingComponent } from './landing/landing.component';
     MatIconModule,
     // Other Component Modules
     NavHeaderComponent,
+    LandingComponent,
+    // Store Modules
     StoreModule.forRoot(
       {
         app: appStateReducer,
@@ -59,10 +49,18 @@ import { LandingComponent } from './landing/landing.component';
     EffectsModule.forRoot([AppEffects]),
     StoreRouterConnectingModule.forRoot(),
     StoreDevtoolsModule.instrument({ logOnly: !isDevMode() }),
-    NavHeaderComponent,
-    NavHeaderComponent,
   ],
-  providers: [],
-  bootstrap: [AppComponent],
+  providers: [
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage()),
+    provideAuth(() => {
+      const auth = getAuth();
+      if (!environment.production) {
+        // connectAuthEmulator(auth, 'http://localhost:9099', { disableWarnings: true });
+      }
+      return auth;
+    }),
+  ],
 })
 export class AppModule {}

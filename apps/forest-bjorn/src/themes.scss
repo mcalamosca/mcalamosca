@@ -1,4 +1,5 @@
 @use '@angular/material' as mat;
+@use 'sass:map';
 
 @include mat.core();
 
@@ -18,123 +19,122 @@ $light-dividers: rgba($light-color, 0.12);
 $light-focused: rgba($light-color, 0.12);
 
 $primary-palette: (
-  50: #e5efe6,
-  // Soft Mint
-  100: #b8d9bf,
-  // Light Sage
-  200: #8ac294,
-  // Lush Green
-  300: #5cac6a,
-  // Forest Green
-  400: #3f9c4e,
-  // Deep Shamrock
-  500: #2e8b45,
-  // Pine Green
-  600: #277b3f,
-  // Dense Forest
-  700: #206b39,
-  // Dark Jungle Green
-  800: #195b33,
-  // Deep Green
-  900: #0e4727,
-  // Almost Black Green
-  A100: #a2edc5,
-  // Mint Highlight
-  A200: #70e3a3,
-  // Neon Green
-  A400: #3dd582,
-  // Vivid Green
-  A700: #2c9e5e,
-
-  // Rich Emerald
-  contrast:
-    (
-      50: $dark-primary-text,
-      100: $dark-primary-text,
-      200: $dark-primary-text,
-      300: $dark-secondary-text,
-      400: $dark-secondary-text,
-      500: $light-primary-text,
-      600: $light-primary-text,
-      700: $light-secondary-text,
-      800: $light-secondary-text,
-      900: $light-primary-text,
-      A100: $dark-primary-text,
-      A200: $dark-primary-text,
-      A400: $light-secondary-text,
-      A700: $light-primary-text,
-    ),
+  0: #0e4727,   // Almost Black Green (was 900)
+  10: #195b33,  // Deep Green (was 800)
+  20: #206b39,  // Dark Jungle Green (was 700)
+  25: #237035,  // Interpolated between 700-600
+  30: #277b3f,  // Dense Forest (was 600)
+  35: #2a8342,  // Interpolated between 600-500
+  40: #2e8b45,  // Pine Green (was 500)
+  50: #3f9c4e,  // Deep Shamrock (was 400)
+  60: #5cac6a,  // Forest Green (was 300)
+  70: #8ac294,  // Lush Green (was 200)
+  80: #b8d9bf,  // Light Sage (was 100)
+  90: #e5efe6,  // Soft Mint (was 50)
+  95: #f2f7f3,  // Lighter version of 90
+  98: #f9fcfa,  // Almost white with green tint
+  99: #fcfefb,  // Nearly white
+  100: #ffffff, // Pure white
+  
+  // Additional values from original palette
+  secondary: #70e3a3,  // Neon Green (was A200)
+  error: #ff0000,      // Standard error red
+  
+  contrast: (
+    0: $light-primary-text,
+    10: $light-secondary-text,
+    20: $light-secondary-text,
+    25: $light-secondary-text,
+    30: $light-primary-text,
+    35: $light-primary-text,
+    40: $light-primary-text,
+    50: $dark-secondary-text,
+    60: $dark-secondary-text,
+    70: $dark-primary-text,
+    80: $dark-primary-text,
+    90: $dark-primary-text,
+    95: $dark-primary-text,
+    98: $dark-primary-text,
+    99: $dark-primary-text,
+    100: $dark-primary-text,
+    secondary: $dark-primary-text,
+    error: $light-primary-text,
+  ),
 );
 
 $accent-palette: (
-  50: #fdf1e0,
-  // Warm Beige
-  100: #f9e0b2,
-  // Soft Peach
-  200: #f5cf83,
-  // Sandy Gold
-  300: #f1be55,
-  // Golden Sunrise
-  400: #eeb132,
-  // Sunlit Earth
-  500: #ea9f0e,
-  // Amber Dawn
-  600: #c7890c,
-  // Rich Gold
-  700: #a5730a,
-  // Deep Mustard
-  800: #836d08,
-  // Darkened Gold
-  900: #625706,
-  // Almost Brown
-  A100: #fff7e6,
-  // Ivory Mist
-  A200: #ffe8ba,
-  // Light Goldenrod
-  A400: #ffd98e,
-  // Mellow Gold
-  A700: #ffc75c,
-
-  // Bright Gold
-  contrast:
-    (
-      50: $dark-primary-text,
-      100: $dark-primary-text,
-      200: $dark-primary-text,
-      300: $dark-secondary-text,
-      400: $dark-secondary-text,
-      500: $light-primary-text,
-      600: $light-primary-text,
-      700: $light-secondary-text,
-      800: $light-secondary-text,
-      900: $light-primary-text,
-      A100: $dark-primary-text,
-      A200: $light-primary-text,
-      A400: $light-secondary-text,
-      A700: $light-primary-text,
-    ),
+  0: #625706,   // Almost Brown (was 900)
+  10: #836d08,  // Darkened Gold (was 800)
+  20: #a5730a,  // Deep Mustard (was 700)
+  25: #b67e0b,  // Interpolated between 700-600
+  30: #c7890c,  // Rich Gold (was 600)
+  35: #d6940d,  // Interpolated between 600-500
+  40: #ea9f0e,  // Amber Dawn (was 500)
+  50: #eeb132,  // Sunlit Earth (was 400)
+  60: #f1be55,  // Golden Sunrise (was 300)
+  70: #f5cf83,  // Sandy Gold (was 200)
+  80: #f9e0b2,  // Soft Peach (was 100)
+  90: #fdf1e0,  // Warm Beige (was 50)
+  95: #fef6eb,  // Lighter version of 90
+  98: #fffbf5,  // Almost white with warm tint
+  99: #fffdfa,  // Nearly white
+  100: #ffffff, // Pure white
+  
+  // Additional values from original palette
+  secondary: #ffe8ba,  // Light Goldenrod (was A200)
+  neutral: #d0d0d0,    // Neutral gray
+  neutral-variant: #c0c0c0, // Variant of neutral
+  error: #ff0000,      // Standard error red
+  
+  contrast: (
+    0: $light-primary-text,
+    10: $light-secondary-text,
+    20: $light-secondary-text,
+    25: $light-secondary-text,
+    30: $light-primary-text,
+    35: $light-primary-text,
+    40: $light-primary-text,
+    50: $dark-secondary-text,
+    60: $dark-secondary-text,
+    70: $dark-primary-text,
+    80: $dark-primary-text,
+    90: $dark-primary-text,
+    95: $dark-primary-text,
+    98: $dark-primary-text,
+    99: $dark-primary-text,
+    100: $dark-primary-text,
+    secondary: $light-primary-text,
+    neutral: $dark-primary-text,
+    neutral-variant: $dark-primary-text,
+    error: $light-primary-text,
+  ),
 );
 
-$my-primary: mat.define-palette($primary-palette);
-$my-accent: mat.define-palette($accent-palette);
-$my-warn: mat.define-palette(mat.$red-palette);
+$my-primary: mat.m2-define-palette($primary-palette, 40, 80, 20);
+$my-accent: mat.m2-define-palette($accent-palette, 40, 80, 20);
+$my-warn: mat.m2-define-palette(mat.$m2-red-palette);
 
-$my-dark-theme: mat.define-dark-theme(
+$my-dark-theme: mat.m2-define-dark-theme(
   (
     color: (
       primary: $my-primary,
       accent: $my-accent,
       warn: $my-warn,
     ),
-    typography: mat.define-typography-config(),
+    typography: mat.m2-define-typography-config(),
     density: 0,
   )
 );
 
 @mixin customizations($theme) {
-  $text-color: mat.get-theme-color($theme, primary, 800);
-
-  $landing-text-color: mat.get-theme-color($theme, primary, 100);
+  // Get color config using m2-get-color-config
+  $color-config: mat.m2-get-color-config($theme);
+  $primary-palette: map.get($color-config, 'primary');
+  $accent-palette: map.get($color-config, 'accent');
+  
+  // Use get-theme-color with the theme object directly
+  $text-color: mat.get-theme-color($theme, 'primary', 10);
+  $landing-text-color: mat.get-theme-color($theme, 'primary', 80);
 
   mcui-random-quote {
     .quote {
@@ -172,8 +172,8 @@ $my-dark-theme: mat.define-dark-theme(
     }
   }
 
-  $card-color: mat.get-theme-color($theme, primary, 700);
-  $card-text-color: mat.get-theme-color($theme, primary, 600-contrast);
+  $card-color: mat.get-theme-color($theme, 'primary', 20);
+  $card-text-color: mat.get-theme-color($theme, 'primary', '30-contrast');
   $card-background-color: rgb(red($card-color), green($card-color), blue($card-color), 0.75);
 
   mat-card {
@@ -198,7 +198,7 @@ $my-dark-theme: mat.define-dark-theme(
 
   //Menu
   $menu-background-color: #6d7782;
-  $menu-text-color: mat.get-theme-color($theme, primary, 600-contrast);
+  $menu-text-color: mat.get-theme-color($theme, 'primary', '30-contrast');
 
   .mat-mdc-menu-panel {
     background-color: $menu-background-color !important;
@@ -209,7 +209,7 @@ $my-dark-theme: mat.define-dark-theme(
   }
 
   //Inputs
-  $input-label-color: mat.get-theme-color($theme, accent, 100);
+  $input-label-color: mat.get-theme-color($theme, 'accent', 80);
   .input-label {
     color: $input-label-color;
   }
@@ -219,43 +219,13 @@ $my-dark-theme: mat.define-dark-theme(
 
   .portfolio-icons {
     a {
-      color: mat.get-theme-color($theme, primary, 500-contrast);
+      color: mat.get-theme-color($theme, 'primary', '40-contrast');
     }
   }
 }
-@include mat.core-theme($my-dark-theme);
-@include mat.button-theme($my-dark-theme);
-@include mat.list-theme($my-dark-theme);
-@include mat.sidenav-theme($my-dark-theme);
-@include mat.toolbar-theme($my-dark-theme);
-@include mat.progress-spinner-theme($my-dark-theme);
-@include mat.icon-theme($my-dark-theme);
-@include mat.checkbox-theme($my-dark-theme);
-@include mat.input-theme($my-dark-theme);
-@include mat.card-theme($my-dark-theme);
-@include mat.menu-theme($my-dark-theme);
-@include mat.tabs-theme($my-dark-theme);
-@include mat.slider-theme($my-dark-theme);
-@include mat.dialog-theme($my-dark-theme);
-@include mat.snack-bar-theme($my-dark-theme);
-@include mat.expansion-theme($my-dark-theme);
-@include mat.tooltip-theme($my-dark-theme);
-@include mat.select-theme($my-dark-theme);
-@include mat.autocomplete-theme($my-dark-theme);
-@include mat.radio-theme($my-dark-theme);
-@include mat.form-field-theme($my-dark-theme);
-@include mat.progress-bar-theme($my-dark-theme);
-@include mat.chips-theme($my-dark-theme);
-@include mat.table-theme($my-dark-theme);
-@include mat.paginator-theme($my-dark-theme);
-@include mat.sort-theme($my-dark-theme);
-@include mat.datepicker-theme($my-dark-theme);
-@include mat.button-toggle-theme($my-dark-theme);
-@include mat.slide-toggle-theme($my-dark-theme);
-@include mat.grid-list-theme($my-dark-theme);
-@include mat.stepper-theme($my-dark-theme);
-@include mat.tree-theme($my-dark-theme);
 
+// Apply the dark theme by default
+@include mat.all-component-themes($my-dark-theme);
 @include customizations($my-dark-theme);
 
 //fonts
