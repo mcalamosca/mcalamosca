@@ -57,6 +57,7 @@ import { LandingComponent } from './landing/landing.component';
     provideAuth(() => {
       const auth = getAuth();
       if (!environment.production) {
+        // not used yet
         // connectAuthEmulator(auth, 'http://localhost:9099', { disableWarnings: true });
       }
       return auth;
