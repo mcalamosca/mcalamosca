@@ -178,6 +178,75 @@ p {
   }
 }
 
+// Portfolio
+.portfolio {
+  padding: 8rem 0;
+  background: $white;
+
+  h2 {
+    margin-bottom: 4rem;
+    max-width: 600px;
+  }
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.portfolio-item {
+  padding: 2.5rem;
+  background: $gray-100;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: $gray-200;
+  }
+
+  .portfolio-category {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: $accent;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    font-size: 1.375rem;
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.portfolio-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tech-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.25rem 0.625rem;
+  background: $white;
+  color: $gray-600;
+  border-radius: 2px;
+}
+
 // Services
 .services {
   padding: 8rem 0;
