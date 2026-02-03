@@ -120,11 +120,14 @@ p {
 }
 
 .logo {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: $cream;
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  letter-spacing: -0.02em;
+}
+
+.logo-img {
+  height: 48px;
+  width: auto;
 }
 
 .nav-links {
