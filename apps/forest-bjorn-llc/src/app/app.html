@@ -13,22 +13,27 @@
 <!-- Hero Section -->
 <section class="hero">
   <div class="hero-content">
-    <h1>We build digital products that matter.</h1>
-    <p class="hero-sub">
+    <h1 class="hero-title">
+      <span class="hero-line animate-on-scroll">We build digital</span>
+      <span class="hero-line animate-on-scroll">products that matter.</span>
+    </h1>
+    <p class="hero-sub animate-on-scroll">
       Strategy, design, and development for companies ready to make an impact.
     </p>
-    <a href="#contact" class="btn-primary">Start a Project</a>
+    <div class="animate-on-scroll">
+      <a href="#contact" class="btn-primary">Start a Project</a>
+    </div>
   </div>
 </section>
 
 <!-- Services Section -->
 <section id="services" class="services">
   <div class="container">
-    <span class="section-label">What We Do</span>
-    <h2>Services</h2>
+    <span class="section-label animate-on-scroll">What We Do</span>
+    <h2 class="animate-on-scroll">Services</h2>
     <div class="services-grid">
       @for (service of services; track service.title; let i = $index) {
-        <div class="service-item">
+        <div class="service-item animate-on-scroll" [style.transitionDelay]="(i * 100) + 'ms'">
           <span class="service-number">0{{ i + 1 }}</span>
           <h3>{{ service.title }}</h3>
           <p>{{ service.description }}</p>
@@ -43,17 +48,17 @@
   <div class="container">
     <div class="about-grid">
       <div class="about-label">
-        <span class="section-label">Who We Are</span>
+        <span class="section-label animate-on-scroll">Who We Are</span>
       </div>
       <div class="about-content">
-        <h2>Built on experience.<br/>Driven by craft.</h2>
-        <p>
+        <h2 class="animate-on-scroll">Built on experience.<br/>Driven by craft.</h2>
+        <p class="animate-on-scroll">
           Forest Bjorn is a boutique development consultancy specializing in 
           modern web and application development. We bring years of enterprise 
           experience to every project—whether you're a startup finding product-market 
           fit or an established company modernizing your tech stack.
         </p>
-        <p>
+        <p class="animate-on-scroll">
           We believe in clean code, thoughtful architecture, and shipping products 
           that users actually love.
         </p>
@@ -65,10 +70,12 @@
 <!-- Contact Section -->
 <section id="contact" class="contact">
   <div class="container">
-    <span class="section-label">Let's Talk</span>
-    <h2>Ready to build something great?</h2>
-    <p>We'd love to hear about your project.</p>
-    <a href="mailto:forestbjornllc@gmail.com" class="btn-primary">forestbjornllc&#64;gmail.com</a>
+    <span class="section-label animate-on-scroll">Let's Talk</span>
+    <h2 class="animate-on-scroll">Ready to build something great?</h2>
+    <p class="animate-on-scroll">We'd love to hear about your project.</p>
+    <div class="animate-on-scroll">
+      <a href="mailto:forestbjornllc@gmail.com" class="btn-primary">forestbjornllc&#64;gmail.com</a>
+    </div>
   </div>
 </section>
 
