@@ -1,14 +1,17 @@
-// Forest Bjorn - Minimalist Agency Design
-// Clean, modern, professional
+// Forest Björn - Deep Forest Theme
+// Inspired by Nordic forests at dusk
 
-// Variables
-$black: #0a0a0a;
+// Color Palette
+$forest-dark: #0a1a1f;
+$forest-deep: #0d1f1a;
+$forest-mid: #1a3a2f;
+$forest-light: #2d5a4a;
+$amber: #c4956a;
+$amber-light: #d4a574;
+$cream: #f5f2ed;
 $white: #ffffff;
-$gray-100: #f7f7f7;
-$gray-200: #e5e5e5;
-$gray-400: #a3a3a3;
-$gray-600: #525252;
-$accent: #0066ff;
+$gray-400: #8a9a94;
+$gray-600: #4a5a54;
 
 $font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
@@ -26,8 +29,8 @@ html {
 
 body {
   font-family: $font-sans;
-  color: $black;
-  background: $white;
+  color: $cream;
+  background: $forest-dark;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
@@ -62,7 +65,7 @@ h3 {
 
 p {
   font-size: 1.125rem;
-  color: $gray-600;
+  color: $gray-400;
   line-height: 1.7;
 }
 
@@ -72,7 +75,7 @@ p {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: $gray-400;
+  color: $amber;
   margin-bottom: 1rem;
 }
 
@@ -80,16 +83,17 @@ p {
 .btn-primary {
   display: inline-block;
   padding: 1rem 2rem;
-  background: $black;
-  color: $white;
+  background: $amber;
+  color: $forest-dark;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 1rem;
-  border-radius: 0;
+  border-radius: 4px;
   transition: all 0.2s ease;
 
   &:hover {
-    background: $gray-600;
+    background: $amber-light;
+    transform: translateY(-2px);
   }
 }
 
@@ -101,9 +105,9 @@ p {
   right: 0;
   z-index: 100;
   padding: 1.5rem 0;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(10, 26, 31, 0.9);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid $gray-200;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .nav {
@@ -116,9 +120,9 @@ p {
 }
 
 .logo {
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   font-weight: 600;
-  color: $black;
+  color: $cream;
   text-decoration: none;
   letter-spacing: -0.02em;
 }
@@ -130,25 +134,25 @@ p {
 
   a {
     font-size: 0.875rem;
-    color: $gray-600;
+    color: $gray-400;
     text-decoration: none;
     transition: color 0.2s ease;
 
     &:hover {
-      color: $black;
+      color: $cream;
     }
   }
 
   .nav-cta {
-    color: $black;
-    font-weight: 500;
+    color: $forest-dark;
+    font-weight: 600;
     padding: 0.625rem 1.25rem;
-    border: 1px solid $black;
+    background: $amber;
+    border-radius: 4px;
     transition: all 0.2s ease;
 
     &:hover {
-      background: $black;
-      color: $white;
+      background: $amber-light;
     }
   }
 }
@@ -159,6 +163,36 @@ p {
   display: flex;
   align-items: center;
   padding: 8rem 0 6rem;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('/assets/images/hero-bear.jpg') center center / cover no-repeat;
+    opacity: 0.4;
+    z-index: -1;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(10, 26, 31, 0.3) 0%,
+      rgba(10, 26, 31, 0.8) 60%,
+      rgba(10, 26, 31, 1) 100%
+    );
+    z-index: -1;
+  }
 }
 
 .hero-content {
@@ -169,19 +203,25 @@ p {
   h1 {
     max-width: 900px;
     margin-bottom: 1.5rem;
+    color: $cream;
   }
 
   .hero-sub {
     font-size: clamp(1.125rem, 2vw, 1.375rem);
     max-width: 600px;
     margin-bottom: 2.5rem;
+    color: $gray-400;
   }
+}
+
+.hero-line {
+  display: block;
 }
 
 // Portfolio
 .portfolio {
   padding: 8rem 0;
-  background: $white;
+  background: $forest-deep;
 
   h2 {
     margin-bottom: 4rem;
@@ -201,12 +241,15 @@ p {
 
 .portfolio-item {
   padding: 2.5rem;
-  background: $gray-100;
-  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
   transition: all 0.3s ease;
 
   &:hover {
-    background: $gray-200;
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(196, 149, 106, 0.3);
+    transform: translateY(-4px);
   }
 
   .portfolio-category {
@@ -215,13 +258,14 @@ p {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: $accent;
+    color: $amber;
     margin-bottom: 1rem;
   }
 
   h3 {
     font-size: 1.375rem;
     margin-bottom: 0.75rem;
+    color: $cream;
   }
 
   p {
@@ -242,15 +286,15 @@ p {
   font-size: 0.75rem;
   font-weight: 500;
   padding: 0.25rem 0.625rem;
-  background: $white;
-  color: $gray-600;
-  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.05);
+  color: $gray-400;
+  border-radius: 4px;
 }
 
 // Services
 .services {
   padding: 8rem 0;
-  background: $gray-100;
+  background: $forest-dark;
 
   h2 {
     margin-bottom: 4rem;
@@ -272,12 +316,13 @@ p {
     display: block;
     font-size: 0.75rem;
     font-weight: 500;
-    color: $gray-400;
+    color: $amber;
     margin-bottom: 1rem;
   }
 
   h3 {
     margin-bottom: 0.75rem;
+    color: $cream;
   }
 
   p {
@@ -288,6 +333,7 @@ p {
 // About
 .about {
   padding: 8rem 0;
+  background: $forest-deep;
 }
 
 .about-grid {
@@ -320,37 +366,23 @@ p {
 // Contact
 .contact {
   padding: 8rem 0;
-  background: $black;
-  color: $white;
-
-  .section-label {
-    color: $gray-400;
-  }
+  background: linear-gradient(135deg, $forest-mid 0%, $forest-dark 100%);
+  text-align: center;
 
   h2 {
     margin-bottom: 1rem;
   }
 
   p {
-    color: $gray-400;
     margin-bottom: 2.5rem;
-  }
-
-  .btn-primary {
-    background: $white;
-    color: $black;
-
-    &:hover {
-      background: $gray-200;
-    }
   }
 }
 
 // Footer
 .footer {
   padding: 2rem 0;
-  background: $black;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: darken($forest-dark, 2%);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .footer-content {
@@ -364,7 +396,7 @@ p {
 .footer-brand {
   font-size: 0.875rem;
   font-weight: 500;
-  color: $white;
+  color: $cream;
 }
 
 .footer-copy {
@@ -385,8 +417,6 @@ p {
 }
 
 .hero-line {
-  display: block;
-  
   &:nth-child(2) {
     transition-delay: 0.15s;
   }
@@ -407,6 +437,7 @@ p {
     padding: 10rem 0 5rem;
   }
 
+  .portfolio,
   .services,
   .about,
   .contact {

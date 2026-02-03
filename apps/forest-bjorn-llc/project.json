@@ -18,6 +18,11 @@
           {
             "glob": "**/*",
             "input": "apps/forest-bjorn-llc/public"
+          },
+          {
+            "glob": "**/*",
+            "input": "apps/forest-bjorn-llc/src/assets",
+            "output": "/assets"
           }
         ],
         "styles": ["apps/forest-bjorn-llc/src/styles.scss"]

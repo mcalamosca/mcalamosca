@@ -1,23 +1,26 @@
-/* Forest Bjorn LLC - Global Styles */
+/* Forest Björn - Global Styles */
 
 /* Import Inter font from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-/* Angular Material theme would go here when needed */
-
 /* Global resets */
-html,
-body {
+html, body {
   height: 100%;
 }
 
 body {
   margin: 0;
-  font-family:
-    'Inter',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #0a1a1f;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(196, 149, 106, 0.3);
+  color: #f5f2ed;
 }
