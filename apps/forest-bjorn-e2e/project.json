@@ -1,30 +1,26 @@
 {
   "name": "forest-bjorn-e2e",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/forest-bjorn-e2e/src",
   "projectType": "application",
+  "sourceRoot": "apps/forest-bjorn-e2e/src",
+  "tags": [],
+  "implicitDependencies": ["forest-bjorn"],
   "targets": {
     "e2e": {
       "executor": "@nx/cypress:cypress",
       "options": {
         "cypressConfig": "apps/forest-bjorn-e2e/cypress.config.ts",
-        "devServerTarget": "forest-bjorn:serve:development",
-        "testingType": "e2e"
+        "testingType": "e2e",
+        "devServerTarget": "forest-bjorn:serve"
       },
       "configurations": {
         "production": {
           "devServerTarget": "forest-bjorn:serve:production"
-        },
-        "ci": {
-          "devServerTarget": "forest-bjorn:serve-static"
         }
       }
     },
     "lint": {
-      "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"]
+      "executor": "@nx/eslint:lint"
     }
-  },
-  "tags": [],
-  "implicitDependencies": ["forest-bjorn"]
+  }
 }

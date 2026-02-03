@@ -1,0 +1,78 @@
+<!-- Header -->
+<header class="header">
+  <nav class="nav">
+    <div class="logo">
+      <span class="logo-icon">🐻</span>
+      <span class="logo-text">{{ title }}</span>
+    </div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="btn-contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>{{ title }}</h1>
+    <p class="tagline">{{ tagline }}</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-primary">Get Started</a>
+      <a href="#services" class="btn btn-secondary">Learn More</a>
+    </div>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="services">
+  <div class="container">
+    <h2>Our Services</h2>
+    <div class="services-grid">
+      @for (service of services; track service.title) {
+        <div class="service-card">
+          <span class="service-icon">{{ service.icon }}</span>
+          <h3>{{ service.title }}</h3>
+          <p>{{ service.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="about">
+  <div class="container">
+    <div class="about-content">
+      <h2>About Us</h2>
+      <p>
+        Forest Bjorn LLC is a consulting agency specializing in modern web and application development. 
+        We bring years of experience in enterprise software development, helping businesses build 
+        scalable, maintainable, and beautiful digital solutions.
+      </p>
+      <p>
+        Whether you need a new website, a mobile app, or technical guidance for your team, 
+        we're here to help you succeed.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact">
+  <div class="container">
+    <h2>Let's Talk</h2>
+    <p>Ready to start your next project? Get in touch and let's discuss how we can help.</p>
+    <a href="mailto:contact@forestbjorn.com" class="btn btn-primary">Contact Us</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <p>&copy; {{ title }} {{ currentYear }}. All rights reserved.</p>
+  </div>
+</footer>
+
+<router-outlet />

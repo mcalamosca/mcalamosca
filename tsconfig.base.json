@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@mcalamosca/mc-design": ["libs/mc-design/src/index.ts"],
-      "@mcalamosca/ui-components": ["libs/ui-components/src/index.ts"]
+      "@mcalamosca/ui-components": ["libs/ui-components/src/index.ts"],
+      "@mcalamosca/ui": ["libs/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
