@@ -9,31 +9,24 @@ import { CommonModule } from '@angular/common';
   styleUrl: './app.scss',
 })
 export class App {
-  protected title = 'Forest Bjorn LLC';
-  protected tagline = 'Modern Web & Application Development Solutions';
-
   protected currentYear = new Date().getFullYear();
 
   protected services = [
     {
       title: 'Web Development',
-      description: 'Custom websites and web applications built with modern frameworks like Angular, React, and Vue.',
-      icon: '🌐',
+      description: 'Modern, performant websites and web applications built with cutting-edge frameworks. From marketing sites to complex enterprise platforms.',
     },
     {
       title: 'Application Development',
-      description: 'Native and cross-platform mobile and desktop applications tailored to your needs.',
-      icon: '📱',
+      description: 'Native and cross-platform mobile and desktop applications. Thoughtfully designed, meticulously engineered.',
     },
     {
-      title: 'Consulting',
-      description: 'Technical architecture, code reviews, and strategic guidance for your development teams.',
-      icon: '💡',
+      title: 'Technical Consulting',
+      description: 'Architecture reviews, technology strategy, and hands-on guidance for development teams scaling their products.',
     },
     {
-      title: 'DevOps & Cloud',
-      description: 'CI/CD pipelines, cloud infrastructure, and deployment automation.',
-      icon: '☁️',
-    },
+      title: 'DevOps & Infrastructure',
+      description: 'CI/CD pipelines, cloud infrastructure, and deployment automation. Ship faster, with confidence.',
+    }
   ];
 }

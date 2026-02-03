@@ -65,3 +65,4 @@ firebase-export*
 # Output directories
 dist/
 out-tsc/
+.vercel

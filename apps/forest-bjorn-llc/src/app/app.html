@@ -1,14 +1,11 @@
 <!-- Header -->
 <header class="header">
   <nav class="nav">
-    <div class="logo">
-      <span class="logo-icon">🐻</span>
-      <span class="logo-text">{{ title }}</span>
-    </div>
+    <a href="#" class="logo">Forest Bjorn</a>
     <div class="nav-links">
       <a href="#services">Services</a>
       <a href="#about">About</a>
-      <a href="#contact" class="btn-contact">Contact</a>
+      <a href="#contact" class="nav-cta">Get in Touch</a>
     </div>
   </nav>
 </header>
@@ -16,26 +13,26 @@
 <!-- Hero Section -->
 <section class="hero">
   <div class="hero-content">
-    <h1>{{ title }}</h1>
-    <p class="tagline">{{ tagline }}</p>
-    <div class="hero-cta">
-      <a href="#contact" class="btn btn-primary">Get Started</a>
-      <a href="#services" class="btn btn-secondary">Learn More</a>
-    </div>
+    <h1>We build digital products that matter.</h1>
+    <p class="hero-sub">
+      Strategy, design, and development for companies ready to make an impact.
+    </p>
+    <a href="#contact" class="btn-primary">Start a Project</a>
   </div>
 </section>
 
 <!-- Services Section -->
 <section id="services" class="services">
   <div class="container">
-    <h2>Our Services</h2>
+    <span class="section-label">What We Do</span>
+    <h2>Services</h2>
     <div class="services-grid">
-      @for (service of services; track service.title) {
-      <div class="service-card">
-        <span class="service-icon">{{ service.icon }}</span>
-        <h3>{{ service.title }}</h3>
-        <p>{{ service.description }}</p>
-      </div>
+      @for (service of services; track service.title; let i = $index) {
+        <div class="service-item">
+          <span class="service-number">0{{ i + 1 }}</span>
+          <h3>{{ service.title }}</h3>
+          <p>{{ service.description }}</p>
+        </div>
       }
     </div>
   </div>
@@ -44,17 +41,23 @@
 <!-- About Section -->
 <section id="about" class="about">
   <div class="container">
-    <div class="about-content">
-      <h2>About Us</h2>
-      <p>
-        Forest Bjorn LLC is a consulting agency specializing in modern web and application development. We bring years
-        of experience in enterprise software development, helping businesses build scalable, maintainable, and beautiful
-        digital solutions.
-      </p>
-      <p>
-        Whether you need a new website, a mobile app, or technical guidance for your team, we're here to help you
-        succeed.
-      </p>
+    <div class="about-grid">
+      <div class="about-label">
+        <span class="section-label">Who We Are</span>
+      </div>
+      <div class="about-content">
+        <h2>Built on experience.<br/>Driven by craft.</h2>
+        <p>
+          Forest Bjorn is a boutique development consultancy specializing in 
+          modern web and application development. We bring years of enterprise 
+          experience to every project—whether you're a startup finding product-market 
+          fit or an established company modernizing your tech stack.
+        </p>
+        <p>
+          We believe in clean code, thoughtful architecture, and shipping products 
+          that users actually love.
+        </p>
+      </div>
     </div>
   </div>
 </section>
@@ -62,16 +65,20 @@
 <!-- Contact Section -->
 <section id="contact" class="contact">
   <div class="container">
-    <h2>Let's Talk</h2>
-    <p>Ready to start your next project? Get in touch and let's discuss how we can help.</p>
-    <a href="mailto:contact@forestbjorn.com" class="btn btn-primary">Contact Us</a>
+    <span class="section-label">Let's Talk</span>
+    <h2>Ready to build something great?</h2>
+    <p>We'd love to hear about your project.</p>
+    <a href="mailto:hello@forestbjorn.com" class="btn-primary">hello&#64;forestbjorn.com</a>
   </div>
 </section>
 
 <!-- Footer -->
 <footer class="footer">
   <div class="container">
-    <p>&copy; {{ title }} {{ currentYear }}. All rights reserved.</p>
+    <div class="footer-content">
+      <span class="footer-brand">Forest Bjorn LLC</span>
+      <span class="footer-copy">&copy; {{ currentYear }}. All rights reserved.</span>
+    </div>
   </div>
 </footer>
 
