@@ -18,22 +18,22 @@ export class App {
     {
       title: 'Web Development',
       description: 'Custom websites and web applications built with modern frameworks like Angular, React, and Vue.',
-      icon: '🌐'
+      icon: '🌐',
     },
     {
       title: 'Application Development',
       description: 'Native and cross-platform mobile and desktop applications tailored to your needs.',
-      icon: '📱'
+      icon: '📱',
     },
     {
       title: 'Consulting',
       description: 'Technical architecture, code reviews, and strategic guidance for your development teams.',
-      icon: '💡'
+      icon: '💡',
     },
     {
       title: 'DevOps & Cloud',
       description: 'CI/CD pipelines, cloud infrastructure, and deployment automation.',
-      icon: '☁️'
-    }
+      icon: '☁️',
+    },
   ];
 }

@@ -2,9 +2,9 @@
 // Modern, clean, professional aesthetic
 
 // Variables
-$primary-color: #2d5a27;      // Forest green
-$secondary-color: #8b4513;    // Warm brown (bear)
-$accent-color: #4a7c59;       // Lighter green
+$primary-color: #2d5a27; // Forest green
+$secondary-color: #8b4513; // Warm brown (bear)
+$accent-color: #4a7c59; // Lighter green
 $text-color: #1a1a1a;
 $text-light: #666;
 $bg-light: #f8f9fa;
@@ -23,7 +23,13 @@ html {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family:
+    'Inter',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
   line-height: 1.6;
   color: $text-color;
 }

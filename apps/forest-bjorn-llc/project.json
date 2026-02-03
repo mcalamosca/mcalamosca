@@ -1,26 +1,26 @@
 {
-  "name": "forest-bjorn",
+  "name": "forest-bjorn-llc",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "app",
-  "sourceRoot": "apps/forest-bjorn/src",
+  "sourceRoot": "apps/forest-bjorn-llc/src",
   "tags": [],
   "targets": {
     "build": {
       "executor": "@angular/build:application",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/forest-bjorn",
-        "browser": "apps/forest-bjorn/src/main.ts",
-        "tsConfig": "apps/forest-bjorn/tsconfig.app.json",
+        "outputPath": "dist/apps/forest-bjorn-llc",
+        "browser": "apps/forest-bjorn-llc/src/main.ts",
+        "tsConfig": "apps/forest-bjorn-llc/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
           {
             "glob": "**/*",
-            "input": "apps/forest-bjorn/public"
+            "input": "apps/forest-bjorn-llc/public"
           }
         ],
-        "styles": ["apps/forest-bjorn/src/styles.scss"]
+        "styles": ["apps/forest-bjorn-llc/src/styles.scss"]
       },
       "configurations": {
         "production": {
@@ -51,10 +51,10 @@
       "executor": "@angular/build:dev-server",
       "configurations": {
         "production": {
-          "buildTarget": "forest-bjorn:build:production"
+          "buildTarget": "forest-bjorn-llc:build:production"
         },
         "development": {
-          "buildTarget": "forest-bjorn:build:development"
+          "buildTarget": "forest-bjorn-llc:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -66,17 +66,17 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/forest-bjorn/jest.config.cts",
-        "tsConfig": "apps/forest-bjorn/tsconfig.spec.json"
+        "jestConfig": "apps/forest-bjorn-llc/jest.config.cts",
+        "tsConfig": "apps/forest-bjorn-llc/tsconfig.spec.json"
       }
     },
     "serve-static": {
       "continuous": true,
       "executor": "@nx/web:file-server",
       "options": {
-        "buildTarget": "forest-bjorn:build",
+        "buildTarget": "forest-bjorn-llc:build",
         "port": 4200,
-        "staticFilePath": "dist/apps/forest-bjorn/browser",
+        "staticFilePath": "dist/apps/forest-bjorn-llc/browser",
         "spa": true
       }
     }

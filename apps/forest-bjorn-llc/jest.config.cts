@@ -1,8 +1,8 @@
 module.exports = {
-  displayName: 'forest-bjorn',
+  displayName: 'forest-bjorn-llc',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../coverage/apps/forest-bjorn',
+  coverageDirectory: '../../coverage/apps/forest-bjorn-llc',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

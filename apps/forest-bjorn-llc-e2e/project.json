@@ -1,21 +1,21 @@
 {
-  "name": "forest-bjorn-e2e",
+  "name": "forest-bjorn-llc-e2e",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "sourceRoot": "apps/forest-bjorn-e2e/src",
+  "sourceRoot": "apps/forest-bjorn-llc-e2e/src",
   "tags": [],
-  "implicitDependencies": ["forest-bjorn"],
+  "implicitDependencies": ["forest-bjorn-llc"],
   "targets": {
     "e2e": {
       "executor": "@nx/cypress:cypress",
       "options": {
-        "cypressConfig": "apps/forest-bjorn-e2e/cypress.config.ts",
+        "cypressConfig": "apps/forest-bjorn-llc-e2e/cypress.config.ts",
         "testingType": "e2e",
-        "devServerTarget": "forest-bjorn:serve"
+        "devServerTarget": "forest-bjorn-llc:serve"
       },
       "configurations": {
         "production": {
-          "devServerTarget": "forest-bjorn:serve:production"
+          "devServerTarget": "forest-bjorn-llc:serve:production"
         }
       }
     },
