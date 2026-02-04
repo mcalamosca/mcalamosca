@@ -86,11 +86,11 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   }
 
   protected toolkitLogos = [
-    { name: 'Anthropic', logo: 'assets/logos/anthropic.svg' },
-    { name: 'OpenAI', logo: 'assets/logos/openai.svg' },
-    { name: 'Cursor', logo: 'assets/logos/cursor.svg' },
-    { name: 'Gemini', logo: 'assets/logos/gemini.svg' },
-    { name: 'CodeRabbit', logo: 'assets/logos/coderabbit.svg' },
+    { name: 'Anthropic', logo: 'assets/logos/anthropic.svg?v=3' },
+    { name: 'OpenAI', logo: 'assets/logos/openai.svg?v=3' },
+    { name: 'Cursor', logo: 'assets/logos/cursor.svg?v=3' },
+    { name: 'Gemini', logo: 'assets/logos/gemini.svg?v=3' },
+    { name: 'CodeRabbit', logo: 'assets/logos/coderabbit.svg?v=3' },
   ];
 
   protected portfolio = [
