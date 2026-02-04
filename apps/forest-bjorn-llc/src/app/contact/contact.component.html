@@ -1,0 +1,303 @@
+<div class="contact-page">
+  <!-- Header -->
+  <header class="contact-header">
+    <nav class="nav">
+      <a routerLink="/" class="logo">
+        <img src="assets/images/logo.png" alt="Forest Björn" class="logo-img" />
+        <span class="logo-text">Forest Björn Consulting</span>
+      </a>
+      <a routerLink="/" class="back-link">← Back to Home</a>
+    </nav>
+  </header>
+
+  <main class="contact-main">
+    @if (!isSubmitted) {
+      <div class="form-container">
+        <!-- Progress -->
+        <div class="progress-container">
+          <div class="progress-bar">
+            <div class="progress-fill" [style.width.%]="progressPercent"></div>
+          </div>
+          <div class="progress-steps">
+            <button 
+              class="step-indicator" 
+              [class.active]="currentStep >= 1"
+              [class.current]="currentStep === 1"
+              (click)="goToStep(1)">
+              <span class="step-number">1</span>
+              <span class="step-label">Basics</span>
+            </button>
+            <button 
+              class="step-indicator" 
+              [class.active]="currentStep >= 2"
+              [class.current]="currentStep === 2"
+              [disabled]="!canProceedStep1"
+              (click)="goToStep(2)">
+              <span class="step-number">2</span>
+              <span class="step-label">Project</span>
+            </button>
+            <button 
+              class="step-indicator" 
+              [class.active]="currentStep >= 3"
+              [class.current]="currentStep === 3"
+              [disabled]="!canProceedStep2"
+              (click)="goToStep(3)">
+              <span class="step-number">3</span>
+              <span class="step-label">Details</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 1: Basics -->
+        @if (currentStep === 1) {
+          <div class="form-step">
+            <div class="step-header">
+              <h1>Let's start a project together</h1>
+              <p>First, tell us a bit about yourself and what you're looking for.</p>
+            </div>
+
+            <div class="form-group">
+              <label for="name">Your Name <span class="required">*</span></label>
+              <input 
+                type="text" 
+                id="name" 
+                [(ngModel)]="form.name" 
+                placeholder="John Smith"
+                autocomplete="name" />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address <span class="required">*</span></label>
+              <input 
+                type="email" 
+                id="email" 
+                [(ngModel)]="form.email" 
+                placeholder="john@company.com"
+                autocomplete="email" />
+            </div>
+
+            <div class="form-group">
+              <label for="company">Company / Organization</label>
+              <input 
+                type="text" 
+                id="company" 
+                [(ngModel)]="form.company" 
+                placeholder="Acme Inc. (optional)"
+                autocomplete="organization" />
+            </div>
+
+            <div class="form-group">
+              <label>What type of project? <span class="required">*</span></label>
+              <div class="option-grid">
+                @for (type of projectTypes; track type.value) {
+                  <button 
+                    type="button"
+                    class="option-btn"
+                    [class.selected]="form.projectType === type.value"
+                    (click)="selectOption('projectType', type.value)">
+                    {{ type.label }}
+                  </button>
+                }
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <div></div>
+              <button 
+                type="button" 
+                class="btn-primary" 
+                [disabled]="!canProceedStep1"
+                (click)="nextStep()">
+                Continue →
+              </button>
+            </div>
+          </div>
+        }
+
+        <!-- Step 2: Project Details -->
+        @if (currentStep === 2) {
+          <div class="form-step">
+            <div class="step-header">
+              <h1>Tell us about your project</h1>
+              <p>The more context you share, the better we can understand your needs.</p>
+            </div>
+
+            <div class="form-group">
+              <label for="description">
+                Project Description <span class="required">*</span>
+              </label>
+              <p class="field-hint">What problem are you solving? Who's your audience? Any must-have features?</p>
+              <textarea 
+                id="description" 
+                [(ngModel)]="form.description" 
+                placeholder="We're looking to build..."
+                rows="6"></textarea>
+              <span class="char-count" [class.warning]="form.description.length < 20">
+                {{ form.description.length }} characters
+                @if (form.description.length < 20) {
+                  <span>(minimum 20)</span>
+                }
+              </span>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Timeline</label>
+                <div class="option-list">
+                  @for (t of timelines; track t.value) {
+                    <button 
+                      type="button"
+                      class="option-btn-sm"
+                      [class.selected]="form.timeline === t.value"
+                      (click)="selectOption('timeline', t.value)">
+                      {{ t.label }}
+                    </button>
+                  }
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Budget Range</label>
+                <div class="option-list">
+                  @for (b of budgets; track b.value) {
+                    <button 
+                      type="button"
+                      class="option-btn-sm"
+                      [class.selected]="form.budget === b.value"
+                      (click)="selectOption('budget', b.value)">
+                      {{ b.label }}
+                    </button>
+                  }
+                </div>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="btn-secondary" (click)="prevStep()">
+                ← Back
+              </button>
+              <button 
+                type="button" 
+                class="btn-primary" 
+                [disabled]="!canProceedStep2"
+                (click)="nextStep()">
+                Continue →
+              </button>
+            </div>
+          </div>
+        }
+
+        <!-- Step 3: Final Details -->
+        @if (currentStep === 3) {
+          <div class="form-step">
+            <div class="step-header">
+              <h1>Almost there!</h1>
+              <p>Just a few optional details to help us prepare.</p>
+            </div>
+
+            <div class="form-group">
+              <label>Do you have existing designs or branding?</label>
+              <div class="option-grid cols-3">
+                @for (opt of designOptions; track opt.value) {
+                  <button 
+                    type="button"
+                    class="option-btn"
+                    [class.selected]="form.hasDesigns === opt.value"
+                    (click)="selectOption('hasDesigns', opt.value)">
+                    {{ opt.label }}
+                  </button>
+                }
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="technical">Technical Requirements</label>
+              <p class="field-hint">Any specific tech, integrations, or compliance needs?</p>
+              <input 
+                type="text" 
+                id="technical" 
+                [(ngModel)]="form.technicalRequirements" 
+                placeholder="e.g., Must use React, needs Stripe, HIPAA compliant..." />
+            </div>
+
+            <div class="form-group">
+              <label>How did you find us?</label>
+              <div class="option-grid">
+                @for (src of referralSources; track src.value) {
+                  <button 
+                    type="button"
+                    class="option-btn-sm"
+                    [class.selected]="form.referralSource === src.value"
+                    (click)="selectOption('referralSource', src.value)">
+                    {{ src.label }}
+                  </button>
+                }
+              </div>
+            </div>
+
+            <!-- Summary -->
+            <div class="form-summary">
+              <h3>Quick Summary</h3>
+              <div class="summary-grid">
+                <div class="summary-item">
+                  <span class="summary-label">Name</span>
+                  <span class="summary-value">{{ form.name }}</span>
+                </div>
+                <div class="summary-item">
+                  <span class="summary-label">Email</span>
+                  <span class="summary-value">{{ form.email }}</span>
+                </div>
+                <div class="summary-item">
+                  <span class="summary-label">Project Type</span>
+                  <span class="summary-value">{{ form.projectType }}</span>
+                </div>
+                @if (form.timeline) {
+                  <div class="summary-item">
+                    <span class="summary-label">Timeline</span>
+                    <span class="summary-value">{{ form.timeline }}</span>
+                  </div>
+                }
+                @if (form.budget) {
+                  <div class="summary-item">
+                    <span class="summary-label">Budget</span>
+                    <span class="summary-value">{{ form.budget }}</span>
+                  </div>
+                }
+              </div>
+            </div>
+
+            @if (submitError) {
+              <div class="error-message">{{ submitError }}</div>
+            }
+
+            <div class="form-actions">
+              <button type="button" class="btn-secondary" (click)="prevStep()">
+                ← Back
+              </button>
+              <button 
+                type="button" 
+                class="btn-primary btn-submit" 
+                [disabled]="!canSubmit || isSubmitting"
+                (click)="submitForm()">
+                @if (isSubmitting) {
+                  Sending...
+                } @else {
+                  Send Inquiry →
+                }
+              </button>
+            </div>
+          </div>
+        }
+      </div>
+    } @else {
+      <!-- Success State -->
+      <div class="success-container">
+        <div class="success-icon">✓</div>
+        <h1>Thank you, {{ form.name.split(' ')[0] }}!</h1>
+        <p>We've received your project inquiry and will be in touch within 1-2 business days.</p>
+        <p class="success-email">A confirmation has been sent to <strong>{{ form.email }}</strong></p>
+        <a routerLink="/" class="btn-primary">Back to Home</a>
+      </div>
+    }
+  </main>
+</div>
