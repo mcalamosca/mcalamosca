@@ -66,3 +66,9 @@ firebase-export*
 dist/
 out-tsc/
 .vercel
+
+# Environment files
+**/environments/environment.ts
+**/environments/environment.*.ts
+.env.local
+.env.*.local
