@@ -40,45 +40,44 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
 
   protected showCleanCode = false;
 
-  protected messyCode = `<span class="code-comment">// TODO: fix this later</span>
-<span class="code-keyword">function</span> <span class="code-function">getData</span>(id, type, flag, opts) {
-  <span class="code-keyword">let</span> result = <span class="code-keyword">null</span>;
-  <span class="code-keyword">if</span> (type == <span class="code-string">"user"</span>) {
-    result = fetch(<span class="code-string">"/api/user/"</span> + id)
-      .then(<span class="code-keyword">function</span>(r) { <span class="code-keyword">return</span> r.json() })
-      .then(<span class="code-keyword">function</span>(data) {
-        <span class="code-keyword">if</span> (flag == <span class="code-keyword">true</span>) {
-          <span class="code-keyword">return</span> data.user;
-        } <span class="code-keyword">else</span> {
-          <span class="code-keyword">return</span> data;
-        }
-      })
-  } <span class="code-keyword">else if</span> (type == <span class="code-string">"post"</span>) {
-    result = fetch(<span class="code-string">"/api/post/"</span> + id)
-      .then(<span class="code-keyword">function</span>(r) { <span class="code-keyword">return</span> r.json() })
+  protected messyCode = `<span class="code-comment">// handles user stuff</span>
+<span class="code-keyword">let</span> userData: <span class="code-type">any</span> = <span class="code-keyword">null</span>;
+<span class="code-keyword">let</span> isLoading = <span class="code-keyword">false</span>;
+
+<span class="code-keyword">function</span> <span class="code-function">processUser</span>(data: <span class="code-type">any</span>, cb: <span class="code-type">any</span>) {
+  isLoading = <span class="code-keyword">true</span>;
+  userData = data;
+  <span class="code-keyword">if</span> (data.type == <span class="code-string">"admin"</span>) {
+    data.perms = [<span class="code-string">"read"</span>, <span class="code-string">"write"</span>, <span class="code-string">"delete"</span>];
   }
-  <span class="code-keyword">return</span> result;
+  <span class="code-keyword">if</span> (data.age && data.age > 0) {
+    data.isValid = <span class="code-keyword">true</span>;
+  }
+  setTimeout(<span class="code-keyword">function</span>() {
+    cb(data);
+    isLoading = <span class="code-keyword">false</span>;
+  }, 1000);
 }`;
 
-  protected cleanCode = `<span class="code-keyword">interface</span> <span class="code-type">FetchOptions</span> {
-  unwrap?: <span class="code-type">boolean</span>;
+  protected cleanCode = `<span class="code-keyword">type</span> <span class="code-type">Role</span> = <span class="code-string">'admin'</span> | <span class="code-string">'editor'</span> | <span class="code-string">'viewer'</span>;
+<span class="code-keyword">type</span> <span class="code-type">Permission</span> = <span class="code-string">'read'</span> | <span class="code-string">'write'</span> | <span class="code-string">'delete'</span>;
+
+<span class="code-keyword">interface</span> <span class="code-type">User</span> {
+  <span class="code-keyword">readonly</span> id: <span class="code-type">string</span>;
+  role: <span class="code-type">Role</span>;
+  age: <span class="code-type">number</span>;
 }
 
-<span class="code-keyword">type</span> <span class="code-type">ResourceType</span> = <span class="code-string">'user'</span> | <span class="code-string">'post'</span>;
+<span class="code-keyword">const</span> <span class="code-function">ROLE_PERMISSIONS</span>: <span class="code-type">Record</span>&lt;<span class="code-type">Role</span>, <span class="code-type">Permission</span>[]&gt; = {
+  admin: [<span class="code-string">'read'</span>, <span class="code-string">'write'</span>, <span class="code-string">'delete'</span>],
+  editor: [<span class="code-string">'read'</span>, <span class="code-string">'write'</span>],
+  viewer: [<span class="code-string">'read'</span>],
+} <span class="code-keyword">as const</span>;
 
-<span class="code-keyword">async function</span> <span class="code-function">fetchResource</span>&lt;<span class="code-type">T</span>&gt;(
-  type: <span class="code-type">ResourceType</span>,
-  id: <span class="code-type">string</span>,
-  options: <span class="code-type">FetchOptions</span> = {}
-): <span class="code-type">Promise</span>&lt;<span class="code-type">T</span>&gt; {
-  <span class="code-keyword">const</span> response = <span class="code-keyword">await</span> fetch(\`/api/\${type}/\${id}\`);
-  
-  <span class="code-keyword">if</span> (!response.ok) {
-    <span class="code-keyword">throw new</span> <span class="code-type">ApiError</span>(response.status);
-  }
-  
-  <span class="code-keyword">const</span> data = <span class="code-keyword">await</span> response.json();
-  <span class="code-keyword">return</span> options.unwrap ? data[type] : data;
+<span class="code-keyword">function</span> <span class="code-function">getUserPermissions</span>(
+  user: <span class="code-type">User</span>
+): <span class="code-type">Permission</span>[] {
+  <span class="code-keyword">return</span> ROLE_PERMISSIONS[user.role];
 }`;
 
   toggleCode(): void {
