@@ -2,7 +2,7 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
   "name": "forest-bjorn-llc",
-  "buildCommand": "npx nx build forest-bjorn-llc --configuration=production",
+  "buildCommand": "npx nx build forest-bjorn-llc --configuration=production --skip-nx-cache",
   "outputDirectory": "dist/apps/forest-bjorn-llc/browser",
   "installCommand": "npm install --legacy-peer-deps",
   "framework": null,
