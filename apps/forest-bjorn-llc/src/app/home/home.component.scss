@@ -27,8 +27,9 @@ $topo-svg: url('/assets/images/topo-pattern.svg');
     position: absolute;
     inset: 0;
     background-image: $topo-svg;
-    background-size: 800px 800px;
+    background-size: 600px 600px;
     background-repeat: repeat;
+    opacity: 0.06;
     pointer-events: none;
     z-index: 0;
   }
