@@ -1,0 +1,16 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600' viewBox='0 0 600 600'>
+  <g fill='none' stroke-width='1'>
+    <ellipse stroke='rgba(196,149,106,0.07)' cx='300' cy='300' rx='280' ry='200'/>
+    <ellipse stroke='rgba(196,149,106,0.06)' cx='310' cy='290' rx='240' ry='170'/>
+    <ellipse stroke='rgba(196,149,106,0.05)' cx='290' cy='310' rx='200' ry='140'/>
+    <ellipse stroke='rgba(196,149,106,0.045)' cx='305' cy='295' rx='160' ry='110'/>
+    <ellipse stroke='rgba(196,149,106,0.04)' cx='295' cy='305' rx='120' ry='80'/>
+    <ellipse stroke='rgba(196,149,106,0.035)' cx='300' cy='300' rx='80' ry='55'/>
+    <ellipse stroke='rgba(196,149,106,0.07)' cx='120' cy='500' rx='180' ry='130'/>
+    <ellipse stroke='rgba(196,149,106,0.055)' cx='130' cy='490' rx='140' ry='100'/>
+    <ellipse stroke='rgba(196,149,106,0.04)' cx='125' cy='495' rx='100' ry='70'/>
+    <ellipse stroke='rgba(196,149,106,0.07)' cx='500' cy='120' rx='160' ry='110'/>
+    <ellipse stroke='rgba(196,149,106,0.055)' cx='490' cy='130' rx='120' ry='80'/>
+    <ellipse stroke='rgba(196,149,106,0.04)' cx='495' cy='125' rx='80' ry='50'/>
+  </g>
+</svg>

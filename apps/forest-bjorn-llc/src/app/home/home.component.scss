@@ -17,6 +17,29 @@ $gray-600: #4a5a54;
 
 $font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
+// Topographic contour pattern — external SVG asset
+// Organic contour lines that evoke trail maps / USGS topo sheets
+$topo-svg: url('/assets/images/topo-pattern.svg');
+
+@mixin topo-background {
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: $topo-svg;
+    background-size: 600px 600px;
+    background-repeat: repeat;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  // Ensure content sits above the topo layer
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
 // Reset
 * {
   margin: 0;
@@ -322,6 +345,8 @@ p {
 .portfolio {
   padding: 8rem 0;
   background: $forest-deep;
+  position: relative;
+  @include topo-background;
 
   h2 {
     margin-bottom: 4rem;
@@ -413,6 +438,8 @@ p {
 .services {
   padding: 8rem 0;
   background: $forest-dark;
+  position: relative;
+  @include topo-background;
 
   h2 {
     margin-bottom: 4rem;
@@ -463,6 +490,8 @@ p {
 .code-quality {
   padding: 8rem 0;
   background: $forest-deep;
+  position: relative;
+  @include topo-background;
 
   h2 {
     margin-bottom: 1rem;
@@ -690,6 +719,8 @@ p {
 .about {
   padding: 8rem 0;
   background: $forest-deep;
+  position: relative;
+  @include topo-background;
 }
 
 .about-grid {
@@ -725,6 +756,8 @@ p {
   padding: 8rem 0;
   background: linear-gradient(135deg, $forest-mid 0%, $forest-dark 100%);
   text-align: center;
+  position: relative;
+  @include topo-background;
 
   h2 {
     margin-bottom: 1rem;

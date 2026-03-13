@@ -119,6 +119,9 @@ export class ContactComponent {
     }
   }
 
+  // Google Apps Script deployment URL
+  private readonly FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwNb6tMHUDqikKu4LhqIa7vAyBoA6kK98ZsxJQlpYpmmtjSe08Ha5Bgh_qLJlRbnr6SYA/exec';
+
   async submitForm() {
     if (!this.canSubmit) return;
     
@@ -126,15 +129,24 @@ export class ContactComponent {
     this.submitError = '';
 
     try {
-      // For now, log the form data - we'll add the submission endpoint later
-      console.log('Form submission:', this.form);
+      const response = await fetch(this.FORM_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'text/plain', // Apps Script handles JSON in text/plain better for CORS
+        },
+        body: JSON.stringify(this.form),
+      });
+
+      const result = await response.json();
       
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      this.isSubmitted = true;
+      if (result.success) {
+        this.isSubmitted = true;
+      } else {
+        throw new Error(result.error || 'Submission failed');
+      }
     } catch (error) {
-      this.submitError = 'Something went wrong. Please try again or email us directly.';
+      console.error('Form submission error:', error);
+      this.submitError = 'Something went wrong. Please try again or email us directly at forestbjornllc@gmail.com';
     } finally {
       this.isSubmitting = false;
     }
