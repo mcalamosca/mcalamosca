@@ -436,7 +436,17 @@ p {
     font-size: 0.75rem;
     font-weight: 500;
     color: $amber;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .service-subtitle {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgba($cream, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.5rem;
   }
 
   h3 {

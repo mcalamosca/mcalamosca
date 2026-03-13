@@ -3,7 +3,7 @@
   <nav class="nav">
     <a href="#" class="logo">
       <img src="assets/images/logo.png" alt="Forest Björn" class="logo-img" />
-      <span class="logo-text">Forest Björn Consulting</span>
+      <span class="logo-text">Forest Björn Technologies</span>
     </a>
     <div class="nav-links">
       <a href="#work">Work</a>
@@ -101,10 +101,10 @@
       </span>
     </h1>
     <p class="hero-sub animate-on-scroll">
-      Strategy, design, and development for companies ready to make an impact.
+      Most code is built for the conference stage. We build for the terrain beyond it — where users are unpredictable, loads are unforgiving, and shortcuts don't survive winter.
     </p>
     <div class="animate-on-scroll">
-      <a routerLink="/contact" class="btn-primary magnetic-btn">Start a Project</a>
+      <a routerLink="/contact" class="btn-primary magnetic-btn">Break Trail With Us</a>
     </div>
   </div>
 </section>
@@ -113,7 +113,7 @@
 <section id="work" class="portfolio snap-section">
   <div class="container">
     <span class="section-label animate-on-scroll">Selected Work</span>
-    <h2 class="animate-on-scroll">Projects that moved the needle.</h2>
+    <h2 class="animate-on-scroll">Trail-tested.</h2>
     <div class="portfolio-grid">
       @for (project of portfolio; track project.title; let i = $index) {
         <article class="portfolio-item tilt-card animate-on-scroll" [style.transitionDelay]="(i * 100) + 'ms'">
@@ -142,6 +142,9 @@
       @for (service of services; track service.title; let i = $index) {
         <div class="service-item animate-on-scroll" [style.transitionDelay]="(i * 100) + 'ms'">
           <span class="service-number">0{{ i + 1 }}</span>
+          @if (service.subtitle) {
+            <span class="service-subtitle">{{ service.subtitle }}</span>
+          }
           <h3>{{ service.title }}</h3>
           <p>{{ service.description }}</p>
         </div>
@@ -154,9 +157,9 @@
 <section class="toolkit snap-section">
   <div class="container">
     <span class="section-label animate-on-scroll">Our Toolkit</span>
-    <h2 class="animate-on-scroll">Powered by the best in AI.</h2>
+    <h2 class="animate-on-scroll">Better tools. Fewer footprints.</h2>
     <p class="toolkit-intro animate-on-scroll">
-      We leverage cutting-edge AI tools and agentic coding systems to deliver what traditional teams can't: speed without sacrifice.
+      AI-augmented development means we move faster with a smaller team — less overhead, less noise, more craft per line of code.
     </p>
     <div class="logo-strip animate-on-scroll">
       <div class="logo-track">
@@ -180,16 +183,16 @@
 <section class="code-quality snap-section">
   <div class="container">
     <span class="section-label animate-on-scroll">Our Approach</span>
-    <h2 class="animate-on-scroll">Fewer hands. Sharper results.</h2>
+    <h2 class="animate-on-scroll">Travel light. Build to last.</h2>
     <p class="approach-intro animate-on-scroll">
-      While others flood the market with AI slop—brittle code that crumbles under real-world demands—we build systems that scale, adapt, and endure.
+      While others flood the market with greenhouse code — brittle output that crumbles in real-world conditions — we build systems that survive in the wild: scalable, resilient, nothing wasted.
     </p>
     
     <div class="code-diff-container animate-on-scroll">
       <div class="code-panel code-before" [class.active]="!showCleanCode">
         <div class="code-panel-header">
           <span class="panel-indicator bad">✗</span>
-          <span>Typical AI Output</span>
+          <span>Greenhouse Code</span>
         </div>
         <pre class="code-block"><code [innerHTML]="messyCode"></code></pre>
       </div>
@@ -209,7 +212,7 @@
       <div class="code-panel code-after" [class.active]="showCleanCode">
         <div class="code-panel-header">
           <span class="panel-indicator good">✓</span>
-          <span>Forest Björn Standard</span>
+          <span>Wilderness-Ready</span>
         </div>
         <pre class="code-block"><code [innerHTML]="cleanCode"></code></pre>
       </div>
@@ -225,17 +228,18 @@
         <span class="section-label animate-on-scroll">Who We Are</span>
       </div>
       <div class="about-content">
-        <h2 class="animate-on-scroll">Built on experience.<br/>Driven by craft.</h2>
+        <h2 class="animate-on-scroll">Deep roots.<br/>Long view.</h2>
         <p class="animate-on-scroll">
-          Forest Björn is a boutique development consultancy with deep roots in 
-          enterprise software. We've shipped products for Fortune 10 companies, 
-          government agencies, and ambitious startups alike.
+          Forest Björn is a boutique consultancy that builds like old-growth 
+          forest — slow where it matters, resilient where it counts. We've 
+          shipped for Fortune 10 companies, government agencies, and startups 
+          who needed more than a vendor.
         </p>
         <p class="animate-on-scroll">
-          Our approach is simple: understand the problem deeply, architect 
-          thoughtfully, and execute with precision. We believe great software 
-          is built at the intersection of technical excellence and genuine 
-          care for the end user.
+          We build software the way nature builds ecosystems — efficient, 
+          adaptive, nothing wasted. Every component earns its place. Every 
+          decision serves the whole. That's not a philosophy we adopted. 
+          It's how we've always worked.
         </p>
       </div>
     </div>
@@ -246,10 +250,10 @@
 <section id="contact" class="contact snap-section">
   <div class="container">
     <span class="section-label animate-on-scroll">Let's Talk</span>
-    <h2 class="animate-on-scroll">Ready to build something great?</h2>
-    <p class="animate-on-scroll">Tell us about your project and we'll get back to you within 1-2 business days.</p>
+    <h2 class="animate-on-scroll">Ready to break trail?</h2>
+    <p class="animate-on-scroll">Tell us where you're headed and we'll map it out together. Response within 1-2 business days.</p>
     <div class="animate-on-scroll">
-      <a routerLink="/contact" class="btn-primary magnetic-btn">Start a Project →</a>
+      <a routerLink="/contact" class="btn-primary magnetic-btn">Let's Map It Out →</a>
     </div>
   </div>
 </section>

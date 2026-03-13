@@ -17,24 +17,28 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   constructor(@Inject(PLATFORM_ID) private platformId: object) {}
 
   // Hero words for staggered animation
-  protected heroWords = ['We', 'build', 'digital', 'products', 'that', 'matter.'];
+  protected heroWords = ['Software', 'built', 'to', 'survive', 'the', 'wild.'];
 
   protected services = [
     {
+      subtitle: 'Trailheads',
       title: 'Web Development',
-      description: 'Modern, performant websites and web applications built with cutting-edge frameworks. From marketing sites to complex enterprise platforms.',
+      description: 'Where your users enter the experience. We build paths that are clear, fast, and impossible to get lost on — from marketing sites to complex enterprise platforms.',
     },
     {
+      subtitle: 'Basecamp',
       title: 'Application Development',
-      description: 'Native and cross-platform mobile and desktop applications. Thoughtfully designed, meticulously engineered.',
+      description: 'The tools your team and users carry daily. Native and cross-platform apps built light enough to move fast, tough enough to last.',
     },
     {
+      subtitle: 'Wayfinding',
       title: 'Technical Consulting',
-      description: 'Architecture reviews, technology strategy, and hands-on guidance for development teams scaling their products.',
+      description: 'When the map doesn\'t match the territory. Architecture reviews, technology strategy, and hands-on guidance for teams navigating scale.',
     },
     {
+      subtitle: 'Supply Lines',
       title: 'DevOps & Infrastructure',
-      description: 'CI/CD pipelines, cloud infrastructure, and deployment automation. Ship faster, with confidence.',
+      description: 'CI/CD pipelines, cloud infrastructure, and deployment automation. The systems that keep your operation moving no matter the conditions.',
     }
   ];
 
