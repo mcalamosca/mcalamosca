@@ -80,5 +80,9 @@
     "ts-jest": "29.4.6",
     "ts-node": "10.9.1",
     "typescript": "~5.9.0"
+  },
+  "overrides": {
+    "basic-ftp": ">=5.2.0",
+    "fast-xml-parser": ">=4.5.4"
   }
 }
