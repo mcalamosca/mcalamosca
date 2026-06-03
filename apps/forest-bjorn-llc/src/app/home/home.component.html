@@ -1,10 +1,16 @@
 <!-- Header -->
 <header class="header">
   <nav class="nav">
-    <a href="#" class="logo">
+    <button
+      type="button"
+      class="logo"
+      [attr.aria-expanded]="isLogoExpanded"
+      aria-label="Toggle enlarged Forest Björn logo"
+      (click)="toggleLogoPopout($event)"
+    >
       <img src="assets/images/logo-white.png" alt="Forest Björn" class="logo-img" />
       <span class="logo-text">Forest Björn</span>
-    </a>
+    </button>
     <div class="nav-links">
       <a href="#work">Work</a>
       <a href="#services">Services</a>
@@ -13,6 +19,16 @@
     </div>
   </nav>
 </header>
+<div class="logo-popout-backdrop" [class.logo-popout-backdrop--visible]="isLogoExpanded"></div>
+<button
+  type="button"
+  class="logo-popout"
+  [class.logo-popout--visible]="isLogoExpanded"
+  aria-label="Minimize Forest Björn logo"
+  (click)="collapseLogo()"
+>
+  <img src="assets/images/logo-white.png" alt="Forest Björn" />
+</button>
 
 <!-- Hero Section -->
 <section class="hero snap-section">

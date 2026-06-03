@@ -170,9 +170,15 @@ p {
 }
 
 .logo {
+  border: 0;
+  padding: 0;
+  background: transparent;
   display: flex;
   align-items: center;
   text-decoration: none;
+  cursor: pointer;
+  transform-origin: left center;
+  transition: transform .3s ease, opacity .2s ease;
 }
 
 .logo-img {
@@ -186,6 +192,51 @@ p {
   font-weight: 500;
   color: $cream;
   letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.logo-popout-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 110;
+  background: rgba(10, 26, 31, 0);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s ease;
+
+  &--visible {
+    background: rgba(10, 26, 31, 0.72);
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.logo-popout {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 260;
+  padding: clamp(1rem, 4vw, 2rem);
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.72);
+  transition: opacity .22s ease, transform .35s ease;
+
+  img {
+    display: block;
+    width: clamp(8rem, 18vw, 15rem);
+    height: auto;
+    filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.45));
+  }
+
+  &--visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+  }
 }
 
 .nav-links {
@@ -826,6 +877,10 @@ p {
     a:not(.nav-cta) {
       display: none;
     }
+  }
+
+  .logo-popout img {
+    width: min(42vw, 11rem);
   }
 
   .hero {

@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, OnDestroy, PLATFORM_ID, Inject } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, PLATFORM_ID, Inject, HostListener } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 
@@ -11,6 +11,7 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 })
 export class HomeComponent implements AfterViewInit, OnDestroy {
   protected currentYear = new Date().getFullYear();
+  protected isLogoExpanded = false;
   private scrollHandler: (() => void) | null = null;
   private rafId: number | null = null;
 
@@ -86,6 +87,16 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
 
   toggleCode(): void {
     this.showCleanCode = !this.showCleanCode;
+  }
+
+  toggleLogoPopout(event: MouseEvent): void {
+    event.stopPropagation();
+    this.isLogoExpanded = !this.isLogoExpanded;
+  }
+
+  @HostListener('document:click')
+  collapseLogo(): void {
+    this.isLogoExpanded = false;
   }
 
   protected toolkitLogos = [
