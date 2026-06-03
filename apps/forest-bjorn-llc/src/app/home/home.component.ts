@@ -18,29 +18,88 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   constructor(@Inject(PLATFORM_ID) private platformId: object) {}
 
   // Hero words for staggered animation
-  protected heroWords = ['Software', 'built', 'to', 'survive', 'the', 'wild.'];
+  protected heroWords = ['AI', 'systems', 'for', 'small', 'businesses.'];
+
+  protected operatingSystems = [
+    {
+      title: 'Custom Dashboards',
+      description: 'Give owners and operators one clear place to see orders, sales, outreach, marketing, inventory, tasks, and the work that normally hides in spreadsheets.',
+    },
+    {
+      title: 'Workflow Automation',
+      description: 'Turn repetitive admin work into reliable flows: intake, routing, reminders, document generation, follow-ups, reporting, and handoffs.',
+    },
+    {
+      title: 'AI-Assisted Operations',
+      description: 'Use Claude, Gemini, ChatGPT, and custom agents to summarize, classify, draft, analyze, research, and coordinate daily business work.',
+    },
+    {
+      title: 'Bespoke Business Software',
+      description: 'Build focused internal tools around how the business actually runs instead of forcing every workflow into generic SaaS.',
+    },
+  ];
 
   protected services = [
     {
-      subtitle: 'Trailheads',
-      title: 'Web Development',
-      description: 'Where your users enter the experience. We build paths that are clear, fast, and impossible to get lost on — from marketing sites to complex enterprise platforms.',
+      subtitle: '01',
+      title: 'AI Workflow Strategy',
+      description: 'We map the work your team repeats every week, separate real leverage from AI theater, and decide what should become software.',
     },
     {
-      subtitle: 'Basecamp',
-      title: 'Application Development',
-      description: 'The tools your team and users carry daily. Native and cross-platform apps built light enough to move fast, tough enough to last.',
+      subtitle: '02',
+      title: 'Custom Internal Tools',
+      description: 'Dashboards, portals, forms, admin systems, reporting tools, and lightweight apps tailored to the business instead of the other way around.',
     },
     {
-      subtitle: 'Wayfinding',
-      title: 'Technical Consulting',
-      description: 'When the map doesn\'t match the territory. Architecture reviews, technology strategy, and hands-on guidance for teams navigating scale.',
+      subtitle: '03',
+      title: 'Agentic Business Automation',
+      description: 'Claude, Gemini, OpenAI, Codex, and related tools wired into research, drafting, triage, classification, reporting, and follow-up workflows.',
     },
     {
-      subtitle: 'Supply Lines',
-      title: 'DevOps & Infrastructure',
-      description: 'CI/CD pipelines, cloud infrastructure, and deployment automation. The systems that keep your operation moving no matter the conditions.',
+      subtitle: '04',
+      title: 'Modern Business Infrastructure',
+      description: 'Google Workspace, cloud apps, auth, integrations, data flows, deployment, monitoring, and process cleanup for teams that need a stronger operating base.',
     }
+  ];
+
+  protected proofPoints = [
+    {
+      category: 'Custom Operations Dashboard',
+      title: 'Morini Brands / Bahama Burger',
+      description: 'Built internal dashboard and operational tooling around ecommerce visibility, marketing activity, retailer outreach, and business workflows for a growing food brand.',
+      outcome: 'A clearer command center for decisions that used to live across scattered tools.',
+    },
+    {
+      category: 'Business Infrastructure',
+      title: 'Dwyer Commercial Glass',
+      description: 'Set up Google Workspace company email accounts so the business had a more professional, durable communication foundation.',
+      outcome: 'A focused operational upgrade: small enough to move quickly, important enough to matter every day.',
+    },
+    {
+      category: 'Internal AI Systems',
+      title: 'Forest Bjorn Operating Stack',
+      description: 'Uses agent workflows, AI-assisted development, automation, and custom project tooling internally to move faster with less overhead.',
+      outcome: 'The same operating philosophy we sell is how the consultancy runs.',
+    },
+  ];
+
+  protected processSteps = [
+    {
+      title: 'Diagnose',
+      description: 'Map the workflows, bottlenecks, tools, data, and recurring manual work.',
+    },
+    {
+      title: 'Prototype',
+      description: 'Build a focused working version quickly so the business can react to something real.',
+    },
+    {
+      title: 'Integrate',
+      description: 'Connect email, spreadsheets, ecommerce, docs, calendars, databases, and APIs where they matter.',
+    },
+    {
+      title: 'Operationalize',
+      description: 'Deploy, document, train, and improve the system around actual usage.',
+    },
   ];
 
   protected showCleanCode = false;
