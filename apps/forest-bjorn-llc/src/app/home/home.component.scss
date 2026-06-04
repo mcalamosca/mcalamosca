@@ -317,7 +317,7 @@ p {
     right: 0;
     bottom: 0;
     background: url('/assets/images/hero-bear-fox.jpg') center center / cover no-repeat;
-    opacity: 0.4;
+    opacity: 0.62;
     z-index: 0;
   }
 
@@ -330,44 +330,11 @@ p {
     bottom: 0;
     background: linear-gradient(
       to bottom,
-      rgba(10, 26, 31, 0.3) 0%,
-      rgba(10, 26, 31, 0.8) 60%,
+      rgba(10, 26, 31, 0.18) 0%,
+      rgba(10, 26, 31, 0.62) 58%,
       rgba(10, 26, 31, 1) 100%
     );
     z-index: 1;
-  }
-}
-
-// Parallax forest layers
-.parallax-forest {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 400px;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.forest-layer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  will-change: transform;
-  transition: transform 0.1s linear;
-
-  &.forest-back {
-    opacity: 0.5;
-  }
-
-  &.forest-mid {
-    opacity: 0.7;
-  }
-
-  &.forest-front {
-    opacity: 0.9;
   }
 }
 
@@ -382,13 +349,15 @@ p {
     max-width: 900px;
     margin-bottom: 1.5rem;
     color: $cream;
+    text-shadow: 0 16px 48px rgba(0, 0, 0, 0.55);
   }
 
   .hero-sub {
     font-size: clamp(1.125rem, 2vw, 1.375rem);
     max-width: 600px;
     margin-bottom: 2.5rem;
-    color: $gray-400;
+    color: rgba($cream, 0.78);
+    text-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
   }
 }
 
@@ -1042,14 +1011,59 @@ p {
 }
 
 // Animations
+.motion-section {
+  --scroll-glow-x: 18%;
+  --section-shift: 0px;
+  isolation: isolate;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: radial-gradient(
+      circle at var(--scroll-glow-x) 18%,
+      rgba(196, 149, 106, 0.14),
+      transparent 24rem
+    );
+    opacity: 0.8;
+    transform: translateY(calc(var(--section-shift) * -0.45));
+  }
+
+  > .container {
+    transform: translateY(calc(var(--section-shift) * 0.12));
+    transition: transform 0.08s linear;
+  }
+}
+
 .animate-on-scroll {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  filter: blur(8px);
+  transform: translateY(34px) scale(0.985);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--motion-index, 0) * 45ms);
 
   &.animate-in {
     opacity: 1;
+    filter: blur(0);
     transform: translateY(0);
+  }
+}
+
+.ai-ops-item.animate-on-scroll,
+.proof-item.animate-on-scroll,
+.service-item.animate-on-scroll,
+.process-step.animate-on-scroll,
+.portfolio-item.animate-on-scroll {
+  transform: translateY(42px) scale(0.96);
+
+  &.animate-in {
+    transform: translateY(0) scale(1);
   }
 }
 
@@ -1082,10 +1096,6 @@ p {
     padding: 10rem 0 5rem;
   }
 
-  .parallax-forest {
-    height: 200px;
-  }
-
   .portfolio,
   .ai-ops,
   .proof,
@@ -1099,5 +1109,16 @@ p {
 
   .tilt-card-inner {
     transform: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-section::after,
+  .motion-section > .container,
+  .animate-on-scroll,
+  .hero-word {
+    filter: none;
+    transform: none;
+    transition: none;
   }
 }

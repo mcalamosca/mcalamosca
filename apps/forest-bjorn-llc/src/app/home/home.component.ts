@@ -13,7 +13,9 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   protected currentYear = new Date().getFullYear();
   protected isLogoExpanded = false;
   private scrollHandler: (() => void) | null = null;
+  private revealObserver: IntersectionObserver | null = null;
   private rafId: number | null = null;
+  private motionSections: HTMLElement[] = [];
 
   constructor(@Inject(PLATFORM_ID) private platformId: object) {}
 
@@ -202,7 +204,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {
       this.initScrollAnimations();
-      this.initParallax();
+      this.initSectionMotion();
       this.initMagneticButtons();
       this.initTiltCards();
     }
@@ -211,6 +213,10 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   ngOnDestroy() {
     if (this.scrollHandler) {
       window.removeEventListener('scroll', this.scrollHandler);
+      window.removeEventListener('resize', this.scrollHandler);
+    }
+    if (this.revealObserver) {
+      this.revealObserver.disconnect();
     }
     if (this.rafId) {
       cancelAnimationFrame(this.rafId);
@@ -218,7 +224,19 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   }
 
   private initScrollAnimations() {
-    const observer = new IntersectionObserver(
+    const animatedElements = Array.from(document.querySelectorAll('.animate-on-scroll')) as HTMLElement[];
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    animatedElements.forEach((el, index) => {
+      el.style.setProperty('--motion-index', String(index % 6));
+    });
+
+    if (prefersReducedMotion) {
+      animatedElements.forEach((el) => el.classList.add('animate-in'));
+      return;
+    }
+
+    this.revealObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -226,35 +244,43 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
           }
         });
       },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+      { threshold: 0.18, rootMargin: '0px 0px -80px 0px' }
     );
 
-    document.querySelectorAll('.animate-on-scroll').forEach((el) => {
-      observer.observe(el);
+    animatedElements.forEach((el) => {
+      this.revealObserver?.observe(el);
     });
   }
 
-  private initParallax() {
-    const layers = document.querySelectorAll('.forest-layer');
-    if (!layers.length) return;
+  private initSectionMotion() {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.motionSections = Array.from(document.querySelectorAll('.motion-section')) as HTMLElement[];
+
+    if (prefersReducedMotion || !this.motionSections.length) {
+      return;
+    }
 
     let ticking = false;
-    
+
+    const updateMotion = () => {
+      const viewportHeight = window.innerHeight || 1;
+
+      this.motionSections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        const progress = Math.min(
+          1,
+          Math.max(0, (viewportHeight - rect.top) / (viewportHeight + rect.height))
+        );
+        const centerDistance = (rect.top + rect.height / 2 - viewportHeight / 2) / viewportHeight;
+        section.style.setProperty('--scroll-glow-x', `${18 + progress * 64}%`);
+        section.style.setProperty('--section-shift', `${Math.max(-1, Math.min(1, centerDistance)) * 28}px`);
+      });
+    };
+
     this.scrollHandler = () => {
       if (!ticking) {
         this.rafId = requestAnimationFrame(() => {
-          const scrollY = window.scrollY;
-          const heroHeight = document.querySelector('.hero')?.clientHeight || 800;
-          
-          if (scrollY < heroHeight) {
-            const progress = scrollY / heroHeight;
-            
-            layers.forEach((layer, index) => {
-              const speed = (index + 1) * 0.15;
-              const yOffset = scrollY * speed;
-              (layer as HTMLElement).style.transform = `translateY(${yOffset}px)`;
-            });
-          }
+          updateMotion();
           ticking = false;
         });
         ticking = true;
@@ -262,6 +288,8 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     };
 
     window.addEventListener('scroll', this.scrollHandler, { passive: true });
+    window.addEventListener('resize', this.scrollHandler, { passive: true });
+    updateMotion();
   }
 
   private initMagneticButtons() {
