@@ -34,7 +34,7 @@
               [disabled]="!canProceedStep1"
               (click)="goToStep(2)">
               <span class="step-number">2</span>
-              <span class="step-label">Project</span>
+              <span class="step-label">Workflow</span>
             </button>
             <button 
               class="step-indicator" 
@@ -52,8 +52,8 @@
         @if (currentStep === 1) {
           <div class="form-step">
             <div class="step-header">
-              <h1>Let's start a project together</h1>
-              <p>First, tell us a bit about yourself and what you're looking for.</p>
+              <h1>Let's map what needs to work better</h1>
+              <p>First, tell us who you are and what kind of system you need.</p>
             </div>
 
             <div class="form-group">
@@ -87,7 +87,7 @@
             </div>
 
             <div class="form-group">
-              <label>What type of project? <span class="required">*</span></label>
+              <label>What kind of work should we help connect? <span class="required">*</span></label>
               <div class="option-grid">
                 @for (type of projectTypes; track type.value) {
                   <button 
@@ -114,23 +114,23 @@
           </div>
         }
 
-        <!-- Step 2: Project Details -->
+        <!-- Step 2: Workflow Details -->
         @if (currentStep === 2) {
           <div class="form-step">
             <div class="step-header">
-              <h1>Tell us about your project</h1>
-              <p>The more context you share, the better we can understand your needs.</p>
+              <h1>Tell us where the work gets stuck</h1>
+              <p>The more operational context you share, the better we can spot the first useful system to build.</p>
             </div>
 
             <div class="form-group">
               <label for="description">
-                Project Description <span class="required">*</span>
+                Workflow Description <span class="required">*</span>
               </label>
-              <p class="field-hint">What problem are you solving? Who's your audience? Any must-have features?</p>
+              <p class="field-hint">What tools are involved? Where does work get copied, delayed, forgotten, or manually chased?</p>
               <textarea 
                 id="description" 
                 [(ngModel)]="form.description" 
-                placeholder="We're looking to build..."
+                placeholder="We're trying to connect..."
                 rows="6"></textarea>
               <span class="char-count" [class.warning]="form.description.length < 20">
                 {{ form.description.length }} characters
@@ -212,12 +212,12 @@
 
             <div class="form-group">
               <label for="technical">Technical Requirements</label>
-              <p class="field-hint">Any specific tech, integrations, or compliance needs?</p>
+              <p class="field-hint">Any specific systems, integrations, data sources, or compliance needs?</p>
               <input 
                 type="text" 
                 id="technical" 
                 [(ngModel)]="form.technicalRequirements" 
-                placeholder="e.g., Must use React, needs Stripe, HIPAA compliant..." />
+                placeholder="e.g., Shopify, HubSpot, Google Sheets, Stripe, HIPAA..." />
             </div>
 
             <div class="form-group">
@@ -248,7 +248,7 @@
                   <span class="summary-value">{{ form.email }}</span>
                 </div>
                 <div class="summary-item">
-                  <span class="summary-label">Project Type</span>
+                  <span class="summary-label">System Type</span>
                   <span class="summary-value">{{ form.projectType }}</span>
                 </div>
                 @if (form.timeline) {
@@ -282,7 +282,7 @@
                 @if (isSubmitting) {
                   Sending...
                 } @else {
-                  Send Inquiry →
+                  Send Workflow Map →
                 }
               </button>
             </div>
@@ -294,7 +294,7 @@
       <div class="success-container">
         <div class="success-icon">✓</div>
         <h1>Thank you, {{ form.name.split(' ')[0] }}!</h1>
-        <p>We've received your project inquiry and will be in touch within 1-2 business days.</p>
+        <p>We've received your workflow notes and will be in touch within 1-2 business days.</p>
         <p class="success-email">A confirmation has been sent to <strong>{{ form.email }}</strong></p>
         <a routerLink="/" class="btn-primary">Back to Home</a>
       </div>

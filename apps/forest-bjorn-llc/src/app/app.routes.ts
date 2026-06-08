@@ -4,7 +4,7 @@ export const appRoutes: Route[] = [
   {
     path: 'contact',
     loadComponent: () => import('./contact/contact.component').then(m => m.ContactComponent),
-    title: 'Start a Project | Forest Björn',
+    title: 'Map a Workflow | Forest Björn',
   },
   {
     path: '',

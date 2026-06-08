@@ -44,11 +44,12 @@ export class ContactComponent {
   };
 
   projectTypes = [
-    { value: 'website', label: 'New Website' },
-    { value: 'webapp', label: 'Web Application' },
-    { value: 'mobile', label: 'Mobile App' },
-    { value: 'redesign', label: 'Redesign / Refresh' },
-    { value: 'consulting', label: 'Technical Consulting' },
+    { value: 'workflow', label: 'Workflow Automation' },
+    { value: 'ai-ops', label: 'AI Operations System' },
+    { value: 'internal-tool', label: 'Internal Tool' },
+    { value: 'portal', label: 'Customer / Partner Portal' },
+    { value: 'audit', label: 'Systems Audit' },
+    { value: 'website', label: 'Website / Web App' },
     { value: 'other', label: 'Other' },
   ];
 

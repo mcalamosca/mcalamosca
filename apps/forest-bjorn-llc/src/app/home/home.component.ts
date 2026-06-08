@@ -20,7 +20,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   constructor(@Inject(PLATFORM_ID) private platformId: object) {}
 
   // Hero words for staggered animation
-  protected heroWords = ['AI', 'systems', 'for', 'small', 'businesses.'];
+  protected heroWords = ['Your', 'business', 'runs', 'on', 'scattered', 'tools.'];
 
   protected operatingSystems = [
     {
@@ -44,24 +44,24 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   protected services = [
     {
       subtitle: '01',
-      title: 'AI Workflow Strategy',
-      description: 'We map the work your team repeats every week, separate real leverage from AI theater, and decide what should become software.',
+      title: 'Workflow Systems',
+      description: 'Map the repeat work, connect the scattered tools, and make the handoffs visible enough to trust.',
     },
     {
       subtitle: '02',
+      title: 'AI Operations',
+      description: 'Use AI where it earns its keep: intake triage, follow-up drafts, reporting summaries, knowledge retrieval, and repeat decisions with human review.',
+    },
+    {
+      subtitle: '03',
       title: 'Custom Internal Tools',
       description: 'Dashboards, portals, forms, admin systems, reporting tools, and lightweight apps tailored to the business instead of the other way around.',
     },
     {
-      subtitle: '03',
-      title: 'Agentic Business Automation',
-      description: 'Claude, Gemini, OpenAI, Codex, and related tools wired into research, drafting, triage, classification, reporting, and follow-up workflows.',
-    },
-    {
       subtitle: '04',
-      title: 'Modern Business Infrastructure',
-      description: 'Google Workspace, cloud apps, auth, integrations, data flows, deployment, monitoring, and process cleanup for teams that need a stronger operating base.',
-    }
+      title: 'Technical Cleanup',
+      description: 'Untangle brittle automations, half-finished integrations, and legacy code so the system becomes easier to run and safer to grow.',
+    },
   ];
 
   protected proofPoints = [
@@ -166,39 +166,6 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     { name: 'Cursor', logo: 'assets/logos/cursor.svg?v=3' },
     { name: 'Gemini', logo: 'assets/logos/gemini.svg?v=3' },
     { name: 'CodeRabbit', logo: 'assets/logos/coderabbit.svg?v=3' },
-  ];
-
-  protected portfolio = [
-    {
-      category: 'Government',
-      title: 'Public Sector Policy Platform',
-      description: 'Modernized a state government agency portal serving millions of citizens. Rebuilt the homepage and user flows from the ground up, improving accessibility compliance and reducing page load times by 60%.',
-      tech: ['Python', 'Django', 'HTMX', 'PostgreSQL'],
-    },
-    {
-      category: 'Healthcare',
-      title: 'Enterprise Member Portal',
-      description: 'Led frontend architecture for a Fortune 10 healthcare company\'s prescription management platform. Migrated from legacy systems to a micro-frontend architecture, serving millions of daily active users.',
-      tech: ['Angular', 'NgRx', 'Web Components', 'Nx'],
-    },
-    {
-      category: 'Finance',
-      title: 'IT Asset Intelligence Dashboard',
-      description: 'Built interactive data visualization dashboards for a global financial institution. Created dynamic reporting tools used by internal teams and regulatory bodies for compliance reporting.',
-      tech: ['Angular', 'Highcharts', 'D3.js', 'TypeScript'],
-    },
-    {
-      category: 'IoT',
-      title: 'Smart Home Security System',
-      description: 'Designed and implemented a comprehensive home automation and security platform. Integrated Zigbee sensors, cameras, and automated responses with real-time monitoring dashboards.',
-      tech: ['Home Assistant', 'Zigbee', 'Python', 'YAML'],
-    },
-    {
-      category: 'Automotive',
-      title: 'Market Analytics Platform',
-      description: 'Developed a data-driven insights tool for the automotive aftermarket industry. Built intuitive visualizations that transformed complex market data into actionable inventory decisions.',
-      tech: ['Angular', 'D3.js', 'Material UI', 'REST APIs'],
-    },
   ];
 
   ngAfterViewInit() {
