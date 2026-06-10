@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, OnDestroy, PLATFORM_ID, Inject, HostListener } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, PLATFORM_ID, HostListener, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 
@@ -10,14 +10,13 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent implements AfterViewInit, OnDestroy {
+  private readonly platformId = inject(PLATFORM_ID);
   protected currentYear = new Date().getFullYear();
   protected isLogoExpanded = false;
   private scrollHandler: (() => void) | null = null;
   private revealObserver: IntersectionObserver | null = null;
   private rafId: number | null = null;
   private motionSections: HTMLElement[] = [];
-
-  constructor(@Inject(PLATFORM_ID) private platformId: object) {}
 
   // Hero words for staggered animation
   protected heroWords = ['Your', 'business', 'runs', 'on', 'scattered', 'tools.'];
